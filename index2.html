@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <title>おみくじ</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>JavaScriptの勉強しましょう!</h1>
+        <div id="result">今日の運勢を占います!</div>
+        <div id="unsei"></div>
+        <button id="btn">あなたの運勢は?</button>
+    </div>
+    <script>
+        document.getElementById('btn').addEventListener('click', function () {
+         //alert("アラートでました!!");
+        var result=Math.floor(Math.random()*6);
+        document.getElementById('unsei').innerHTML=result;
+        });
+    </script>
+</body>
+
+</html>
