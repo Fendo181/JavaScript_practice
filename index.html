@@ -2,51 +2,29 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>JavaScriptのチュートリアル</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="viewer.css">
+    <script src="viewer.js">
+        
+    </script>
 
-    <title>おみくじ</title>
-    <style>
-
-    </style>
 </head>
 
 <body>
+    <h1>簡易画像表示ビューワ</h1>
+    <img id="pic" src="pic/1.JPG" width="400" height="400">
 
-    <div class="container">
-        <h1>JavaScriptの勉強しましょう!</h1>
-        <div id="result">今日の運勢を占います!</div>
-        <div id="unsei"></div>
-        <!-- ボタン表示-->
-        <button id="btn">あなたの運勢は?</button>
+    <div id="no" class="no1">
+        <p>
+            <span style="background-color:#7ef466">No1</span>
+        </p>
     </div>
-    <script>
-        //
-        document.getElementById('btn').addEventListener('click', function () {
-            var omikuji = ['大吉!', '小吉!', '中吉!', '凶!', '吉!','大凶!'];
-            //決まり文句
-            var number= Math.floor(Math.random() * omikuji.length);
-            
-            /*
-            var num=document.getElementById('unsei').innerHTML = omikuji[number];
-            */
-            
-            var num=omikuji[number];
-            if(num=='大吉!'){
-                document.getElementById('unsei') = '大吉ですよ!';
-            }else if(num=='小吉!'){
-                document.getElementById('unsei').innerHTML = '小吉ですよ!';
-            }else if(num=='中吉!'){
-                document.getElementById('unsei').innerHTML = '中吉ですよ';
-            }else if(num=='凶!'){
-                document.getElementById('unsei').innerHTML = '凶ですよ!';
-            }else if(num=='吉!'){
-                document.getElementById('unsei').innerHTML = '吉ですよ!';
-            }else if(num=='大凶!'){
-                 document.getElementById('unsei').innerHTML = '大凶ですよ!';
-            }
-        });
-    </script>
+
+    <button id='rev_btn' onmouseover="revBtnClik();" disabled="disabled">←</button>
+    <button id='fwd_btn' onmouseover="fwdBtnClik();">→</button>
 </body>
 
 </html>
