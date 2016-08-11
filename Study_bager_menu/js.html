@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <style></style>
+</head>
+<body id="yes">
+<table id="light">
+    <tr><td id="t1">Hello!</td></tr>
+    <tr><td id="t2">Wold!</td></tr>
+</table>
+<script>
+// t2の内容を変更する関数
+function modifyText() {
+  var t2 = document.getElementById("t1");
+
+  if (t2.firstChild.nodeValue == "OFF!") {
+    t2.firstChild.nodeValue = "ON!";
+    console.log(t2.firstChild.nodeValue);
+  } else {
+    t2.firstChild.nodeValue = "OFF!";
+    console.log(t2.firstChild.nodeValue);
+  }
+}
+// tへ、イベントリスナー追加
+var el = document.getElementById("light");
+el.addEventListener("click", modifyText, false);
+</script>
+</body>
+</html>

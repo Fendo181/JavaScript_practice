@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>遠藤バーガショップ1号店</title>
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+
+    <!-- スマホ設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+    <div id="menu">
+        <ul>
+            <li>ウニバーガ</li>
+            <li>トマトの串焼きバーガ</li>
+            <li>アボカドバーガ</li>
+            <li>トカゲバーガ</li>
+            <li>遠藤バーガ</li>
+        </ul>
+        </ul>
+    </div>
+
+    <div id="main">
+        <i class="fa fa-bars" id="show"></i>
+        <h1>Hello welcome Endo'S Buger Shop!! (:->)</h1>
+        <script>
+            //即時関数で囲いつつ、
+            (function() {
+                // use strictで厳密なエラーチェックモードとなる。
+                'use strict';
+
+                //  #show と #main をこちらで取得してあげて、#show をクリックしたとき
+                var show = document.getElementById('show');
+                var main = document.getElementById('main');
+
+                show.addEventListener('click', function() {
+                    // if(main.className === 'menu-open'){
+                    //     //開いていいる時は外す
+                    //     main.className = '';
+                    // }else{
+                    //     //そうじゃなかったたclassNameを'manu-open'にする。
+                    //     main.className = 'menu-open';
+                    // }
+                    // //console.log(main.className);
+
+                    //三項演算子で表現する。
+                    main.className = (main.className === 'menu-open') ? '' : 'menu-open';
+
+                    // console.log(main.className);
+
+                });
+            })();
+
+            for (var i = 0; i < 30; i++) {
+                document.write("<p>Wellcome Endo Bugr Shop!.Wellcome Endo Bugr Shop!.Wellcome Endo Bugr Shop!.Wellcome Endo Bugr Shop!.Wellcome Endo Bugr Shop!.Wellcome Endo Bugr Shop!.</p>");
+                i++;
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style></style>
+</head>
+<body>
+<table id="outside">
+    <tr><td id="t1">one</td></tr>
+    <tr><td id="t2">two</td></tr>
+</table>
+<script>
+// t2の内容を変更する関数
+// function modifyText() {
+//   var t2 = document.getElementById("t2");
+//   if (t2.firstChild.nodeValue == "OFF!") {
+//     t2.firstChild.nodeValue = "ON!";
+//     console.log(t2.firstChild.nodeValue);
+//   } else {
+//     t2.firstChild.nodeValue = "OFF!";
+//     console.log(t2.firstChild.nodeValue);
+//   }
+// }
+// //イベントリスナー追加
+// var el = document.getElementById("outside");
+// el.addEventListener("click", modifyText, false);
+
+//無名関数で行う
+function modifyText(new_text) {
+    //idを取得する。
+    var t2 = document.getElementById("t2");
+    t2.firstChild.nodeValue = new_text;
+}
+
+var el = document.getElementById("outside");
+
+el.addEventListener("click",function(){modifyText("Chnaged! world!")},false);
+</script>
+</body>
+</html>
