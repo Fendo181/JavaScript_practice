@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>遠藤バーガショップ2号店</title>
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+
+    <!-- スマホ設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="mystyle2.css">
+</head>
+
+<body>
+    <div id="main">
+        <i class="fa fa-bars" id="show"></i>
+        <h1>Hello welcome Endo'S Buger Shop2!! (:->)</h1>
+        <!-- 第一層目 -->
+        <script>
+            for (var i = 0; i < 30; i++) {
+                document.write("<p>Wellcome Endo Bugr Shop2!.Wellcome Endo Bugr Shop2!.Wellcome Endo Bugr Shop2!.Wellcome Endo Bugr Shop2!.Wellcome Endo Bugr Shop2!.Wellcome Endo Bugr Shop2!.</p>");
+                i++;
+            }
+        </script>
+
+        <!-- 第二層 -黒いカバ-->
+        <div id="cover"></div>
+        <!-- 第三層目 メニュー名 -->
+        <div id="menu">
+            <i class="fa fa-times" id="hide"></i>
+            <ul>
+                <li>ウニバーガ</li>
+                <li>トマトの串焼きバーガ</li>
+                <li>アボカドバーガ</li>
+                <li>トカゲバーガ</li>
+                <li>遠藤バーガ</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        //即時関数で囲いつつ、
+        (function() {
+            // use strictで厳密なエラーチェックモードとなる。
+            'use strict';
+
+            //  #show と #main をこちらで取得してあげて、#show をクリックしたとき
+            var show = document.getElementById('show');
+            var hide = document.getElementById('hide');
+
+            show.addEventListener('click', function() {
+                document.body.className = 'menu-open';
+            });
+
+            hide.addEventListener('click',function(){
+                document.body.className = '';
+            });
+        })();
+    </script>>
+
+</body>
+
+</html>
