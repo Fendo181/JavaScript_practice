@@ -15,8 +15,12 @@
 
 - 2016_08_09
   - JSの基本的な文法をとりあえず触る。
-  -[READ.md](https://github.com/Fendo181/JS_repos/tree/master/Study_origin)を見て下さい。
+  - [READ.md](https://github.com/Fendo181/JS_repos/tree/master/Study_origin)を見て下さい。
 
 - 2016_08_10
   - 動きのあるメニューボタンをjavaScriptで作りました。
   - JSよりかは、CSS/HTML5寄りだと思い。
+
+- 2017_10_31
+  - あれから1年、JavaScriptを遠ざける日々は終えて、改めて手を組み日がきた。
+  - Study_ReJSを追加
