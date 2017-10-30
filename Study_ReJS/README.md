@@ -39,3 +39,28 @@ function checkNum() {
     }
 }
 ```
+
+###  三項演算
+
+
+```js
+function calc(){
+    var num1 = document.getElementById('num1').value;
+    var num2 = document.getElementById('num2').value;
+
+    max = (num1>num2) ? num1 : num2;
+    alert(max)
+}
+```
+
+###  関数
+
+```
+function sayHi(name) {
+    //関数内で定義した変数はローカル変数とも呼ぶ
+    var msg = "hello! " + name
+    return msg
+}
+var print_name = sayHi("Endo")
+console.log(print_name)
+```
