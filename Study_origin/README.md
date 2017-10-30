@@ -46,7 +46,7 @@ JavaScriptの始め。
 このように外部ファイルからも書いていくことができるので、ソースが長くなってきたら外に出してしまうのもいいかと思います。
 
 ```js
-<script src="myserc.js"></script>
+<script src="mysrc.js"></script>
 ````
 
 ## 変数
