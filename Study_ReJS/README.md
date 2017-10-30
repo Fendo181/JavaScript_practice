@@ -64,3 +64,31 @@ function sayHi(name) {
 var print_name = sayHi("Endo")
 console.log(print_name)
 ```
+
+#### 無名関数
+
+```js
+// 無名関数
+
+var sayHi = function(name) {
+    //関数内で定義した変数はローカル変数とも呼ぶ
+    var msg = "hello! " + name
+    return msg
+}
+console.log(sayHi("endo"))
+
+```
+
+#### 即時関数
+
+```js
+// 即時関数
+
+(function(name){
+    console.log("hello! "+name)
+})("Endo");
+
+```
+
+### 無名関数
+
