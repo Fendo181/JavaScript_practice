@@ -90,5 +90,15 @@ console.log(sayHi("endo"))
 
 ```
 
-### 無名関数
+### 配列
 
+```js
+var coffes = ["FrenchRoast", "Colombian", "Kona"];
+coffes.forEach(function (item,index, array) {
+    console.log(item.index);
+});
+```
+
+>参考:https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+### オブジェクト
