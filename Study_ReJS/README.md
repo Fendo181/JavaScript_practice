@@ -135,4 +135,44 @@ console.log(service.service_name)
 //プロパティ名にアクセスする
 console.log(user["name"]);
 console.log(user.email); //こっち推奨
-``
+```
+
+### 制御文
+
+ブロッグ構文のスコープ
+
+```js
+var x = 1
+{
+var x = 2
+}
+
+console.log(x) #2
+```
+
+>ブロック内の var x 文はブロックの前の var x 文と同じスコープ内にあるため、この例では 2 が出力されます。C や Java では、同様のコードで 1 が出力されます。ECMAScript 2015 からは、let 文による変数宣言がブロックスコープとなります。
+
+
+letをつけてブロックスコープ(ローカル変数)をつけてみる。
+
+```js
+var x = 1
+{
+    let x = 2   
+}
+console.log(x) #1
+
+```
+
+### falseと評価されるもの
+
+```
+false
+undefined
+null
+0
+NaN
+空の文字列 ("")
+```
+
+これら以外は全てTrueと判断される。
