@@ -1,6 +1,6 @@
 var coffes = ["FrenchRoast", "Colombian", "Kona"];
 coffes.forEach(function (item,index, array) {
-    console.log(item, index);
+    console.log(item.index);
 });
 
 var fruits = ["りんご", "バナナ"];

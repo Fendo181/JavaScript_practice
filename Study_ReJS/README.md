@@ -176,3 +176,98 @@ NaN
 ```
 
 これら以外は全てTrueと判断される。
+
+
+### switch
+
+```js
+var flutes_name = "Banana";
+
+switch (flutes_name) {
+    case "Orange":
+        console.log("これはオレンジの匂いがするぜ!")
+        break;
+    case "Banana":
+        console.log("これはバナナの匂いですね！")
+        break;
+    default:
+        // console.log("何も匂いがしないよ！");
+        break;
+}
+```
+
+### 例外処理
+
+- `throw`文
+  - `throw expression;`
+- `try...catch`文
+
+ 
+#### throw
+
+```js
+var a=3;
+// 例外が起きる(エラーをおこさせる。)
+throw a; #exception.js:3 Uncaught 3
+console.log(a);
+```
+
+`Throw`で簡単なエラーを投げる(発生する)事ができる。
+エラーは何を投げても発生する。普段は`Errorオブジェクト`を投げて確認する。
+
+```js
+var erro = new Error();
+erro.message = "エラーが発生しました！";
+throw erro
+```
+
+一々プロパティにしなくても、コンストラクタの引数として渡す事もできる。
+
+```js
+var erro = new Error("errorが発生しました！");
+throw erro
+```
+
+エラーオブジェクト的なものを作る事もできる。
+
+```js
+// userException
+function UserException(message) {
+    this.message = message;
+    this.naem + "userException";  
+}
+
+
+// 文字列として使用されるとき（例 : エラーコンソール上）に
+// 例外を整形する
+UserException.prototype.toString = function (){
+    return this.name + ': "' + this.message + '"';
+  }
+  
+  // UserException のインスタンスを作成し、それをスローする
+throw new UserException("Value too high");
+```
+
+
+#### try...catch
+
+エラーの発生を検知して処理するという方法`try...catch`
+
+構文
+
+```js
+// 成功
+try {
+    // 意図として例外を発生させる。 
+    throw new Error("例外処理が発生しました！")
+    console.log("hello wold!")
+// 失敗
+} catch (e) {
+    console.log("Not Hello wold!")
+    // 例外が発生したらeにメッセージが入る。
+    console.log(e)
+}
+```
+
+
+
