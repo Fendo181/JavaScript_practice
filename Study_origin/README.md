@@ -831,7 +831,9 @@ HTMLファイル
 </html>
 
 ```
+
 JSファイル
+
 ```js
 
 //addEventListener の第 1 引数にはイベントの種類を割り当てます。
