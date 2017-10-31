@@ -99,6 +99,23 @@ coffes.forEach(function (item,index, array) {
 });
 ```
 
+ex2:配列をすべて列挙させる。
+
+```js
+var colors = ['red', 'green', 'blue'];
+
+// for
+for(var i=0; i < colors.length; i++){
+    console.log(colors[i]);
+}
+
+// foreach
+colors.forEach(function(color){
+    console.log(color)
+});
+
+```
+
 >参考:https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ### オブジェクト
@@ -269,5 +286,94 @@ try {
 }
 ```
 
+### 再起関数
 
+```js
+// 再起で実装する。
+function loop(x){
+    if(x >= 100)
+      return;
+    console.log(x)
+    loop(x+1) 
+}
+
+loop(0) 
+```
+
+### クロージャ
+
+- 「自分を囲むスコープにある変数を参照できる関数」
+- コピーではなく参照なのでその変数自体を変更する事ができる。
+
+
+
+これによりプライペードな変数として扱う事が可能になります。
+
+例1
+
+```js
+function func(params) { 
+    var value = 1;
+
+    // innerFuncはvalueを参照できる。コピーではない。
+    function innerFunc(){
+        value = 5;
+    }
+    innerFunc();
+    console.log(value);
+
+}
+
+func()
+```
+
+例2
+
+```js
+var pet = function(name) {
+    // 内側の関数は外側の関数の変数 "name" にアクセス可能
+    var getName = function() {
+        return name
+    }
+    return getName;
+}
+
+myPet = pet("Vivie");
+console.log(myPet())
+
+
+
+```
+
+モジュールパターン
+
+>即時関数内のcountに関しては内側からしか参照できないという事です。外側からアクセスしようとした場合にはもちろん「undefined」となります。
+
+```js
+var module = (function() {
+  var count = 0;
+
+  return {
+    increment: function() {
+      count++;
+    },
+    show: function() {
+      console.log(count);
+    }
+  };
+
+})();
+
+module.show(); // 0
+
+module.increment();
+module.show(); // 1
+
+console.log(count); // undefined
+```
+
+
+
+
+### オブジェクト
 
