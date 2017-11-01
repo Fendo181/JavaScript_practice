@@ -22,22 +22,20 @@ $(function(){
 セレクタ
 
 - idセレクタ
-  - id="hoge":`$('#hoge')`
+  - `id="hoge"`:`$('#hoge')`
 - classセレクタ 
-  - class = "fuga": `$('.fuga')`
-- `子孫セレクタ`
+  - `class = "fuga"`: `$('.fuga')`
+- 要素セレクタ
+  - `<p></p>`:`$('p')`
+- 子孫セレクタ
+  - `<div><p></p></div>`:`$('div p')`
 
-#### 押すと怒られるスクリプト
+### 用意されているアクション
 
-```html
-<body>
-    <p>jQuery学びます</p>
-    <p id="push">ここを押すんだ!</p>
-    <script src="main.js"></script>
-</body>
-```
+- マウスクリック
 
 ```js
+
 $(function () {
     $('#push').click(function () { 
         $(this).text("なんか押されんですけど！！");
@@ -45,27 +43,32 @@ $(function () {
 });
 ```
 
-ウケる
-
-#### マウスオーバしたら軽く切れられる。
-
-```html
-<body>
-    <p>jQuery学びます</p>
-    <p id="hoge">ここをマウスオーバするんだ!</p>
-    <script src="main.js"></script>
-</body>
-```
-
-
+- マウスオーバ
+ 
 ```js
 $(function () {
     $('#hoge').mouseover(function () { 
-        $(this).text("ちょなんすか?");
+        $(this).text("");
     });
 });
 ```
 
+- マウスアウト
+
+
+```js
+$(function () {
+    $("#hoge").mouseout(function () { 
+        $(this).text("マウスアウトしたね");
+    });
+});
+```
+
+### 簡単なスクリプトを書いてみる。
+
+#### マウスをクリックしたら色が変わる。
+
+#### Bitcoinの値をリアルタイムで取得してくる。
 
 ### 参考
 
