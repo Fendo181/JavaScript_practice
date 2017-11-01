@@ -1,6 +1,6 @@
 ## JavaSceipt再学習
 
-これはJavaScriptを再学習するにあたって、慣らす為に簡単なコードを書いていきます。
+これはJavaScriptを再学習するにあたって、簡単なサンプルコードを書いていきます。
 
 ### 入力値を受け取った値で検証する。
 
@@ -55,7 +55,7 @@ function calc(){
 
 ###  関数
 
-```
+```js
 function sayHi(name) {
     //関数内で定義した変数はローカル変数とも呼ぶ
     var msg = "hello! " + name
@@ -102,6 +102,7 @@ coffes.forEach(function (item,index, array) {
 ex2:配列をすべて列挙させる。
 
 ```js
+
 var colors = ['red', 'green', 'blue'];
 
 // for
