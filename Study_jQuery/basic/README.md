@@ -49,8 +49,22 @@ $(function () {
 
 #### マウスオーバしたら軽く切れられる。
 
+```html
+<body>
+    <p>jQuery学びます</p>
+    <p id="hoge">ここをマウスオーバするんだ!</p>
+    <script src="main.js"></script>
+</body>
+```
 
 
+```js
+$(function () {
+    $('#hoge').mouseover(function () { 
+        $(this).text("ちょなんすか?");
+    });
+});
+```
 
 
 ### 参考
