@@ -49,7 +49,6 @@ $(function() {
 
                     // コンテンツ要素を追加
                     $(SuzuriContent).append(contentItems);
-                    $(SuzuriContent).append(journal_page);
 
                     // 次のページがある場合はリンクを追加する
                     if(journal_page.length) {
