@@ -28,3 +28,8 @@
 - 2017_11_01
   - Study_jQueryを追加
   - [Study_jQuery/README.md](https://github.com/Fendo181/JavaScript_repos/tree/master/jQuery)
+
+- 2017_11_02
+  - ChromeExtentionを追加
+  - [chromeExtention/manual.md](https://github.com/Fendo181/JavaScript_repos/blob/master/chromeExtentions/manual.md)
+  - jQuery無しで再度実装してみる。
