@@ -23,4 +23,4 @@
 
 - 2017_10_31
   - Study_ReJSを追加
-  - [Study_ReJS/README.md][https://github.com/Fendo181/JavaScript_repos/tree/master/Study_ReJS]
+  - [Study_ReJS/README.md](https://github.com/Fendo181/JavaScript_repos/tree/master/Study_ReJS)
