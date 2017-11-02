@@ -16,24 +16,26 @@ $(function() {
     var SuzuriContent = '.ncgr-section__inner.ncgr-section__inner--narrow'; // 取得要素を追加するコンテンツ
     var SuzuriNextLink = '.journal-pagenation .pagination .next a'; // 次のページのリンク
     var SuzuriNextLinkArea = '.journal-pagenation'; // 次のページのリンクの親要素
-
-    var loadingFlag = false; // 読み込み中はtrueにして、複数回発生しないようにする
     let  base_url      ="https://suzuri.jp/";
+    
+    var loadingFlag = true; 
 
     // スクロール開示に読み込みが発生する。
     $(window).on('load scroll', function() {
-        if(!loadingFlag) {
+        
+        if(loadingFlag) {
             var winHeight = $(window).height();
             var scrollPos = $(window).scrollTop();
             var linkPos = $(SuzuriNextLink).height();
 
             if(winHeight + scrollPos > linkPos) {
-                loadingFlag = true;
-               var nextPage = base_url+$(SuzuriNextLink).attr('href');
+                // 読み込み中はfalseにして、複数回発生しないようにする
+                loadingFlag = false;
 
                 // 次のページのリンクを取得して、要素を削除しておく
-               console.log("次のリンクは"+nextPage);
+                var nextPage = base_url+$(SuzuriNextLink).attr('href');
                 $(SuzuriNextLinkArea).remove();
+                console.log("次のリンクは"+nextPage);
 
                 $.ajax({
                     type: 'GET',
@@ -52,7 +54,7 @@ $(function() {
                     // 次のページがある場合はリンクを追加する
                     if(journal_page.length) {
                         $(SuzuriContent).append(journal_page);
-                        loadingFlag = false; //読み込みが成功したら、loadingFlagをfalsにして再度読み込みを開始させる。　
+                        loadingFlag = true; //読み込みが成功したら、loadingFlagをtrueにして再度読み込み判定を開始させる。
                     }
                 }).fail(function () {
                     console.log("通信に失敗しました！！");
