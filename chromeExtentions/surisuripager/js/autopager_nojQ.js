@@ -1,15 +1,26 @@
+// ==UserScript==
+// @name         Suzuri AutoPaging
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       endu
+// @match       https://suzuri.jp/surisurikun/journals/
+// @grant        none
+/* load jQuery */
+// @require https://code.jquery.com/jquery-3.2.1.min.js
+// ==/UserScript==
+
 $(function() {
     var SuzuriContentItems = '.ncgr-section.ncgr-section--gray .ncgr-section__inner.ncgr-section__inner--narrow .ncgr-card.ncgr-mar-b-24'; // 取得する要素
     var SuzuriContent = '.ncgr-section__inner.ncgr-section__inner--narrow'; // 取得要素を追加するコンテンツ
     var SuzuriNextLink = '.journal-pagenation .pagination .next a'; // 次のページのリンク
     var SuzuriNextLinkArea = '.journal-pagenation'; // 次のページのリンクの親要素
     let  base_url      ="https://suzuri.jp/";
-    
-    var loadingFlag = true; 
 
+    var loadingFlag = true;
     // スクロール開示に読み込みが発生する。
     $(window).on('load scroll', function() {
-        
+
         if(loadingFlag) {
             var winHeight = $(window).height();
             var scrollPos = $(window).scrollTop();
@@ -24,15 +35,15 @@ $(function() {
                 $(SuzuriNextLinkArea).remove();
                 console.log("次のリンクは"+nextPage);
 
-                $.ajax({
-                    type: 'GET',
-                    url: nextPage,
-                    dataType: 'html'
-                }).done(function(data) {
-                     console.log("通信に成功しました！");
+                fetch(nextPage)
+                .then(function(response) {
+                    console.log("fetchしました！");
+                    console.log(response);
+
+                       console.log("通信に成功しました！");
                     // コンテンツ要素を取得
-                    var contentItems = $(data).find(SuzuriContentItems);  //記事
-                    var journal_page =  $(data).find(SuzuriNextLinkArea); //リンクエリア
+                    var contentItems = response.find(SuzuriContentItems);  //記事
+                    var journal_page =  response.find(SuzuriNextLinkArea); //リンクエリア
 
                     // コンテンツ要素を追加
                     $(SuzuriContent).append(contentItems);
@@ -42,10 +53,8 @@ $(function() {
                         $(SuzuriContent).append(journal_page);
                         loadingFlag = true; //読み込みが成功したら、loadingFlagをtrueにして再度読み込み判定を開始させる。
                     }
-                }).fail(function () {
-                    console.log("通信に失敗しました！！");
-                    alert('ページの取得に失敗しました。');
                 });
+
             }
         }
     });
