@@ -24,3 +24,7 @@
 - 2017_10_31
   - Study_ReJSを追加
   - [Study_ReJS/README.md](https://github.com/Fendo181/JavaScript_repos/tree/master/Study_ReJS)
+
+- 2017_11_01
+  - Study_jQueryを追加
+  - [Study_jQuery/README.md](https://github.com/Fendo181/JavaScript_repos/tree/master/jQuery)
