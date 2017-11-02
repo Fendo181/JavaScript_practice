@@ -6,7 +6,6 @@ $(function() {
     let  base_url      ="https://suzuri.jp/";
     
     var loadingFlag = true; 
-
     // スクロール開示に読み込みが発生する。
     $(window).on('load scroll', function() {
         
