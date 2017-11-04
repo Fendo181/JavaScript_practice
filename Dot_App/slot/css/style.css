@@ -1,0 +1,71 @@
+body {
+    background: #e1bb8a;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.slot{
+    width: 300px;
+    padding: 2px;
+    background: #ecf0f1;
+    border: 5px solid #d26060;
+    border-radius: 10px;
+    margin: 15px auto;
+    /* はみ出た部分を隠す */
+    overflow: hidden;
+}
+
+.panel {
+    float: left;
+}
+
+/* パネルの間 */
+.panel + .panel {
+    margin-left: 13px;
+}
+
+.panel img {
+    margin-bottom: 5px;
+}
+
+.stop {
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+    background: rgb(223, 80, 80);
+    box-shadow: 0 3px 0 #bd645e;
+    /* 丸くする。 */
+    border-radius: 15px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    /* ボタンを推しても選択状態にならないようにする。 */
+    user-select: none;
+}
+
+#spin {
+    cursor: pointer;
+    width: 230px;
+    height: 35px;
+    background: #3498db;
+    box-shadow: 0 3px 0 #2d5c91;
+    /* 丸くする。 */
+    border-radius: 15px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    /* ボタンを推しても選択状態にならないようにする。 */
+    user-select: none;
+    margin: auto;
+}
+
+.unmatched{
+    opacity: 0.6;
+}
+
+.inactive {
+    opacity: 0.5;
+}
