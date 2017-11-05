@@ -1,11 +1,21 @@
 (function () {
 'user strict';
+/// Twiiter=id 検索
+var s = "Endo@gmail.com";
 
-var s = "@endo, @taguch, @tamago";
-var rs = s.match(/endo/)
+// endodだけを抜き出す。
+// 任意の一文字の最小マッチ
+var re = s.match(/(.+?)@gmail(.com)/);
 
-if (rs){
-    console.log('ありました！');
-    
+// 直前の正規表現パターンでマッチしたものうち1つ目のカッコのものを出してくれる。
+console.log(re[0]); //Endo@gmail.com
+console.log(re[1]); //Endo
+console.log(re[2]); //com
+
+if (re){
+    console.log('exit!');
+    console.log(re);
+}else{
+    console.log('unmatch!');
 }
 })();
