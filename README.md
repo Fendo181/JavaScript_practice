@@ -33,3 +33,7 @@
   - ChromeExtentionを追加
   - [chromeExtention/manual.md](https://github.com/Fendo181/JavaScript_repos/blob/master/chromeExtentions/manual.md)
   - jQuery無しで再度実装してみる。
+
+- 2017_11_05
+  - [JavaScriptでスロットマシンを作ろう](https://dotinstall.com/lessons/slot_js_v4)を追加
+  - [EndoSlot](https://github.com/Fendo181/JavaScript_repos/tree/master/Dot_App/slot)完成
