@@ -9,7 +9,8 @@
     var slot_card = [
         'seven.png',
         'bell.png',
-        'cherry.png'
+        'cherry.png',
+        'endo.png'
     ];
     
     var timers = [];
@@ -80,6 +81,9 @@
             img0.className = 'matched';
             img1.className = 'matched';
             img2.className = 'matched';
+
+            console.log(img0.src)
+            var re = /(img0.src)/
             
             var message = document.getElementById('message');
             message.innerHTML = "当たり!";
