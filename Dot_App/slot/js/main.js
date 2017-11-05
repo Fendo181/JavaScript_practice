@@ -3,7 +3,7 @@
 
     var panels = document.getElementsByClassName('panel');
     var spin = document.getElementById('spin');
-    var spinspeed = 1000;
+    var spinspeed = 45;
 
     // img array
     var slot_card = [
@@ -34,8 +34,10 @@
         for (i =0; i < panels.length; i++){
             panels[i].children[1].addEventListener('click', 
             function(){
-                // ata-index number
-                console.log(this.dataset.index)
+                // audio se play
+                document.getElementById('audio').currentTime = 0 ;
+                document.getElementById('audio').play();
+
                 if (this.className.indexOf('inactive') !== -1) {
                     // 処理が止まる
                     return;
@@ -80,7 +82,7 @@
             img2.className = 'matched';
             
             var message = document.getElementById('message');
-            message.innerHTML = "当たり";
+            message.innerHTML = "当たり!";
         }
 
     }
