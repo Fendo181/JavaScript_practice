@@ -23,7 +23,7 @@
 
 - 2017_10_31
   - Study_ReJSを追加
-  - [Study_ReJS/README.md](https://github.com/Fendo181/JavaScript_repos/tree/master/Study_ReJS)
+  - [サンプルコード](https://github.com/Fendo181/JavaScript_repos/tree/master/Study_ReJS)
 
 - 2017_11_01
   - Study_jQueryを追加
@@ -36,4 +36,6 @@
 
 - 2017_11_05
   - [JavaScriptでスロットマシンを作ろう](https://dotinstall.com/lessons/slot_js_v4)を追加
-  - [EndoSlot](https://github.com/Fendo181/JavaScript_repos/tree/master/Dot_App/slot)完成
+    - [EndoSlot](https://github.com/Fendo181/JavaScript_repos/tree/master/Dot_App/slot)完成
+  - [JavaScriptで正規表現入門](https://dotinstall.com/lessons/basic_regexp)を追加
+    - [サンプルコード](https://github.com/Fendo181/JavaScript_repos/tree/master/Study_RegExp)
