@@ -15,8 +15,7 @@
     var suzruiItems = document.querySelectorAll(".js-product");
 
     suzruiItems[0].addEventListener('mouseover', function (e) {
-        // 回転
-        console.log("aaaa");
+        // 右回転
 
         anime({
             targets: '.js-product',
@@ -28,15 +27,15 @@
     });
 
     suzruiItems[0].addEventListener('mouseout', function (e) {
-        // 回転
-        console.log("aaaa");
+        // 左回転
 
         anime({
-            targets: '.hoge',
+            targets: '.js-product',
             rotate: 3600,
             // 段々と四角になる
             borderRadius: 10,
-            duration: 30000
+            duration: 30000import { DOMComponent } from 'uturn'
+
         });
     });
 
