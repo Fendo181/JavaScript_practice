@@ -72,8 +72,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(1);
 // import 文を使って app.js ファイルを読み込む(依存させる。)。
 
-
-// main.jsに定義されたJavaScriptを実行する。
 Object(__WEBPACK_IMPORTED_MODULE_0__app__["a" /* hello */])();
 
 /***/ }),
