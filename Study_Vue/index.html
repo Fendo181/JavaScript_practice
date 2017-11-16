@@ -9,9 +9,9 @@
 </head>
 <body>
 
-<div class="hoge">
-    <span v-if="isFlag">Vue If!!</span>
-</div>   
-<script src="vue-if.js"></script>
+<div class="static"
+    v-bind:class="{ active: isActive, 'text-danger': hasError }">
+</div>
+<script src="vue-classbinding.js"></script>
 </body>
 </html>
