@@ -9,18 +9,18 @@
     src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
     crossorigin="anonymous"></script>
-    
+    <script src="http://code.createjs.com/easeljs-0.7.1.min.js"></script>
 </head>
 <body>
     <h3>ペパボンメイカー</h3>
 
     <p>アップロードする画像を選択して下さい。</p>
-    <label>
-        <!-- <input type="checkbox" name="checked" value="1" checked="checked" /> -->
-        <form id="my_form">
-            <input id="file" type="file" multiple accept="image/jpeg, image/gif, image/png">
-        </form>
-    </label>
+    <div class="table">
+        <!-- プレビュー -->
+        <p> <img src="" id="preview"></p>
+        <input type="file" accept="image/*" id="getfile">
+    </div>
+
 
     <div class="btn">
             <button id="update">ペパボンのロゴをつける。</button>
@@ -33,7 +33,14 @@
             <button id="reset">リセット</button>
     </div>
 
-<script src="js/jquery.uploadThumbs.js"></script>
+    <!-- 出力部分 -->
+    <div class="module">
+            <h2>生成結果</h2>
+            <h1 id="alert" style="color: red"></h1>
+            <canvas id="result" width="623" height="842"></canvas>
+    </div>
+
+<!-- <script src="js/jquery.uploadThumbs.js"></script> -->
 <script src="js/main.js"></script>
 </body>
 </html>
