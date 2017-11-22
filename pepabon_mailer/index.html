@@ -5,10 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <h3>ペパボンメイカー</h3>
 
-<script src="main.js"></script>
+    <p>アップロードする画像を選択して下さい。</p>
+    <label>
+        <!-- <input type="checkbox" name="checked" value="1" checked="checked" /> -->
+        <form id="my_form">
+            <input id="file" type="file" multiple accept="image/jpeg, image/gif, image/png">
+        </form>
+    </label>
+
+    <div class="btn">
+            <button id="update">ペパボンのロゴをつける。</button>
+            <button id="left">←</button>
+            <button id="up">↑</button>
+            <button id="down">↓</button>
+            <button id="right">→</button>
+            <button id="zoomin">拡大</button>
+            <button id="zoomout">縮小</button>
+            <button id="reset">リセット</button>
+    </div>
+
+<script src="js/jquery.uploadThumbs.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
