@@ -1,0 +1,30 @@
+<html>
+<head lang="ja">
+    <meta charset="utf-8">
+    <title>My Vue.js Practice</title>
+</head>
+<body>
+<h1>Vue.jsチュートリアル</h1>
+
+<div id="myapp" >
+  <div v-show="showContent">
+  {{ content }}
+  </div>
+</div>
+<!-- Vue.js -->
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<!-- code -->
+<script>
+// v-show 要素を表示するだけ。
+// v-if
+var vm =new Vue({
+  el: '#myapp',
+  data:{
+    content:'Hello Wold! v-show',
+    // falseにすると表示されなくなる。
+    showContent: 0
+  }
+});
+</script>
+</body>
+</html>

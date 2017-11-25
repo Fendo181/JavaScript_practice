@@ -1,0 +1,58 @@
+<html>
+
+<head lang="ja">
+  <meta charset="utf-8">
+  <title>My Vue.js Practice</title>
+</head>
+
+<body>
+  <h1>Vue.jsチュートリアル</h1>
+  <div id="myapp">
+    <ul>
+      <!-- 配列を呼び出す -->
+      <li v-for="(d,index) in d1">
+        {{index}}- {{ d }}
+      </li>
+      <!--オブジェクト(ハッシュ)に対しては丸括弧を使って次のように書きます。  -->
+      <li v-for="(k,d,index) in d2">
+        {{ k }} -{{ index }}- {{ d }}
+      </li>
+      <!-- オブジェクトの配列 -->
+      <li v-for="(d,index) in d3">
+        {{index}}:{{ d.name}} - {{d,score}}
+      </li>
+      <!-- 範囲のforとしても使える。 -->
+      <li v-for="(d,index) in 5">
+        {{index}}- {{ d }}
+      </li>
+    </ul>
+  </div>
+  <!-- Vue.js -->
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+  <!-- code -->
+  <script>
+    // object(ViewMode) - data/methods(Model) <--> interface(View)
+    var vm = new Vue({
+      el: '#myapp',
+      data: {
+        d1: ['a', 'b'],
+        // オブジェクト(ハッシュ)
+        d2: {
+          k1: 'v1',
+          k2: 'v2'
+        },
+        d3: [{
+            name: 'taguchi',
+            score: 62
+          },
+          {
+            name: 'endo',
+            score: 84
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+
+</html>

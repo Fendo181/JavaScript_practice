@@ -1,0 +1,65 @@
+<html>
+<head>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Vue.js -->
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app" class="container">
+  <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+          <!-- v-for="user in users"は合言葉  -->
+          <!--Pythinぽい  -->
+            <tr v-for="user in users">
+                <td>{{ user.name }}</td>
+            </tr>
+        <tbody>
+    </table>
+    <!-- input要素を追加する。 -->
+     <!-- <input v-model="newUserName"> -->
+     <!-- input要素をv-onに変える・ -->
+      <!-- <input v-model="newUserName" v-on:keyup.enter="append"> -->
+      <!-- vonを＠にする。 -->
+       <input v-model="newUserName" @keyup.enter="append">
+</div>
+
+
+<script type="text/javascript">
+var vm = new Vue({
+    el: '#app',
+    data: {
+        users: [
+            {name: 'Alice!'},
+            {name: 'Bob!'},
+            {name: 'Carol!'}
+        ],
+
+        newUserName: ''
+      },
+
+        // input要素を追加
+        methods: {
+          // appendメソッド
+        append: function () {
+            this.users.push({name: this.newUserName});
+            this.newUserName = '';
+        }
+    }
+
+});
+</script>
+
+</body>
+</html>
