@@ -35,7 +35,7 @@
   - jQuery無しで再度実装してみる。
 
 - 2017_11_05
-  - [JavaScriptでスロットマシンを作ろう](https://dotinstall.com/lessons/slot_js_v4)を追加
-    - [EndoSlot](https://github.com/Fendo181/JavaScript_repos/tree/master/Dot_App/slot)完成
-  - [JavaScriptで正規表現入門](https://dotinstall.com/lessons/basic_regexp)を追加
-    - [サンプルコード](https://github.com/Fendo181/JavaScript_repos/tree/master/Study_RegExp)
+  - [EndoSlotを追加](https://github.com/Fendo181/JavaScript_repos/tree/master/Dot_App/slot)完成
+    - [JavaScriptでスロットマシンを作ろう](https://dotinstall.com/lessons/slot_js_v4)を参考
+  - [正規表現入門を追加](https://github.com/Fendo181/JavaScript_repos/tree/master/Study_RegExp)
+    - [JavaScriptで正規表現入門](https://dotinstall.com/lessons/basic_regexp)を追加
