@@ -1,0 +1,32 @@
+<html>
+<head lang="ja">
+    <meta charset="utf-8">
+    <title>My Vue.js Practice</title>
+</head>
+<body>
+<h1>Vue.jsチュートリアル</h1>
+
+<div id="myapp" >
+    <div v-text="msg | uppercase"></div>
+</div>
+<!-- Vue.js -->
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<!-- code -->
+<script>
+// object(ViewMode) - data/methods(Model) <--> interface(View)
+var vm =new Vue({
+  el: '#myapp',
+  data:{
+    persons :[
+      {"name " => "hogehohe"},
+      {"name" => "hogejirou"},
+      {"name" => "yeeaa"},
+      {"name" => "hogezaburou"}
+    ]
+  },
+  // メソッド(関数)
+
+});
+</script>
+</body>
+</html>

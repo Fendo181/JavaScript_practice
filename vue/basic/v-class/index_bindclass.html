@@ -1,0 +1,38 @@
+<html>
+<head lang="ja">
+    <meta charset="utf-8">
+    <title>My Vue.js Practice</title>
+    <style>
+      .red { color: red;}
+      .bold { font-weight: bold;}
+    </style>
+</head>
+<body>
+<h1>Vue.jsチュートリアル</h1>
+
+<div id="myapp" >
+<!--  red のクラスを isRed が true の時に付けたい、bold のクラスを isBold が true の時に付けたい、という場合はこのように書いてあげれる。。 -->
+<div v-bind:class="{ red :isRed,bold: isBold}">
+    {{ content }}
+</div>
+</div>
+<!-- Vue.js -->
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<!-- code -->
+<script>
+// v-show 要素を表示するだけ。
+// v-if
+var vm =new Vue({
+  el: '#myapp',
+  data:{
+    content:'Hello Wold! v-class!!',
+    colorStyle:'red',
+    fontweightStyle:'bold',
+    // データの真偽値でclassを適用させるかも制御できる。
+    isRed:true,
+    isBold:false
+  }
+});
+</script>
+</body>
+</html>

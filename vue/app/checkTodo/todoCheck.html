@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="mystyle.css">
+    <title>TodoCheckBox</title>
+</head>
+
+<body>
+    <div id="my-app">
+            NewTask:
+            <!-- v-modelを使って双方向バインディング的に文章を打つ込んでいく。 -->
+            <input type="text" v-model="newTask">
+            <button v-on:click="addTodo">Add</button>
+            <p>追加するタスクは {{ newTask }}</p>
+        </p>
+        <hr>
+        <ul>
+            <li v-for="todo in todos">
+                
+                <!-- v-modelと連携させる事でこれをつける事でチェックボックスに動的にチェックが入る。-->
+                <input type="checkbox" v-model= "todo.isCompleted">
+                <span v-bind:class="{ 'complete': todo.isCompleted }">
+                    {{ todo.task }}
+                </span>
+                <button v-on:click= "deleteTodo(todo)">Delete</button>
+                <button v-on:click= "editTodo(todo)">Edit</button>
+            </li>
+        </ul>
+        <p>Remaining Tasks: {{ remains }}/{{ todos.length }}</p>
+    </div>
+    <!-- vue -->
+    <script src="checkTodVue.js"></script>
+    <script src="tmpVue.js"></script>
+</body>
+
+</html>

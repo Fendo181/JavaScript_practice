@@ -1,0 +1,56 @@
+<html>
+<head lang="ja">
+    <meta charset="utf-8">
+    <title>My Vue.js Practice</title>
+</head>
+<body>
+<h1>Vue.jsチュートリアル</h1>
+
+<!-- formとmodelを連動させる。 -->
+<div id="myapp" >
+  <p>
+    <input type="text" v-model="name">
+    {{ name }}
+  </p>
+
+  <p>
+    <input type="checkbox" v-model="isAdmin">
+    <!-- adminがtrueだったら表示して、そうじゃなかったらno adminを表示させる。 -->
+    {{ isAdmin ? "admin" : "no admin" }}
+  </p>
+
+
+    <p>
+      <input type="radio" name="phone" v-model="phone" value="iphone">
+        <input type="radio" name="phone" v-model="phone" value="android">
+      {{ phone }}
+    </p>
+
+    <p>
+      <select v-model="city">
+        <option value="tokyo">Tokyo</option>
+        <option value="chiba">Chiba</option>
+        <option value="saitama">Saitama</option>
+      </select>
+      {{ city }}
+    </p>
+
+</div>
+<!-- Vue.js -->
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<!-- code -->
+<script>
+// object(ViewMode) - data/methods(Model) <--> interface(View)
+var vm =new Vue({
+  el: '#myapp',
+  data:{
+    // 初期データ
+    name:"taguchi",
+    isAdmin:true,
+    phone:"iphone",
+    city:"tokyo"
+  }
+});
+</script>
+</body>
+</html>

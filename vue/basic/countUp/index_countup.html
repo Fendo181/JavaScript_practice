@@ -1,0 +1,46 @@
+<html>
+<head lang="ja">
+    <meta charset="utf-8">
+    <title>My Vue.js Practice</title>
+</head>
+<body>
+<h1>Vue.jsチュートリアル</h1>
+
+<div id="mycounter">
+    <!-- 勝手にカウントをしてくれる -->
+    <div v-text="count"></div>
+    <!-- 式がそのまま使える。-->
+    <div v-text="count * 10"></div>
+    <!-- 文字列をそのまま使える。 -->
+    <div v-text=" '(' + count + ')' "></div>
+    <!-- 三項演算子  -->
+    <div v-text="count ? count : '--' "></div>
+
+    <!-- <button v-on:click="countUp" >Up</button> -->
+    <!-- そのまま式を書いてもいい  -->
+    <button @click="count++" >Up</button>
+
+    </div>
+</div>
+
+<!-- Vue.js -->
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<!-- code -->
+<script>
+// View モデル
+var vm =new Vue({
+  // el=elemment ここでバインドするエレメントのidを指定する。
+  el: '#mycounter',
+  data:{
+    count:0
+  }
+
+  // methods:{
+  //   countUp: function() {
+  //     this.count++;
+  //   }
+  // }
+});
+</script>
+</body>
+</html>
