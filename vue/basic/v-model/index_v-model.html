@@ -1,0 +1,37 @@
+<html>
+<head lang="ja">
+    <meta charset="utf-8">
+    <title>My Vue.js Practice</title>
+</head>
+<body>
+<h1>Vue.js</h1>
+<h2>v-modelでどんどん入力していく</h2>
+
+<!-- formとmodelを連動させる。 -->
+<div id="myapp" >
+  <span>複数行メッセージ</span>
+  <p>{{ phone }}</p>
+  <p>{{ city }}</p>
+  {{ city }}
+  <p style="white-space:pre"> {{ msg }}</p>
+  <p>___</p>
+  <textarea v-model="msg" placeholder="文字を入力して下さい。"></textarea>
+</div>
+<!-- Vue.js -->
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<!-- code -->
+<script>
+// object(ViewMode) - data/methods(Model) <--> interface(View)
+var vm =new Vue({
+  el: '#myapp',
+  data:{
+    // 初期データ
+    msg:"Hello!",
+    isAdmin:true,
+    phone:"iphone",
+    city:"tokyo"
+  }
+});
+</script>
+</body>
+</html>

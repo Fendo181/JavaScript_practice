@@ -1,0 +1,27 @@
+<html>
+<head lang="ja">
+    <meta charset="utf-8">
+    <title>My Vue.js Practice</title>
+</head>
+<body>
+<h1>Vue.jsチュートリアル</h1>
+
+<div id="myapp" >
+  <!-- <div v-text="contnt"></div> -->
+  <!-- <div>{{'ここに出て来る文章はこのように文字列を連係させて:'+content }}</div> -->
+  <div v-html="content"></div>
+</div>
+<!-- Vue.js -->
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<!-- code -->
+<script>
+// object(ViewMode) - data/methods(Model) <--> interface(View)
+var vm =new Vue({
+  el: '#myapp',
+  data:{
+    content:'<h1>Hello Wold!</h1>'
+  }
+});
+</script>
+</body>
+</html>
