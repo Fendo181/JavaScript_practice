@@ -27,15 +27,13 @@
 
 - 2017_11_01
   - Study_jQueryを追加
-  - [Study_jQuery/README.md](https://github.com/Fendo181/JavaScript_repos/tree/master/jQuery)
+  - [Study_jQuery/README.md](https://github.com/Fendo181/js_repos/tree/master/bacic/jQuery/basic)
 
 - 2017_11_02
-  - ChromeExtentionを追加
-  - [chromeExtention/manual.md](https://github.com/Fendo181/JavaScript_repos/blob/master/chromeExtentions/manual.md)
-  - jQuery無しで再度実装してみる。
+  - [UserScriptsを追加](https://github.com/Fendo181/js_repos/tree/master/UserScripts)
 
 - 2017_11_05
-  - [EndoSlotを追加](https://github.com/Fendo181/JavaScript_repos/tree/master/Dot_App/slot)完成
+  - [EndoSlotを追加](https://github.com/Fendo181/js_repos/tree/master/app/slot)完成
     - [JavaScriptでスロットマシンを作ろう](https://dotinstall.com/lessons/slot_js_v4)を参考
-  - [正規表現入門を追加](https://github.com/Fendo181/JavaScript_repos/tree/master/Study_RegExp)
+  - [正規表現入門を追加](https://github.com/Fendo181/js_repos/tree/master/bacic/RegExp)
     - [JavaScriptで正規表現入門](https://dotinstall.com/lessons/basic_regexp)を追加
