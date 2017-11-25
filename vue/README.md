@@ -16,7 +16,7 @@ Vue.jsを勉強する為のリポジトリです。
   - 最新のVue2.xでやるとエラーで弾かれる。
   - [公式チュートリアルから始めるVue.js vol.1「Markdown エディタ」](https://www.to-r.net/media/vue-markdown/)
 - 2017/4/30
-  - [ドットインストールのVue.js](http://dotinstall.com/lessons/basic_vuejs)で書いた練習ファイル追加。
+  - [ドットインストールのVue.js](https://github.com/Fendo181/js_repos/tree/master/vue/basic)で書いた練習ファイル追加。
   - [概要READM.nd](https://github.com/Fendo181/VueJS_repos/tree/master/VueJS_DotTutorial)
   - 紹介しているVue.jsがv1.0なので、v2.0以降だとバンバンエラーが出るので、[公式ドキュメント](https://jp.vuejs.org/v2/guide/migration.html#FAQ)みながら修正してます。
 - 2017/11/16
