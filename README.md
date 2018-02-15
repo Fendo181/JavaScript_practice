@@ -15,7 +15,7 @@
 
 - 2016/08/09
   - JSの基本的な文法をとりあえず触る。
-  - [READ.md](https://github.com/Fendo181/JS_repos/tree/master/Study_origin)を見て下さい。
+  - [READ.md](https://github.com/Fendo181/js_repos/tree/master/bacic)を見て下さい。
 
 - 2016/08/10
   - 動きのあるメニューボタンをjavaScriptで作りました。
