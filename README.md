@@ -37,5 +37,10 @@
     - [JavaScriptでスロットマシンを作ろう](https://dotinstall.com/lessons/slot_js_v4)を参考
   - [正規表現入門を追加](https://github.com/Fendo181/js_repos/tree/master/bacic/RegExp)
     - [JavaScriptで正規表現入門](https://dotinstall.com/lessons/basic_regexp)を追加
+
 - 2017/11/25
   - [vue](https://github.com/Fendo181/js_repos/tree/master/vue)を追加。
+
+- 2018/2/15
+  - Vue.js(2.5.13)ドットインストールチュートリアルを写経した。
+  -
