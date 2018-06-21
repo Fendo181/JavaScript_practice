@@ -13,15 +13,15 @@
             <label for="name">Name</label>
             <input type="text" id="name" name="user_name">
         </div>
-        <div class="button">
-            <button onclick="alertFunction()" type="submit">Send your message</button>
+        <div id="partial-new-comment-form-actions">
+            <button type="submit" class="btn btn-primary">Send your message</button>
         </div>
     </form>
 <script>
-    function alertFunction() {
-        console.log('aaa');
-        alert("アラートダイアログを表示します。");
-    }
+    let comment = document.getElementById('partial-new-comment-form-actions').getElementsByClassName('btn btn-primary')
+    comment[0].addEventListener('click', function(e){
+        alert('typoはないですか?');
+    });
 </script>
 </body>
 </html>
