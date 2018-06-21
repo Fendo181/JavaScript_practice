@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>No Typo</title>
 </head>
 <body>
     <h1>簡単なフォーム画面です。</h1>
@@ -20,8 +20,11 @@
 <script>
     let comment = document.getElementById('partial-new-comment-form-actions').getElementsByClassName('btn btn-primary')
     comment[0].addEventListener('click', function(e){
-        alert('typoはないですか?');
-    });
+        if(window.confirm('typoはないですか?')) {
+            return true;
+        };
+        event.preventDefault();
+    },false);
 </script>
 </body>
 </html>
