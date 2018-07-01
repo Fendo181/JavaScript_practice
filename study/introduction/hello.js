@@ -1,5 +1,8 @@
 console.log('Hello Wold!');
 
+let tmp = fuga;
+let tmp = fuga;
+
 /*
-ご存じないと思いますがこれがJavaScriptのコメント文になります
+Uncaught SyntaxError: Identifier 'tmp' has already been declared
 */
