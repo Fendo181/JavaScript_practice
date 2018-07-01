@@ -33,9 +33,9 @@ function checkNum() {
     if (score > 60){
         console.log("OK!");
     }else if(score == 40){
-        console.log("so so!");    
+        console.log("so so!");
     }else{
-        console.log("No!");  
+        console.log("No!");
     }
 }
 ```
@@ -176,7 +176,7 @@ letをつけてブロックスコープ(ローカル変数)をつけてみる。
 ```js
 var x = 1
 {
-    let x = 2   
+    let x = 2
 }
 console.log(x) #1
 
@@ -220,7 +220,7 @@ switch (flutes_name) {
   - `throw expression;`
 - `try...catch`文
 
- 
+
 #### throw
 
 ```js
@@ -252,7 +252,7 @@ throw erro
 // userException
 function UserException(message) {
     this.message = message;
-    this.naem + "userException";  
+    this.naem + "userException";
 }
 
 
@@ -261,7 +261,7 @@ function UserException(message) {
 UserException.prototype.toString = function (){
     return this.name + ': "' + this.message + '"';
   }
-  
+
   // UserException のインスタンスを作成し、それをスローする
 throw new UserException("Value too high");
 ```
@@ -276,7 +276,7 @@ throw new UserException("Value too high");
 ```js
 // 成功
 try {
-    // 意図として例外を発生させる。 
+    // 意図として例外を発生させる。
     throw new Error("例外処理が発生しました！")
     console.log("hello wold!")
 // 失敗
@@ -295,10 +295,10 @@ function loop(x){
     if(x >= 100)
       return;
     console.log(x)
-    loop(x+1) 
+    loop(x+1)
 }
 
-loop(0) 
+loop(0)
 ```
 
 ### クロージャ
@@ -313,7 +313,7 @@ loop(0)
 例1
 
 ```js
-function func(params) { 
+function func(params) {
     var value = 1;
 
     // innerFuncはvalueを参照できる。コピーではない。
