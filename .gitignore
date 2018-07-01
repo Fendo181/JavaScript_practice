@@ -3,6 +3,7 @@
 .AppleDouble
 .LSOverride
 /.DS_Store
+.commit_template
 
 # Icon must end with two \r
 Icon
