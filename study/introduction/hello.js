@@ -1,8 +1,12 @@
 console.log('Hello Wold!');
 
-let tmp = fuga;
-let tmp = fuga;
+const TAX = 1.08;
+// const TAX = 1.12;
+let price = 100;
+console.log(price*TAX);
+
 
 /*
-Uncaught SyntaxError: Identifier 'tmp' has already been declared
+constも変数の重複ができない
+hello.js:4 Uncaught SyntaxError: Identifier 'TAX' has already been declared
 */
