@@ -42,5 +42,10 @@
   - [vue](https://github.com/Fendo181/js_repos/tree/master/vue)を追加。
 
 - 2018/2/15
-  - Vue.js(2.5.13)ドットインストールチュートリアルを写経した。
-  -
+  - Vue.js(2.5.13)ドットインストールチュートリアルを写経しようとしてやってないです。
+  - [Vue.js入門 (全17回) - プログラミングならドットインストール](https://dotinstall.com/lessons/basic_vuejs_v2)
+
+- 2018/07/05
+  - なんとなく避けていたNode.jsを学びます。
+  - [Node.js入門 (全16回) - プログラミングならドットインストール](https://dotinstall.com/lessons/basic_nodejs)
+  - [Node.js入門 ~ サーバーサイドJavaScriptを根本から理解する](https://nakanoh.net/article/node-entry-book)
