@@ -10,6 +10,6 @@ node.jsの基本を学ぶ。
 ### 参考資料
 
 - [Node.js](https://nodejs.org/ja/)
-- [ode.js入門 ~ サーバーサイドJavaScriptを根本から理解する](https://nakanoh.net/article/node-entry-book)
+- [Node.js入門 ~ サーバーサイドJavaScriptを根本から理解する](https://nakanoh.net/article/node-entry-book)
 - [Nodeビギナーズブック](https://www.nodebeginner.org/index-jp.html)
 
