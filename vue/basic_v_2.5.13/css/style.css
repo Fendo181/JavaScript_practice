@@ -1,0 +1,23 @@
+body {
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    width: 300px;
+    margin: auto;
+}
+
+#todo h1{
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    padding: 16px 0;
+}
+
+#todo li{
+    line-height: 1.5;
+}
+
+#app input[type="text"] {
+    padding: 2px;
+}
