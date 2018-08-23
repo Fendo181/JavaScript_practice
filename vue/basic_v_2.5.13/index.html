@@ -13,8 +13,18 @@
     <p> Hello {{ name.toUpperCase() }}! </p>
     <p><input type="text" v-model="name"></p>
 </div>
+
+<p>Todoリスト</p>
+<div id="todo">
+<ul>
+    <li>{{ todos[0] }}</li>
+    <li>{{ todos[1] }}</li>
+    <li>{{ todos[2] }}</li>
+</ul>
+</div>
 <!-- vue.js -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="./js/mian.js"></script>
+<script src="./js/todo.js"></script>
 </body>
 </html>
