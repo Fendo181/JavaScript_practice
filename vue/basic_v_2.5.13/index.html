@@ -21,8 +21,9 @@
     <div id="todo">
         <h1>Todoリスト</h1>
         <ul>
-            <li v-for="todo in todos">
+            <li v-for="(todo, index) in todos">
                 {{ todo }}
+                <span @click="deleteItem(index)">[x]</span>
             </li>
         </ul>
         <form @submit.prevent="addItem">
