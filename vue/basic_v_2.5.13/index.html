@@ -23,10 +23,10 @@
         <ul>
             <li v-for="(todo, index) in todos">
                 {{ todo }}
-                <span @click="deleteItem(index)">[x]</span>
+                <span @click="deleteItem(index)" class="command">[x]</span>
             </li>
         </ul>
-        <form @submit.prevent="addItem">
+        <form @submit.prevent="addItem" >
             <input type="text" v-model="newItem">
             <input type="submit" value="Todo リストを加える">
         </form>

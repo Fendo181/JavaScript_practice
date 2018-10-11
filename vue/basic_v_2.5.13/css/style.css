@@ -21,3 +21,9 @@ body {
 #app input[type="text"] {
     padding: 2px;
 }
+
+.command {
+    font-size: 12px;
+    cursor: pointer;
+    color: blue;
+}
