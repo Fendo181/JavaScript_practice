@@ -14,11 +14,11 @@ body {
     padding: 16px 0;
 }
 
-#todo li{
+#qpp li{
     line-height: 1.5;
 }
 
-#app input[type="text"] {
+#qpp input[type="text"] {
     padding: 2px;
 }
 
@@ -26,4 +26,14 @@ body {
     font-size: 12px;
     cursor: pointer;
     color: blue;
+}
+
+#app ul{
+    padding: 0;
+    list-style: none;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #bbb;
 }
