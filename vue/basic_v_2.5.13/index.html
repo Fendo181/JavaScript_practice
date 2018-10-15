@@ -22,7 +22,7 @@
         <h1>Todoリスト</h1>
         <ul>
             <li v-for="(todo, index) in todos">
-                {{ todo }}
+                {{ todo.title }}
                 <span @click="deleteItem(index)" class="command">[x]</span>
             </li>
         </ul>
