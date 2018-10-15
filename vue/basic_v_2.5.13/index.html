@@ -25,7 +25,10 @@
                 <!-- v-model に対して todo.isDone を紐づけてあげると、 isDone が true のときにはチェックする -->
                 <!-- ちなみにHTMLだと、checked="checked"でチェック済みにする -->
                 <input type="checkbox" v-model="todo.isDone">
-                {{ todo.title }}
+                <!-- todo の isDone が true の場合は、 done クラスを付ける -->
+                <span v-bind:class="{done: toso.isDone}">
+                        {{ todo.title }}
+                </span>
                 <span @click="deleteItem(index)" class="command">[x]</span>
             </li>
         </ul>
