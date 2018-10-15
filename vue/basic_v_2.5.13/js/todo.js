@@ -8,17 +8,32 @@
         el: '#todo',
         data: {
             newItem: '',
-            todos: [
-                'task 1',
-                'task 2',
-                'task 3',
-            ]
+            // {}でオブジェクトにする
+            todos:
+            [
+                {
+                title: 'task1',
+                isDone: false
+                },
+                {
+                title: 'task2',
+                isDone: true
+                },
+                {
+                title: 'task3',
+                isDone: false
+                },
+            ],
         },
         methods:{
-            addItem: function(e){
+            addItem: function(){
                 // e.preventDefault();
                 // this.todos.push(this.newItem)
-                 this.todos.push(this.newItem)
+                let item = {
+                    title: this.newItem,
+                    isDone: false
+                }
+                 this.todos.push(item)
                  this.newItem = ''
             },
             deleteItem: function(index){
