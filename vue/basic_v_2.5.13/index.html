@@ -26,7 +26,8 @@
                 <!-- ちなみにHTMLだと、checked="checked"でチェック済みにする -->
                 <input type="checkbox" v-model="todo.isDone">
                 <!-- todo の isDone が true の場合は、 done クラスを付ける -->
-                <span v-bind:class="{done: toso.isDone}">
+                <!-- <span v-bind:class="{done: todo.isDone}"> -->
+                <span :class="{done:todo.isDone}">
                         {{ todo.title }}
                 </span>
                 <span @click="deleteItem(index)" class="command">[x]</span>
