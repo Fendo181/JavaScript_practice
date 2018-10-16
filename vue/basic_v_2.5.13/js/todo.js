@@ -9,21 +9,24 @@
         data: {
             newItem: '',
             // {}でオブジェクトにする
-            todos:
-            [
-                {
-                title: 'task1',
-                isDone: false
-                },
-                {
-                title: 'task2',
-                isDone: true
-                },
-                {
-                title: 'task3',
-                isDone: false
-                },
-            ],
+            // todos:
+            // [
+            //     {
+            //     title: 'task1',
+            //     isDone: false
+            //     },
+            //     {
+            //     title: 'task2',
+            //     isDone: true
+            //     },
+            //     {
+            //     title: 'task3',
+            //     isDone: false
+            //     },
+            // ],
+            todos:[
+
+            ]
         },
         methods:{
             addItem: function(){
