@@ -32,6 +32,7 @@
                 </span>
                 <span @click="deleteItem(index)" class="command">[x]</span>
             </li>
+            <li v-show="!todos.length">Todoはないです！Yes!</li>
         </ul>
         <form @submit.prevent="addItem" >
             <input type="text" v-model="newItem">
