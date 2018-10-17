@@ -41,6 +41,20 @@
                     this.todos.splice(index,1);
                 }
             },
+            purge: function(index){
+                if(!confirm('delete finished?')){
+                  return;
+                }
+
+                // isDone が false つまり終わっていないものだけに todosに入れるようにする
+                this.todos = this.todos.filter(function(todo){
+                    console.log(todo.isDone);
+                    // todo.isDoneがfalseの値のみをいれるようにする
+                    return !todo.isDone;
+                });
+
+                console.log(this.todos)
+            },
         },
         // 動的にププロパティを算出する
         computed: {
