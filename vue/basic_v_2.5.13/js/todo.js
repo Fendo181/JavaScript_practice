@@ -9,24 +9,21 @@
         data: {
             newItem: '',
             // {}でオブジェクトにする
-            // todos:
-            // [
-            //     {
-            //     title: 'task1',
-            //     isDone: false
-            //     },
-            //     {
-            //     title: 'task2',
-            //     isDone: true
-            //     },
-            //     {
-            //     title: 'task3',
-            //     isDone: false
-            //     },
-            // ],
-            todos:[
-
-            ]
+            todos:
+            [
+                {
+                title: 'task1',
+                isDone: false
+                },
+                {
+                title: 'task2',
+                isDone: true
+                },
+                {
+                title: 'task3',
+                isDone: false
+                },
+            ],
         },
         methods:{
             addItem: function(){
@@ -43,7 +40,18 @@
                 if(confirm('are you sure?')){
                     this.todos.splice(index,1);
                 }
+            },
+        },
+        // 動的にププロパティを算出する
+        computed: {
+            remaining: function() {
+                let items = this.todos.filter(function(todo){
+                    return !todo.isDone;
+                });
+                return items.length;
             }
+
         }
+
     });
 })();
