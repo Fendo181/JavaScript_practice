@@ -52,9 +52,17 @@
         watch: {
             // todos[]に変更があれば、処理が実行される
             // ※todos[]の中身(title,isDone)自体の変更は監視されない
-            todos: function() {
-                localStorage.setItem('todos', JSON.stringify(this.todos));
-                console.log('saved');
+            // todos: function() {
+            //     localStorage.setItem('todos', JSON.stringify(this.todos));
+            //     console.log('saved');
+            // }
+            todos: {
+                handler: function() {
+                    localStorage.setItem('todos', JSON.stringify(this.todos));
+                    console.log('saved');
+                },
+                // todos[]の中身(title,isDone)の変更も監視する
+                deep: true
             }
         },
         // 動的にププロパティを算出する
