@@ -21,7 +21,7 @@
     <div id="todo">
         <h1>Todoリスト
             <button @click="purge">Purge</button>
-            <span class="info">{{ remaining }}/{{ todos.length }}</span>
+            <span class="info">{{ remaining.length }}/{{ todos.length }}</span>
         </h1>
         <ul v-if="todos.length">
             <!-- v-for は v-if よりも先に実行されるからですね -->
