@@ -47,25 +47,25 @@
                 }
 
                 // isDone が false つまり終わっていないものだけに todosに入れるようにする
-                this.todos = this.todos.filter(function(todo){
-                    console.log(todo.isDone);
-                    // todo.isDoneがfalseの値のみをいれるようにする
-                    return !todo.isDone;
-                });
-
-                console.log(this.todos)
+                // this.todos = this.todos.filter(function(todo){
+                //     console.log(todo.isDone);
+                //     // todo.isDoneがfalseの値のみをいれるようにする
+                //     return !todo.isDone;
+                // });
+                this.todos = this.remaining;
             },
         },
         // 動的にププロパティを算出する
         computed: {
             remaining: function() {
-                let items = this.todos.filter(function(todo){
+                // let items = this.todos.filter(function(todo){
+                //     return !todo.isDone;
+                // });
+                // return items.length;
+                return this.todos.filter(function(todo){
                     return !todo.isDone;
                 });
-                return items.length;
             }
-
         }
-
     });
 })();
