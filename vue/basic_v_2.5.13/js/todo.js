@@ -59,7 +59,6 @@
             todos: {
                 handler: function() {
                     localStorage.setItem('todos', JSON.stringify(this.todos));
-                    console.log('saved');
                 },
                 // todos[]の中身(title,isDone)の変更も監視する
                 deep: true
