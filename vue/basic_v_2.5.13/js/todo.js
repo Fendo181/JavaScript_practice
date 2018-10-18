@@ -45,15 +45,17 @@
                 if(!confirm('delete finished?')){
                   return;
                 }
-
-                // isDone が false つまり終わっていないものだけに todosに入れるようにする
-                // this.todos = this.todos.filter(function(todo){
-                //     console.log(todo.isDone);
-                //     // todo.isDoneがfalseの値のみをいれるようにする
-                //     return !todo.isDone;
-                // });
                 this.todos = this.remaining;
             },
+        },
+        // 監視プロパティ(watched property)
+        watch: {
+            // todos[]に変更があれば、処理が実行される
+            // ※todos[]の中身(title,isDone)自体の変更は監視されない
+            todos: function() {
+                localStorage.setItem('todos', JSON.stringify(this.todos));
+                console.log('saved');
+            }
         },
         // 動的にププロパティを算出する
         computed: {
