@@ -21,6 +21,11 @@
                 },
             ],
         },
+        // ページにマウントされるタイミングでデータを読み込む
+        mounted: function() {
+            //  parse が上手くいかなかった場合は、空の配列を返す
+            this.todos = JSON.parse(localStorage.getItem('todos')) || [];
+        },
         methods:{
             addItem: function(){
                 // e.preventDefault();
