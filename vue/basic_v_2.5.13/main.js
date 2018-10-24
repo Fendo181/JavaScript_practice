@@ -4,7 +4,13 @@
     // Component
     // テンプレートを作成する
     let likeComponent = Vue.extend({
-        props: ['message'],
+        // props: ['message'],
+        props: {
+            message: {
+            type: String,
+            default: 'Like is Default',
+            }
+        },
         // Component の data は関数で返してあげる必要がある
         data: function() {
             return {
