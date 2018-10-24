@@ -4,6 +4,7 @@
     // Component
     // テンプレートを作成する
     let likeComponent = Vue.extend({
+        props: ['message'],
         // Component の data は関数で返してあげる必要がある
         data: function() {
             return {
@@ -16,7 +17,7 @@
             }
         },
         // htmlタグ
-        template: '<button @click="countUp">Like {{ count }}</button>',
+        template: '<button @click="countUp">{{ message }} {{ count }}</button>',
     });
 
     let app = new Vue({
