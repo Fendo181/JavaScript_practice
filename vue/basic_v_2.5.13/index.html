@@ -10,11 +10,13 @@
 <body>
 
     <div id="app">
+        <p>Totak Likes: {{ total }}</p>
         <!-- テンプレート呼び出し -->
-        <like-component message="Like"></like-component>
-        <like-component message="Awsome"></like-component>
-        <like-component message="Great"></like-component>
-        <like-component></like-component>
+        <!-- <like-component message="Like" v-on:increment="incrementTotal"></like-component> -->
+        <like-component message="Like" @increment="incrementTotal"></like-component>
+        <like-component message="Awsome" @increment="incrementTotal"></like-component>
+        <like-component message="Great" @increment="incrementTotal"></like-component>
+        <like-component @increment="incrementTotal"></like-component>
     </div>
 
 <!-- vue.js -->

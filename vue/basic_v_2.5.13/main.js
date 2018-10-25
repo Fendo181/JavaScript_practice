@@ -20,6 +20,8 @@
         methods:{
             countUp: function() {
                 this.count++;
+                // イベントの発火には emit という命令を使う
+                this.$emit('increment');
             }
         },
         // htmlタグ
@@ -32,6 +34,13 @@
         // コンポーネントを指定する
         'like-component': likeComponent
         },
+        data: {
+            total: 0
+        },
+        methods: {
+            incrementTotal: function() {
+                this.total++;
+            }
+        },
     });
-
 }());
