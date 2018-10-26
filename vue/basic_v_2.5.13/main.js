@@ -28,7 +28,7 @@
         template: '<button @click="countUp">{{ message }} {{ count }}</button>',
     });
 
-    let app = new Vue({
+    const app = new Vue({
     el: '#app',
         components: {
         // コンポーネントを指定する

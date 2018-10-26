@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-    var vm = new Vue({
+    const vm = new Vue({
         el: '#todo',
         data: {
             newItem: '',
