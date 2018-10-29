@@ -156,6 +156,54 @@ ex)index.html
     </form>
 ```
 
+### コンポーネントの構成
+
+#### `Vue.component`
+
+```js
+// my-component という id でコンストラクタを登録する
+Vue.component('my-component', MyComponent)
+```
+
+- クラス継承メソッド
+- オブジェクトを直接してしたい場合は内部的に`Vue.extend`を呼び出す。
+
+```js
+// Note: この関数はグローバルな Vue を返し、
+// 登録されたコンストラクタを返すものではありません。
+Vue.component('my-component', {
+  template: '<p>A custom component!</p>'
+})
+```
+
+#### `Vue.extend`
+
+```js
+// 再利用可能なコンストラクタを取得するために Vue を拡張します
+var MyComponent = Vue.extend({
+  template: '<p>A custom component!</p>'
+})
+```
+
+- アセット登録メソッド
+- `el`と`data`に関しては、メソッドで呼び出すて返して上げる必要がある。
+
+```js
+var ComponentWithDefaultData = Vue.extend({
+  data: function () {
+    return {
+      title: 'Hello!'
+    }
+  }
+})
+```
+
+### `Vue.component`と`Vue.extend`の違い
+
+>Vue.extend() と Vue.component() の違いを理解することは重要です。Vue 自身はコンストラクタであるため、Vue.extend() はクラス継承メソッドです。そのタスクは Vue のサブクラスを生成して、そのコンストラクタを返すものです。一方、 Vue.component() はアセット登録メソッドであり、Vue.directive() や Vue.filter() と類似しています。そのタスクは与えられたコンストラクタに文字列のIDを関連付けて、 Vue.js がそれをテンプレートの中で利用できるようにするものです。直接 Vue.component() にオプションを渡した時は、内部的に Vue.extend() が呼ばれます。
+
+ref:[コンポーネントシステム - vue.js](https://012-jp.vuejs.org/guide/components.html)
+
 
 ## 参考資料
 
