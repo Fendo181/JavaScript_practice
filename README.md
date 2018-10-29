@@ -50,5 +50,6 @@
   - [Node.js入門 (全16回) - プログラミングならドットインストール](https://dotinstall.com/lessons/basic_nodejs)
   - [Node.js入門 ~ サーバーサイドJavaScriptを根本から理解する](https://nakanoh.net/article/node-entry-book)
 - 2018/10/26
-  - 再度Vue.jsの文法が消滅したの再学習する
+  - 再度Vue.jsの文法を学ぶ
+  - [学んだ内容](https://github.com/Fendo181/js_repos/tree/master/vue/basic_v_2.5.13)
   - [Vue.js入門 (全17回) - プログラミングならドットインストール](https://dotinstall.com/lessons/basic_vuejs_v2)
