@@ -17,6 +17,7 @@
 
 ## Vue.jsの基本
 
+
 ### 宣言的レンダリング
 
 #### UIに紐づく ViewModel を定義する
@@ -104,7 +105,7 @@ var app3 = new Vue({
   data: {
     seen: true
   }
-})
+})();
 ```
 
 ex) index.html
@@ -120,6 +121,40 @@ ex) index.html
  [スタイルガイド — v-for と一緒に v-if を使うのを避けるVue.js](https://jp.vuejs.org/v2/style-guide/#v-for-%E3%81%A8%E4%B8%80%E7%B7%92%E3%81%AB-v-if-%E3%82%92%E4%BD%BF%E3%81%86%E3%81%AE%E3%82%92%E9%81%BF%E3%81%91%E3%82%8B-%E5%BF%85%E9%A0%88)
 
 
+### ユーザ入力制御
+
+#### `v-on`ディレクティブ
+
+- イベントを紐付ける事ができる
+- `@`マークで省略可能
+- Vueモデルの`methods`でイベントを定義をする。
+
+ex) main.js
+
+
+```js
+var app = new Vue({
+  el: '#app',
+    data: {
+        todos:
+        [
+
+        ],
+    },
+    methods:{
+    addItem: function(){
+        this.todos.push(this.newItem)
+        },
+})();
+```
+ex)index.html
+
+```html
+    <form @submit.prevent="addItem" >
+        <input type="text" v-model="newItem">
+        <input type="submit" value="Todo リストを加える">
+    </form>
+```
 
 
 ## 参考資料
