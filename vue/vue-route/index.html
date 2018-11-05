@@ -8,7 +8,20 @@
 </head>
 <body>
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <div id="app">
+        <h1>Hello App!</h1>
+    </div>
+    <p>
+        <!-- デフォルトでroute-linkは <a>タグで描画される-->
+        <route-link to="/foo">Got to Foo<route-link>
+        <route-link to="/bar">Go to Bar<route-link>
+    </p>
+     <!-- ルートアウトレット -->
+    <!-- ルートとマッチしたコンポーネントがここへ描画されます -->
+    <route-view></route-view>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
