@@ -1,3 +1,8 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter)
+
 // 1 コンポーネントを定義する
 const Foo = {template: '<div>foo</div>' };
 const Bar = {template: '<div>Bar</div>' };
