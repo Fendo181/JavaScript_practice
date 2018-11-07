@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>Vue.Jsを使ってみる</title>
+</head>
+<body>
+
+    <div id="app">
+        <p>Totak Likes: {{ total }}</p>
+        <!-- テンプレート呼び出し -->
+        <!-- <like-component message="Like" v-on:increment="incrementTotal"></like-component> -->
+        <like-component message="Like" @increment="incrementTotal"></like-component>
+        <like-component message="Awsome" @increment="incrementTotal"></like-component>
+        <like-component message="Great" @increment="incrementTotal"></like-component>
+        <like-component @increment="incrementTotal"></like-component>
+    </div>
+
+<!-- vue.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>
