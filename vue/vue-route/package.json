@@ -1,14 +1,15 @@
 {
-  "name": "vue-route",
-  "version": "1.0.0",
-  "description": "",
+  "name": "vue-route-sample",
+  "version": "0.0.1",
+  "description": "example vue test",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "fendo181",
+  "author": "Fendo181",
   "license": "ISC",
   "dependencies": {
-    "vue-router": "^3.0.1"
+    "vue": "^2.5.17",
+    "vue-route": "^1.5.1"
   }
 }
