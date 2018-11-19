@@ -51,3 +51,7 @@
   - [学んだ内容](https://github.com/Fendo181/js_repos/tree/master/vue/basic_v_2.5.13)
   - [Vue.js入門 (全17回) - プログラミングならドットインストール](https://dotinstall.com/lessons/basic_vuejs_v2)
 
+- 2018/10/29
+  - JavaScriptの中級者レベルの文法を学びはじめた
+  - [改訂新版JavaScript本格入門 ~モダンスタイルによる基礎から現場での応用まで](https://gihyo.jp/book/2016/978-4-7741-8411-1)
+
