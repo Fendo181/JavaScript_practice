@@ -5,7 +5,7 @@ phina.globalize();
 const ASSETS = {
   image: {
     bg: "http://jsrun.it/assets/a/G/5/Y/aG5YD.png",
-    tomapiko: 'http://cdn.rawgit.com/phi-jp/phina.js/v0.2.0/assets/images/tomapiko_ss.png',
+    endu: './img/chara.jpg',
   },
 };
 const SCREEN_WIDTH = 465; // スクリーン幅
@@ -25,13 +25,13 @@ phina.define('MainScene', {
     this.bg.origin.set(0, 0); // 左上基準に変更
 
     // // ラベルを生成
-    // this.label = Label('Endo Game!').addChildTo(this);
-    // this.label.x = this.gridX.center(); // x 座標
-    // this.label.y = this.gridY.center(); // y 座標
-    // this.label.fill = 'white'; // 塗りつぶし色
+    this.label = Label('Endo Game!').addChildTo(this);
+    this.label.x = this.gridX.center(); // x 座標
+    this.label.y = this.gridY.center(-4); // y 座標
+    this.label.fill = 'black'; // 塗りつぶし色
 
     //プレイヤーを生成する
-    this.player = Sprite('tomapiko', 64, 64).addChildTo(this);
+    this.player = Sprite('endu', 100, 140).addChildTo(this);
     this.player.setPosition(400, 400);
     this.player.frameIndex = 0;
   },
