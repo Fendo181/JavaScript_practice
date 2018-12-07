@@ -6,11 +6,16 @@ const ASSETS = {
   image: {
     bg: "http://jsrun.it/assets/a/G/5/Y/aG5YD.png",
     endu: './img/chara.jpg',
+    red: './img/red.png',
+    blue: './img/blue.png',
+    orange: './img/orange.png',
   },
 };
 const SCREEN_WIDTH = 465; // スクリーン幅
 const SCREEN_HEIGHT = 465; // スクリーン高さ
-const SPEED = 4;
+const SPEED = 10;
+const GRAVITY = 0.5; // 重力
+
 
 // MainScene クラスを定義
 phina.define('MainScene', {
@@ -34,6 +39,20 @@ phina.define('MainScene', {
     this.player = Sprite('endu', 100, 140).addChildTo(this);
     this.player.setPosition(400, 400);
     this.player.frameIndex = 0;
+
+    //redキーキャップを生成する
+    var red_key_shape = Sprite('red', 100, 100).addChildTo(this);
+    red_key_shape.addChildTo(this);
+    red_key_shape.setPosition(320, 0);
+    // Physicalクラスを適用して落下運動
+    red_key_shape.physical.gravity.y = 0.5;
+
+    //blueキーキャップを生成する
+    var blue_key_shape = Sprite('blue', 100, 100).addChildTo(this);
+    blue_key_shape.addChildTo(this);
+    blue_key_shape.setPosition(220, 0);
+    // Physicalクラスを適用して落下運動
+    blue_key_shape.physical.gravity.y = 0.5;
   },
 
   // 更新
@@ -76,9 +95,9 @@ phina.main(function () {
   // アプリケーション生成
   var app = GameApp({
     startLabel: 'main', // メインシーンから開始する
-    width: SCREEN_WIDTH,  // 画面幅
-    height: SCREEN_HEIGHT,// 画面高さ
-    assets: ASSETS,       // アセット読み込
+    width: SCREEN_WIDTH, // 画面幅
+    height: SCREEN_HEIGHT, // 画面高さ
+    assets: ASSETS, // アセット読み込
   });
   app.enableStats();
   // アプリケーション実行
