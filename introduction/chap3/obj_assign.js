@@ -15,5 +15,5 @@ let human = {
 }
 
 
-Object.assign(pet, human);
-console.log(pet);
+let mergeObj = Object.assign({}, pet, human);
+console.log(mergeObj);
