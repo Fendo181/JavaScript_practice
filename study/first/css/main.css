@@ -14,8 +14,13 @@ body
     line-height: 100px;
 }
 
-.circle {
+.win {
     background-color: pink;
     border-radius: 50%;
     transform: rotate(360deg);
 }
+
+.lose {
+    transform: scale(0.9);
+}
+
