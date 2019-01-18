@@ -11,7 +11,7 @@ function sum(...nums){
 }
 
 try{
-    console.log(sum(1,2,3,4,5));
+    console.log(sum(...[1,2,3,4,5]));
 }catch(e){
     console.log(e.message);
 }
