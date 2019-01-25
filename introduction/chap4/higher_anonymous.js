@@ -16,5 +16,3 @@ arrayWalk(
     result += value;
 });
 console.log(`合計値は${result}`);
-
-
