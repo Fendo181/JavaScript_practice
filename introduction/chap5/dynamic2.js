@@ -18,4 +18,3 @@ console.log(mem.getName()); //翔太菊池
 var mem2 = new Member('高橋','清太郎');
 
 console.log(mem2.getName()); // mem2.getName is not a function
-
