@@ -4,6 +4,7 @@ class Member {
         this.lastName = lastName;
     }
 
+    // アクセス修飾子はつかない
     getName(){
         return this.lastName + this.firstName;
     }
