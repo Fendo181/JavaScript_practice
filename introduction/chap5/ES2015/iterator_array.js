@@ -1,5 +1,7 @@
 let data_ary = ['one','two','three']
 let itr = data_ary[Symbol.iterator]();
+console.log(itr); //Object [Array Iterator] {}
+console.log(itr.next()); //{ value: 'one', done: false }
 let d;
 
 while(d = itr.next()){
