@@ -6,6 +6,7 @@ class MyIterator {
     [Symbol.iterator](){
         let current = 0;
         let that = this;
+        console.log(this); //MyIterator { data: [ 'one', 'two', 'three' ] }
         // プロパティ
         return {
             // dataプロパティの次の要素を取得する
@@ -20,6 +21,7 @@ class MyIterator {
 }
 
 let itr = new MyIterator(['one','two','three']);
+// fo ofを実行することで自動的にArrayオブジェクトのメンバーをイテレータで呼び出している
 for(let value of itr){
     console.log(value);
     // one
