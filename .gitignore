@@ -4,6 +4,8 @@
 .LSOverride
 /.DS_Store
 .commit_template
+/node_modules
+package-lock.json
 
 # Icon must end with two \r
 Icon
