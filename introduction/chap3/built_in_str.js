@@ -1,2 +1,2 @@
-let str = 'こんにちは!';
-console.log(str.length); //6
+let str = 'こんにちは!'
+console.log(str.length) // 6
