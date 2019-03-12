@@ -4,6 +4,14 @@
 ## 概要
 今後増えるであろうJSの勉強場所としてのリポジトリです。
 
+## ESLint
+
+コーディングスタイルは[JavaScript Standard Style](https://github.com/standard/standard)に沿っています。
+
+```
+./node_modules/.bin/eslint hoge.js
+```
+
 ## 更新履歴
 
 - 2016 4/27 ドットインストールミートアップ
