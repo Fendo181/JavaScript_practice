@@ -1,0 +1,19 @@
+{
+  "name": "js_repos",
+  "version": "1.0.0",
+  "description": "## 概要 今後増えるであろうJSの勉強場所としてのリポジトリです。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fendo181/js_repos.git"
+  },
+  "author": "Fendo181",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fendo181/js_repos/issues"
+  },
+  "homepage": "https://github.com/Fendo181/js_repos#readme"
+}
