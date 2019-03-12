@@ -11,11 +11,13 @@ function * genPrime(){
 
 function isPrime(value){
     let prime = true
-    console.log(`for:${Math.floor(Math.sqrt(value))}`);
+    console.log(`for:${value}の平方根は${Math.sqrt(value)}`);
 
     for(let i = 2; i <= Math.floor(Math.sqrt(value)); i++){
+        console.log(`i:${i}`);
         // 割り切れたら素数ではない
         if(value % i === 0){
+            console.log(`素数でない`);
             prime = false
             break;
         }
