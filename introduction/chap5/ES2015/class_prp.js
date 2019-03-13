@@ -1,41 +1,39 @@
 class Member {
-    // コンストラクタ
-    constructor(firstName,lastName) {
-        // プライベート変数
-        this._firstName = firstName;
-        this._lastName = lastName;
-    }
+  // コンストラクタ
+  constructor (firstName, lastName) {
+    // プライベート変数
+    this._firstName = firstName
+    this._lastName = lastName
+  }
 
-    // firstNameプロパティ
-    get firstName() {
-        return this._firstName;
-    }
+  // firstNameプロパティ
+  get firstName () {
+    return this._firstName
+  }
 
-    set firstName(value) {
-        this._firstName = value;
-    }
+  set firstName (value) {
+    this._firstName = value
+  }
 
-    // lastNameプロパティ
-    get lastName() {
-        return this._lastName;
-    }
+  // lastNameプロパティ
+  get lastName () {
+    return this._lastName
+  }
 
-    set lastName(value) {
-        this._lastName = value;
-    }
+  set lastName (value) {
+    this._lastName = value
+  }
 
-    // メソッド
-    getName(){
-        return this._firstName + this._lastName;
-    }
-
+  // メソッド
+  getName () {
+    return this._firstName + this._lastName
+  }
 }
 
-let men = new Member('遠藤','太徳');
-console.log(men.getName());
+let men = new Member('遠藤', '太徳')
+console.log(men.getName())
 
-//get setを使う p255にも
-men.firstName = '菊池';
-men.lastName = '翔太';
-console.log(men.getName()); //池翔太
-
+// get setを使う p255にも
+men.firstName = '菊池'
+men.lastName = '翔太'
+console.log(men.getName()) // 池翔太

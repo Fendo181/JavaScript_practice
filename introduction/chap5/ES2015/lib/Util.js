@@ -1,14 +1,13 @@
-const Author = 'Fendo181';
-
+const Author = 'Fendo181'
 
 export class Member {
-    constructor(firstName,lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+  constructor (firstName, lastName) {
+    this.firstName = firstName
+    this.lastName = lastName
+  }
 
-    // アクセス修飾子はつかない
-    getName(){
-        return this.lastName + this.firstName;
-    }
+  // アクセス修飾子はつかない
+  getName () {
+    return this.lastName + this.firstName
+  }
 }
