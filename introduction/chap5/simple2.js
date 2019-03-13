@@ -1,6 +1,6 @@
 // ES2015以前のクラス宣言
 var Member = function (firstName, lastName) {
-  //　コンストラクター的な宣言の仕方
+  // コンストラクター的な宣言の仕方
   this.firstName = firstName
   this.lastName = lastName
   // 一応関数でプロパティ呼び出しだが、
