@@ -1,4 +1,4 @@
-import {Member} from './lib/Util';
+import { Member } from './lib/Util'
 
 // var m = new Member('Endo','Futoshi');
-console.log(m.getName);
+console.log(m.getName)
