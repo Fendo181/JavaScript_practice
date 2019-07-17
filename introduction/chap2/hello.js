@@ -1,4 +1,4 @@
-let message = "hello wold!";
-let str = `こんにちは！　${message}`;
+let message = 'hello wold!'
+let str = `こんにちは！　${message}`
 
-console.log(str)//こんにちは！　hello wold!
+console.log(str)// こんにちは！　hello wold!

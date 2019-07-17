@@ -4,6 +4,25 @@
 ## 概要
 今後増えるであろうJSの勉強場所としてのリポジトリです。
 
+## 学んだ範囲
+
+- 第2章 JavaScriptの基本的な記法
+  - [第2章 JavaScriptの基礎文法を学ぶ by Fendo181 · Pull Request #6 · Fendo181/js_repos](https://github.com/Fendo181/js_repos/pull/6)
+- 第3章 基本データを操作する 組み込みオブジェク
+  - [第3章 基本データを操作する 組み込みオブジェクト by Fendo181 · Pull Request #9 · Fendo181/js_repos](https://github.com/Fendo181/js_repos/pull/9)
+- 第4章 関数
+  - [第4章 関数(Function) by Fendo181 · Pull Request #12 · Fendo181/js_repos](https://github.com/Fendo181/js_repos/pull/12)
+- 第5章 JavaScriptにおけるオブジェクト指向構文
+  - [第5章 JavaScriptにおけるオブジェクト指向構文 by Fendo181 · Pull Request #14 · Fendo181/js_repos](https://github.com/Fendo181/js_repos/pull/14)
+
+## ESLint
+
+コーディングスタイルは[JavaScript Standard Style](https://github.com/standard/standard)に沿っています。
+
+```
+./node_modules/.bin/eslint hoge.js
+```
+
 ## 更新履歴
 
 - 2016 4/27 ドットインストールミートアップ

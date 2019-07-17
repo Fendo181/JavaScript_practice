@@ -1,5 +1,5 @@
-let flag = new Boolean(false);
+let flag = new Boolean(false)
 
-if(flag){
-    console.log('flagはtrueです！'); //flagはtrueです！
+if (flag) {
+  console.log('flagはtrueです！') // flagはtrueです！
 }
