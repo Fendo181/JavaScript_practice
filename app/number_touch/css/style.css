@@ -44,6 +44,18 @@ body {
     box-shadow: 0 4px 0 #0088cc;
 }
 
+#level_button {
+    padding: 10px;
+    margin: auto;
+}
+
+#difficult_level {
+    background: #00aaff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px 10px ;
+    margin: 16px auto;
+}
+
 #timer {
     margin-bottom: 8px;
     font-size: 20px;

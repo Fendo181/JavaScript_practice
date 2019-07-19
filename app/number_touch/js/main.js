@@ -29,7 +29,6 @@
         this.el.classList.add('pressed');
         this.game.addCurrentNum();
 
-        // 4つ全てのボタンを押されたら、タイマーを止める
         if(this.game.getCurrentNum() === this.game.getLevel() ** 2) {
           clearTimeout(this.game.getTimeoutId());
         }
@@ -50,6 +49,7 @@
     // パネルの数だけ要素を追加する
     setup() {
         const board = document.getElementById('board');
+        while (board.firstChild) board.removeChild(board.firstChild);
         this.panels.forEach(panel => {
             //  クラスのプロパティに外部から直接アクセスしないほうが良い
             // board.appendChild(panel.el);
@@ -141,5 +141,27 @@
     }
   }
 
-  new Game(2);
+
+  document.getElementById('difficult_level').addEventListener('change',()=>{
+    let index = document.getElementById('difficult_level').selectedIndex;
+    let level = document.getElementById('difficult_level').options[index].value;
+    switch (level){
+      case 'easy' :
+       new Game(3);
+       break;
+       case 'normal' :
+        new Game(6);
+        break;
+      case 'hard' :
+       new Game(8);
+       break;
+      case 'endo' :
+      new Game(10);
+       break;
+      default:
+       new Game(2);
+    }
+  });
+
+  new Game(3)
 }
