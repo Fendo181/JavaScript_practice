@@ -141,7 +141,6 @@
     }
   }
 
-
   document.getElementById('difficult_level').addEventListener('change',()=>{
     let index = document.getElementById('difficult_level').selectedIndex;
     let level = document.getElementById('difficult_level').options[index].value;
