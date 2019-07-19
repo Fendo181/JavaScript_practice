@@ -27,6 +27,13 @@ body {
     border-radius: 4px;
 }
 
+#board li.pressed{
+    background: #ccc;
+    box-shadow: none;
+    margin-top: 9px;
+    margin-bottom: 1px;
+}
+
 #board li {
     background: #00aaff;
     width:  40px;
