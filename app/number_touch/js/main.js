@@ -1,9 +1,10 @@
 'use strict';
 
 {
-  //  Panelクラス
+  // Panelクラス
   class Panel {
-    constructor () {
+    constructor (game) {
+      this.game = game;
       this.el = document.createElement('li');
       this.el.classList.add('pressed');
       this.el.addEventListener('click', ()=>{
@@ -23,24 +24,25 @@
 
     // currentNum と押し込んだパネルの数値が合っているか比較する
     check() {
-      if(currentNum === parseInt(this.el.textContent, 10)){
+      if(this.game.getCurrentNum() === parseInt(this.el.textContent, 10)){
         // 正解
         this.el.classList.add('pressed');
-        currentNum++;
+        this.game.addCurrentNum();
 
         // 4つ全てのボタンを押されたら、タイマーを止める
-        if(currentNum === 4) {
-          clearTimeout(timeoutId);
+        if(this.game.getCurrentNum() === 4) {
+          clearTimeout(this.game.getTimeoutId());
         }
       } 
     }
   }
   // Boardクラス
   class Board {
-    constructor () {
+    constructor (game) {
+      this.game = game;
       this.panels = [];
       for (let i = 0; i < 4; i++) {
-        this.panels.push(new Panel());
+        this.panels.push(new Panel(this.game));
       }
       this.setup();
     }
@@ -66,36 +68,56 @@
     }
   }
 
-  function runTimer() {
-    const timer = document.getElementById('timer');
-    timer.textContent = ((Date.now() - startTime)/1000).toFixed(2);
+  class Game {
+    constructor() {
+      // gameクラスのインスタンスを渡す
+      this.board = new Board(this);
 
-    // runTimerを再帰的に呼びだす
-    timeoutId =  setTimeout(()=>{
-      runTimer();
-    },10);
-  }
-
-  const board = new Board();
-
-  // 今押している数字を保持しておく
-  let currentNum;
-  // 時刻のデータを保持する
-  let startTime;
-  let timeoutId;
-
-
-  const btn = document.getElementById('button');
-  btn.addEventListener('click',()=>{
-    /// 既にタイマーが走っていたら、それを止める
-    if(typeof timeoutId !== 'undefined') {
-      clearTimeout(timeoutId);
+      // 今押している数字を保持しておく
+      this.currentNum = undefined;
+      // 時刻のデータを保持する
+      this.startTime = undefined;
+      this.timeoutId = undefined;
+      this.start();
     }
-    currentNum = 0;
-    // ゲーム開始
-    board.activate();
-    // 時間測定開始
-    startTime = Date.now();
-    runTimer();
-  });
+    start() {
+      const btn = document.getElementById('button');
+      btn.addEventListener('click',()=>{
+        /// 既にタイマーが走っていたら、それを止める
+        if(typeof this.timeoutId !== 'undefined') {
+          clearTimeout(this.timeoutId);
+        }
+       this.currentNum = 0;
+
+        // ゲーム開始
+        this.board.activate();
+        // 時間測定開始
+        this.startTime = Date.now();
+        this.runTimer();
+      });
+    }
+
+    runTimer() {
+      const timer = document.getElementById('timer');
+      timer.textContent = ((Date.now() - this.startTime)/1000).toFixed(2);
+  
+      // runTimerを再帰的に呼びだす
+      this.timeoutId =  setTimeout(()=>{
+        this.runTimer();
+      },10);
+    }
+
+    getCurrentNum() {
+      return this.currentNum;
+    }
+
+    getTimeoutId() {
+      return this.timeoutId;
+    }
+
+    addCurrentNum() {
+      this.currentNum++;
+    }
+  }
+  new Game();
 }
