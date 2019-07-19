@@ -27,6 +27,11 @@
         // 正解
         this.el.classList.add('pressed');
         currentNum++;
+
+        // 4つ全てのボタンを押されたら、タイマーを止める
+        if(currentNum === 4) {
+          clearTimeout(timeoutId);
+        }
       } 
     }
   }
@@ -66,7 +71,7 @@
     timer.textContent = ((Date.now() - startTime)/1000).toFixed(2);
 
     // runTimerを再帰的に呼びだす
-    setTimeout(()=>{
+    timeoutId =  setTimeout(()=>{
       runTimer();
     },10);
   }
@@ -77,6 +82,7 @@
   let currentNum = 0;
   // 時刻のデータを保持する
   let startTime;
+  let timeoutId;
 
 
   const btn = document.getElementById('button');
