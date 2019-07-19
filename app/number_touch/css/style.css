@@ -12,8 +12,6 @@ body {
 パネルそれぞれに白を持たせつつ 50px 、それに加えてボードの両側の padding を 10px
  */
 #container {
-    /* 50px * 2 10px *2 */
-    width: 120px;
     margin: 16px auto;
 }
 
