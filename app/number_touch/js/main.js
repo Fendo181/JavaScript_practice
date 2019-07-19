@@ -40,8 +40,10 @@
 
     // ゲーム開始処理
     activate() {
+      const nums = [0,1,2,3];
       this.panels.forEach(panel => {
-        panel.activate(0);
+        const num = nums.splice(Math.floor(Math.random()*nums.length),1)[0];
+        panel.activate(num);
       });
     }
   }
