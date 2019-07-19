@@ -11,6 +11,11 @@
     getEl() {
         return this.el;
     }
+
+    activate(num) {
+      this.el.classList.remove('pressed');
+      this.el.textContent = num;
+    }
   }
   // Boardクラス
   class Board {
@@ -32,7 +37,18 @@
             board.appendChild(panel.getEl()); //カプセル化
         });
     }
+
+    activate() {
+      this.panels.forEach(panel => {
+        panel.activate(0);
+      });
+    }
   }
 
   const board = new Board();
+
+  const btn = document.getElementById('button');
+  btn.addEventListener('click',()=>{
+    board.activate();
+  });
 }
