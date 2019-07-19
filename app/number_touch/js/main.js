@@ -4,8 +4,12 @@
   //  Panelクラス
   class Panel {
     constructor () {
-    this.el = document.createElement('li');
-    this.el.classList.add('pressed');
+      this.el = document.createElement('li');
+      this.el.classList.add('pressed');
+      this.el.addEventListener('click', ()=>{
+        // 押した数字が順番通りか確認する
+        this.check();
+      });
     }
 
     getEl() {
@@ -15,6 +19,15 @@
     activate(num) {
       this.el.classList.remove('pressed');
       this.el.textContent = num;
+    }
+
+    // currentNum と押し込んだパネルの数値が合っているか比較する
+    check() {
+      if(currentNum === parseInt(this.el.textContent, 10)){
+        // 正解
+        this.el.classList.add('pressed');
+        currentNum++;
+      } 
     }
   }
   // Boardクラス
@@ -49,6 +62,9 @@
   }
 
   const board = new Board();
+
+  // 今押している数字を保持しておく
+  let currentNum = 0;
 
   const btn = document.getElementById('button');
   btn.addEventListener('click',()=>{
