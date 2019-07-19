@@ -38,6 +38,7 @@
         });
     }
 
+    // ゲーム開始処理
     activate() {
       this.panels.forEach(panel => {
         panel.activate(0);
