@@ -29,7 +29,7 @@
             //  クラスのプロパティに外部から直接アクセスしないほうが良い
             // board.appendChild(panel.el);
             // getterを使って取得する
-            board.appendChild(panel.getEl());
+            board.appendChild(panel.getEl()); //カプセル化
         });
     }
   }
