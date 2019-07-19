@@ -1,0 +1,27 @@
+/* 全体のスタイル */
+
+body {
+    background:  #ccc;
+    color: #fff;
+    font-family: 'Courier New', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*
+パネルそれぞれに白を持たせつつ 50px 、それに加えてボードの両側の padding を 10px
+ */
+#container {
+    /* 50px * 2 10px *2 */
+    width: 120px;
+    margin: 16px auto;
+    background: pink;
+}
+
+#board{
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    background: white;
+    border-radius: 4px;
+}
