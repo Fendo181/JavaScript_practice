@@ -2,14 +2,12 @@
 'use strict'
 
 {
-  // Panelクラス
   class Panel {
     constructor (game) {
       this.game = game
       this.el = document.createElement('li')
       this.el.classList.add('pressed')
       this.el.addEventListener('click', () => {
-        // 押した数字が順番通りか確認する
         this.check()
       })
     }
@@ -23,10 +21,8 @@
       this.el.textContent = num
     }
 
-    // currentNum と押し込んだパネルの数値が合っているか比較する
     check () {
       if (this.game.getCurrentNum() === parseInt(this.el.textContent, 10)) {
-        // 正解
         this.el.classList.add('pressed')
         this.game.addCurrentNum()
 
@@ -36,7 +32,7 @@
       }
     }
   }
-  // Boardクラス
+
   class Board {
     constructor (game) {
       this.game = game
@@ -47,7 +43,6 @@
       this.setup()
     }
 
-    // パネルの数だけ要素を追加する
     setup () {
       const board = document.getElementById('board')
       while (board.firstChild) board.removeChild(board.firstChild)
@@ -59,7 +54,6 @@
       })
     }
 
-    // ゲーム開始処理
     activate () {
       const nums = []
       for (let i = 0; i < this.game.getLevel() ** 2; i++) {
@@ -75,14 +69,9 @@
 
   class Game {
     constructor (level) {
-      // gameに難易度を管理する
       this.level = level
-      // gameクラスのインスタンスを渡す
       this.board = new Board(this)
-
-      // 今押している数字を保持しておく
       this.currentNum = undefined
-      // 時刻のデータを保持する
       this.startTime = undefined
       this.timeoutId = undefined
       this.start()
@@ -105,10 +94,7 @@
           clearTimeout(this.timeoutId)
         }
         this.currentNum = 0
-
-        // ゲーム開始
         this.board.activate()
-        // 時間測定開始
         this.startTime = Date.now()
         this.runTimer()
       })
@@ -117,8 +103,6 @@
     runTimer () {
       const timer = document.getElementById('timer')
       timer.textContent = ((Date.now() - this.startTime) / 1000).toFixed(2)
-
-      // runTimerを再帰的に呼びだす
       this.timeoutId = setTimeout(() => {
         this.runTimer()
       }, 10)
