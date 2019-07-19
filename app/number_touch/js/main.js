@@ -61,13 +61,30 @@
     }
   }
 
+  function runTimer() {
+    const timer = document.getElementById('timer');
+    timer.textContent = ((Date.now() - startTime)/1000).toFixed(2);
+
+    // runTimerを再帰的に呼びだす
+    setTimeout(()=>{
+      runTimer();
+    },10);
+  }
+
   const board = new Board();
 
   // 今押している数字を保持しておく
   let currentNum = 0;
+  // 時刻のデータを保持する
+  let startTime;
+
 
   const btn = document.getElementById('button');
   btn.addEventListener('click',()=>{
+    // ゲーム開始
     board.activate();
+    // 時間測定開始
+    startTime = Date.now();
+    runTimer();
   });
 }
