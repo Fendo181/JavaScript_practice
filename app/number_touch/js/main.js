@@ -79,7 +79,7 @@
   const board = new Board();
 
   // 今押している数字を保持しておく
-  let currentNum = 0;
+  let currentNum;
   // 時刻のデータを保持する
   let startTime;
   let timeoutId;
@@ -87,6 +87,11 @@
 
   const btn = document.getElementById('button');
   btn.addEventListener('click',()=>{
+    /// 既にタイマーが走っていたら、それを止める
+    if(typeof timeoutId !== 'undefined') {
+      clearTimeout(timeoutId);
+    }
+    currentNum = 0;
     // ゲーム開始
     board.activate();
     // 時間測定開始
