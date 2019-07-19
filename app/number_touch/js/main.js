@@ -30,7 +30,7 @@
         this.game.addCurrentNum();
 
         // 4つ全てのボタンを押されたら、タイマーを止める
-        if(this.game.getCurrentNum() === 4) {
+        if(this.game.getCurrentNum() === this.game.getLevel() ** 2) {
           clearTimeout(this.game.getTimeoutId());
         }
       } 
@@ -41,7 +41,7 @@
     constructor (game) {
       this.game = game;
       this.panels = [];
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < this.game.getLevel() ** 2; i++) {
         this.panels.push(new Panel(this.game));
       }
       this.setup();
@@ -60,7 +60,11 @@
 
     // ゲーム開始処理
     activate() {
-      const nums = [0,1,2,3];
+      const nums = [];
+      for (let i = 0; i < this.game.getLevel() ** 2; i++) {
+        nums.push(i);
+      }
+
       this.panels.forEach(panel => {
         const num = nums.splice(Math.floor(Math.random()*nums.length),1)[0];
         panel.activate(num);
@@ -69,7 +73,10 @@
   }
 
   class Game {
-    constructor() {
+    constructor(level) {
+
+      // gameに難易度を管理する
+      this.level = level;
       // gameクラスのインスタンスを渡す
       this.board = new Board(this);
 
@@ -118,6 +125,11 @@
     addCurrentNum() {
       this.currentNum++;
     }
+
+    getLevel() {
+      return this.level;
+    }
   }
-  new Game();
+
+  new Game(2);
 }
