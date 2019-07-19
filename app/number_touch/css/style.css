@@ -18,6 +18,8 @@ body {
 }
 
 #board{
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0 0 8px;
     padding: 10px;
