@@ -1,0 +1,80 @@
+/* 全体のスタイル */
+
+body {
+    background:  #ccc;
+    color: #fff;
+    font-family: 'Courier New', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*
+パネルそれぞれに白を持たせつつ 50px 、それに加えてボードの両側の padding を 10px
+ */
+#container {
+    margin: 16px auto;
+}
+
+#board{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 10px;
+    background: white;
+    border-radius: 4px;
+}
+
+#board li.pressed{
+    background: #ccc;
+    box-shadow: none;
+    margin-top: 9px;
+    margin-bottom: 1px;
+}
+
+#board li {
+    background: #00aaff;
+    width:  40px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 40px;
+    text-align: center;
+    box-shadow: 0 4px 0 #0088cc;
+}
+
+#level_button {
+    padding: 10px;
+    margin: auto;
+}
+
+#difficult_level {
+    background: #00aaff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px 10px ;
+    margin: 16px auto;
+}
+
+#timer {
+    margin-bottom: 8px;
+    font-size: 20px;
+    text-align: right;
+}
+
+#button {
+    cursor: pointer;
+    /* 連打してもテキストが選択されてしまわないよう */
+    user-select: none;
+    background: red;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 4px #d1483e;
+}
+
+#button:active {
+    margin-top: 12px;
+    /* 押し込むときは4pxの影をなくす */
+    box-shadow: none;
+}
