@@ -1,0 +1,40 @@
+/* 全体のスタイル */
+
+body {
+    background:  rgb(245, 239, 182);
+    color: rgb(12, 5, 5);
+    font-family: 'Courier New', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+/*
+パネルそれぞれに白を持たせつつ 50px 、それに加えてボードの両側の padding を 10px
+ */
+#container {
+    margin: 16px auto;
+    width: 400px;
+    text-align: center;
+}
+
+
+#container ul li {
+    display: inline;
+}
+
+#board{
+    /* display: flex; */
+    flex-wrap: wrap;
+    list-style: none;
+    margin: auto;
+    padding: 10px;
+}
+
+#board li {
+    margin: 5px;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+}
