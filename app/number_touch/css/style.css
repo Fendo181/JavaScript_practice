@@ -32,6 +32,11 @@ body {
     margin-bottom: 1px;
 }
 
+#board li.number-first{
+    background: rgb(210, 255, 7);
+    margin: 5px;
+}
+
 #board li {
     background: #00aaff;
     width:  40px;
