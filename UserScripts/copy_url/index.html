@@ -7,10 +7,17 @@
     <title>URLをコピーする</title>
 </head>
 <body>
-    <h1>こんにちは！</h1>
+    <div>
     <input id="copyTarget" type="text" value="" >
     <button onclick="copyToTextboxClipboard()">Copy text</button>
-<script src="js/text_box_myapp.js">
+    </div>
+
+    <div>
+    <span id="copyTargetSpan">コピーできたでしょ？</span>
+    <button onclick="copyToTextSpan()">button</button>
+    </div>
+
+<script src="js/text_box_myapp.js"></script>
 </script>
 </body>
 </html>
