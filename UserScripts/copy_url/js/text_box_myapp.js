@@ -1,4 +1,4 @@
-function copyToClipboard() {
+function copyToTextboxClipboard() {
     var copyClipboard = document.getElementById("copyTarget")
 
     copyTarget.select()
