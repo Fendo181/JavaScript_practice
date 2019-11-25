@@ -1,3 +1,9 @@
+var clipboard = new ClipboardJS('.btn');
+// クリップ成功
+clipboard.on('success', (e) => {
+    alert(e.text + 'をコピーしたよ');
+});
+
 function copyToTextboxClipboard() {
     var copyClipboard = document.getElementById("copyTarget")
 
