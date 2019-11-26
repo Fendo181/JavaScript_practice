@@ -25,6 +25,5 @@ function copyToTextSpan(){
     selection.addRange(range);
   
     //コピー
-    document.execCommand('copy');
-    console.log("コピーできました!" + copyClipboard.value);    
+    document.execCommand('copy'); 
 }
