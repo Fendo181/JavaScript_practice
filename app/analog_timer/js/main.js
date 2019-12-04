@@ -24,6 +24,10 @@
       this.ctx.stroke();
       this.ctx.restore();
     }
+
+    clear () {
+      this.ctx.clearRect(0, 0, this.width, this.height);
+    }
   }
 
   // 時計の盤面クラス
@@ -32,9 +36,6 @@
       // 半径
       this.r = 100;
       this.drawer = drawer;
-      this.h = (new Date()).getHours();
-      this.m = (new Date()).getMinutes();
-      this.s = (new Date()).getSeconds();
     }
 
     drawFace () {
@@ -83,11 +84,28 @@
       });
     }
 
+    update () {
+      this.h = (new Date()).getHours();
+      this.m = (new Date()).getMinutes();
+      this.s = (new Date()).getSeconds();
+    }
+
     run () {
+      // 現在時刻の更新
+      this.update();
+
+      // 一旦は前の描写を消す
+      this.drawer.clear();
+
       // 盤面の描画
       this.drawFace();
       // 針の描画
       this.drawHands();
+
+      // 針を回す
+      setTimeout(() => {
+        this.run();
+      }, 100);
     }
   }
 
