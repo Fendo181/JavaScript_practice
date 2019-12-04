@@ -32,6 +32,9 @@
       // 半径
       this.r = 100;
       this.drawer = drawer;
+      this.h = (new Date()).getHours();
+      this.m = (new Date()).getMinutes();
+      this.s = (new Date()).getSeconds();
     }
 
     drawFace () {
@@ -56,8 +59,21 @@
         });
       }
     }
+
+    drawHands () {
+      // hour
+      this.drawer.draw(this.h * 30 + this.m * 0.5, ctx => {
+        ctx.lineWidth = 6;
+        ctx.moveTo(0, 10);
+        ctx.lineTo(0, -this.r + 50);
+      });
+    }
+
     run () {
+      // 盤面の描画
       this.drawFace();
+      // 針の描画
+      this.drawHands();
     }
   }
 
