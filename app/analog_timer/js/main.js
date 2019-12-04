@@ -1,18 +1,22 @@
 'use strict';
 
-{
+( () => {
+
+  class ClockDrawer {
+    constructor(canvas) {
+      this.ctx = canvas.getContext('2d');
+      this.width = canvas.width;
+      this.height = canvas.height;
+    }      
+  }
   class Clock {
-    constructor () {
+    constructor (drawere) {
       // 半径
       this.r = 100;
+      this.drawere = drawere;
     }
 
     drawFace () {
-      const canvas = document.querySelector('canvas');
-      if (typeof canvas.getContext === 'undefined') {
-        return 0;
-      }
-
       const ctx = canvas.getContext('2d');
       // 横幅
       const width = canvas.width;
@@ -55,6 +59,10 @@
     }
   }
 
-  const clock = new Clock();
+  const canvas = document.querySelector('canvas');
+  if (typeof canvas.getContext === 'undefined') {
+    return 0;
+  }
+  const clock = new Clock(new ClockDrawer(canvas));
   clock.run();
-}
+})();
