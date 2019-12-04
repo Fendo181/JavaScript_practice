@@ -67,6 +67,20 @@
         ctx.moveTo(0, 10);
         ctx.lineTo(0, -this.r + 50);
       });
+
+      // minitus
+      this.drawer.draw(this.m * 6, ctx => {
+        ctx.lineWidth = 4;
+        ctx.moveTo(0, 10);
+        ctx.lineTo(0, -this.r + 30);
+      });
+
+      // secound
+      this.drawer.draw(this.s * 6, ctx => {
+        ctx.strokeStyle = 'red';
+        ctx.moveTo(0, 20);
+        ctx.lineTo(0, -this.r + 20);
+      });
     }
 
     run () {
