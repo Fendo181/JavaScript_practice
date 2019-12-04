@@ -102,6 +102,12 @@
       // 針の描画
       this.drawHands();
 
+      // 画像を生成
+      var img = new Image(); // 新規画像オブジェクト
+      img.src = './img/endu.jpg'; // 読み込みたい画像のパス
+      var cvs = document.getElementById('cvs1');
+      var ctx = cvs.getContext('2d');
+      ctx.drawImage(img, (new Date()).getSeconds(), 0, 80, 80);
       // 針を回す
       setTimeout(() => {
         this.run();
