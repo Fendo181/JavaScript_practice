@@ -1,13 +1,12 @@
 'use strict';
 
-( () => {
-
+(() => {
   class ClockDrawer {
-    constructor(canvas) {
+    constructor (canvas) {
       this.ctx = canvas.getContext('2d');
       this.width = canvas.width;
       this.height = canvas.height;
-    }      
+    }
   }
   class Clock {
     constructor (drawere) {
