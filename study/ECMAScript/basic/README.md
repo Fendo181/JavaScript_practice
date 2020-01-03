@@ -1,6 +1,6 @@
 ### 詳解JavaScript 基礎文法編
 
-らJavaScriptの最新の文法について勉強をします。
+JavaScriptの最新の文法について勉強をします。
 
 ### 参考資料
 
