@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>URLをコピーする</title>
+</head>
+
+<body>
+    <div>
+        <input id="copyTarget" type="text" value="">
+        <button onclick="copyToTextboxClipboard()">Copy text</button>
+    </div>
+
+    <div>
+        <span id="copyTargetSpan">コピーできたでしょ？</span>
+        <button onclick="copyToTextSpan()">button</button>
+    </div>
+
+    <div>
+        <button type="button" class="btn" data-clipboard-text="my name is endu">コピー</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script src="js/copyText.js"></script>
+</body>
+</html>
