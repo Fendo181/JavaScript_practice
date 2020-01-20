@@ -2,10 +2,18 @@
 
 // 定数 const
 // 変数 let
-let price = 100;
+let price = 500;
 
-console.log(price * 20);
-console.log(price * 13);
-price = 20;
+price += 100;
+console.log(price);
 
-console.log(price * 20);
+price *= 2;
+console.log(price);
+
+price++;
+
+console.log(price);
+
+price--;
+
+console.log(price);
