@@ -67,6 +67,15 @@ console.log('Hello' + 'World!');
 
 ### 定数
 
+`const`で定数を宣言する
+
+```js
+const price
+```
+
+定数を扱うと後から変更がしずらくなる。
+
+
 
 ### 参考資料
 
