@@ -88,8 +88,39 @@ letで宣言した変数は後から値が変更できる。
 変数は英数字、`$`、`_`のみ。数値から始まられない。
 予約後は使えない。
 
+変数を使った計算方法については以下の通りです。
 
+```js
+let price = 500;
 
+// price = price + 100
+price += 100;
+
+// price = price * 2
+price *= 2;
+
+// price = price + 1
+price++;
+// price = price - 1
+price--;
+```
+
+### データ型について
+
+- String(文字列)
+- Number(数値)
+- Underfined
+  - 定義されていない。
+- Null
+  - 値がそもそもない
+- Boolean
+  - true,false
+- Obj(オブジェクト)
+  - `{a:3,b:5}`
+
+```js
+typeof  'hi'
+```
 
 ### 参考資料
 
