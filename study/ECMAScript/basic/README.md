@@ -122,6 +122,53 @@ price--;
 typeof  'hi'
 ```
 
+### 数字から文字列を扱うに注意
+
+JavaScriptは数字からなる文字列も数値に変換して、演算できます。
+
+```js
+// 文字列があるが、数値型として扱われる
+console.log('5' * 3); // 15
+console.log('5' - 3); // 2
+console.log('15' / 3); // 5
+
+// +は文字列連携で扱われる
+console.log('5' + 3); // 53
+
+```
+
+ただし、`+`は例外で、文字列連携として扱われる。
+数値計算をする場合は文字列を整数値に戻せばよい。
+
+```js
+console.log(parseInt('5') + 3); // 8
+```
+
+`parseInt`で変換できない文字列を渡した場合は`Not a Number`が返ってくる。
+数値にしようとしたけどできなかった場合にこうした値が出てくる。
+
+```js
+console.log(parseInt('a') + 3); // NaN
+```
+
+### 比較演算子
+
+falseとして評価されるもの
+
+- `0`
+- `null`
+- `underfind`
+- `''`;
+- `false`
+
+それ以外はすべて`true`と評価される
+
+```js
+console.log(Boolean(0)); // false
+console.log(Boolean('Hello')); // true
+```
+
+
 ### 参考資料
 
 - [詳解JavaScript 基礎文法編 (全26回) - プログラミングならドットインストール](https://dotinstall.com/lessons/basic_javascript_grammer_v2)
