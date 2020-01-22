@@ -182,9 +182,36 @@ if (score >= 80) {
 }
 ```
 
-#### 条件演算子
+上記の内容を条件演算子で短く書き直す事もできます。
 
 
+```js
+score >= 80 ? console.log('Great!') : console.log('OK...');
+```
+
+短かく書けるという利点の一方で、場合によってはコードが読みにくくなるので、読みやすさのバランスと考えて書いたほうが良い。
+
+### Switch文で条件分岐
+
+`switch(value)`でどのパターンか条件分岐させる。
+
+```js
+const signal = 'red';
+
+switch (signal) {
+  case 'red' :
+    console.log('Stop!');
+    break;
+  // 複数の条件を加える
+  case 'blue' :
+  case 'green':
+    console.log('Go!!');
+    break;
+  default:
+    console.log('Wrong Signal');
+    break;
+}
+```
 
 
 ### 参考資料
