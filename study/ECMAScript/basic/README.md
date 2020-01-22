@@ -168,6 +168,24 @@ console.log(Boolean(0)); // false
 console.log(Boolean('Hello')); // true
 ```
 
+### 条件分岐
+
+```js
+const score = 70;
+
+if (score >= 80) {
+  console.log('great!');
+} else if (score >= 60) {
+  console.log('Good!!');
+} else {
+  console.log('OK...');
+}
+```
+
+#### 条件演算子
+
+
+
 
 ### 参考資料
 
