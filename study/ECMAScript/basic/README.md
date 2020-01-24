@@ -226,6 +226,31 @@ for (let i = 1; i <= 10; i++) {
 }
 ```
 
+### whileを使ったループ処理
+
+基本構文 
+
+```js
+
+let hp = 100;
+
+while (hp >= 0) {
+  console.log(`${hp} HP Left!`);
+  hp -= 15;
+}
+```
+
+`while()`の中で判定処理が`true`になるまでループ処理を行う。またwhileの判定処理を後にして1度だけ最初に実行する場合は`do while()`が使える
+
+```js
+let hp2 = -50;
+
+do {
+  console.log(`${hp2} HP Left!`); //-50 HP Left!
+  hp2 -= 15;
+} while (hp2 > 0);
+```
+
 
 ### 参考資料
 
