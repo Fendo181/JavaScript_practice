@@ -1,5 +1,4 @@
 'use strict';
-
 // jsonファイルを読み込む為の標準ライブラリ
 const fs = require('fs');
 
@@ -19,7 +18,6 @@ function statement (invoice, plays) {
     const play = plays[perf.playID];
     let thisAmount = 0;
 
-    console.log(play);
     switch (play.type) {
       case 'tragedy' :
         thisAmount = 40000;
@@ -53,11 +51,6 @@ function statement (invoice, plays) {
 
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
 let plays = JSON.parse(fs.readFileSync('data/plays.json'));
-
-// console.log(plays);
-// console.log(plays);
-// console.log(invoices);
-// console.log(invoices[0]['perfomances']);
 
 let result = statement(invoices, plays);
 console.log(result);
