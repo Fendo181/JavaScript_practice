@@ -40,7 +40,6 @@ function statement (invoice, plays) {
     volumeCredits += Math.max(perf.audience - 30.0);
     // comedy は 10人につき、さらにポイント加算
     if (play.type === 'comedy') volumeCredits += Math.floor(perf.audience / 5);
-
     result += `${play.name}: ${format(thisAmount / 100)} (${perf.audience}) seats \n`;
     totalAmount += thisAmount;
   }
