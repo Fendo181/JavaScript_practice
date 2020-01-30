@@ -1,6 +1,8 @@
-[{
+[
+    {
     "customer": "BigCo",
-    "perfomances": [{
+    "perfomances": [
+        {
             "playID": "hamlet",
             "audience": 55
         },
@@ -13,4 +15,5 @@
             "audience": 40
         }
     ]
-}]
+}
+]
