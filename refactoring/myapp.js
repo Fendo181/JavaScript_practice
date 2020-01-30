@@ -5,7 +5,7 @@ const fs = require('fs');
 function statement (invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
-  let result = `Statement for ${invoice[0]['customer']}\n`;
+  let result = `Statement for ${invoice.customer}\n`;
 
   const format = new Intl.NumberFormat('en-US',
     {
@@ -14,7 +14,7 @@ function statement (invoice, plays) {
       minimumFractionDigits: 2
     }).format;
 
-  for (let perf of invoices[0]['perfomances']) {
+  for (let perf of invoice.perfomances) {
     const play = plays[perf.playID];
     let thisAmount = 0;
 
@@ -33,13 +33,14 @@ function statement (invoice, plays) {
         thisAmount += 300 * perf.audience;
         break;
       default:
-        throw new Error(`unjnown type: ${play.type}`);
+        throw new Error(`unknown type: ${play.type}`);
     }
 
     // ボリューム特典のポイント換算
     volumeCredits += Math.max(perf.audience - 30.0);
     // comedy は 10人につき、さらにポイント加算
     if (play.type === 'comedy') volumeCredits += Math.floor(perf.audience / 5);
+
     result += `${play.name}: ${format(thisAmount / 100)} (${perf.audience}) seats \n`;
     totalAmount += thisAmount;
   }
@@ -52,5 +53,5 @@ function statement (invoice, plays) {
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
 let plays = JSON.parse(fs.readFileSync('data/plays.json'));
 
-let result = statement(invoices, plays);
+let result = statement(invoices['0'], plays);
 console.log(result);
