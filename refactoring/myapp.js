@@ -34,7 +34,7 @@ function amountFor (aPerfomance, play) {
   let result = 0;
 
   // 演劇のタイプによって請求金額を分けている
-  switch (play.type) {
+  switch (palyFor(aPerfomance).type) {
     case 'tragedy' :
       result = 40000;
       if (aPerfomance.audience > 30) {
@@ -49,7 +49,7 @@ function amountFor (aPerfomance, play) {
       result += 300 * aPerfomance.audience;
       break;
     default:
-      throw new Error(`unknown type: ${play.type}`);
+      throw new Error(`unknown type: ${palyFor(aPerfomance).type}`);
   }
   return result;
 }
