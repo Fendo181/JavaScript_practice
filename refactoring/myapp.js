@@ -15,14 +15,13 @@ function statement (invoice, plays) {
     }).format;
 
   for (let perf of invoice.perfomances) {
-    const play = palyFor(perf);
-    let thisAmount = amountFor(perf, play);
+    let thisAmount = amountFor(perf, palyFor(perf));
 
     // ボリューム特典のポイント換算
     volumeCredits += Math.max(perf.audience - 30.0);
     // comedy は 10人につき、さらにポイント加算
-    if (play.type === 'comedy') volumeCredits += Math.floor(perf.audience / 5);
-    result += `${play.name}: ${format(thisAmount / 100)} (${perf.audience}) seats \n`;
+    if (palyFor(perf).type === 'comedy') volumeCredits += Math.floor(perf.audience / 5);
+    result += `${palyFor(perf).name}: ${format(thisAmount / 100)} (${perf.audience}) seats \n`;
     totalAmount += thisAmount;
   }
 
