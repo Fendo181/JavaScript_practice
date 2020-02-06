@@ -15,7 +15,7 @@ function statement (invoice, plays) {
     }).format;
 
   for (let perf of invoice.perfomances) {
-    let thisAmount = amountFor(perf, palyFor(perf));
+    let thisAmount = amountFor(perf);
 
     // ボリューム特典のポイント換算
     volumeCredits += Math.max(perf.audience - 30.0);
@@ -30,7 +30,7 @@ function statement (invoice, plays) {
   return result;
 }
 
-function amountFor (aPerfomance, play) {
+function amountFor (aPerfomance) {
   let result = 0;
 
   // 演劇のタイプによって請求金額を分けている
