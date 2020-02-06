@@ -15,7 +15,7 @@ function statement (invoice, plays) {
     }).format;
 
   for (let perf of invoice.perfomances) {
-    const play = plays[perf.playID];
+    const play = palyFor(perf);
     let thisAmount = amountFor(perf, play);
 
     // ボリューム特典のポイント換算
@@ -53,6 +53,10 @@ function amountFor (aPerfomance, play) {
       throw new Error(`unknown type: ${play.type}`);
   }
   return result;
+}
+
+function palyFor (aPerfomance) {
+  return plays[aPerfomance.playID];
 }
 
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
