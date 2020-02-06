@@ -18,10 +18,11 @@ function statement (invoice, plays) {
     const play = plays[perf.playID];
     let thisAmount = 0;
 
+    // 演劇のタイプによって請求金額を分けている
     switch (play.type) {
       case 'tragedy' :
         thisAmount = 40000;
-        if (perf.audience > 30) {
+        if (perf.audience >                                                                                  30) {
           thisAmount += 1000 * (perf.audience - 30);
         }
         break;
@@ -38,7 +39,7 @@ function statement (invoice, plays) {
 
     // ボリューム特典のポイント換算
     volumeCredits += Math.max(perf.audience - 30.0);
-    // comedy は 10人につき、さらにポイント加算
+    // comedy は 10人につき、さらにポイント加算 
     if (play.type === 'comedy') volumeCredits += Math.floor(perf.audience / 5);
     result += `${play.name}: ${format(thisAmount / 100)} (${perf.audience}) seats \n`;
     totalAmount += thisAmount;
