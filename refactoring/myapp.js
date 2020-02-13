@@ -7,8 +7,16 @@ function statement (invoice, plays) {
   // 顧客情報
   statementDate.customer = invoice.customer;
   // 公園情報
-  statementDate.perfomances = invoice.perfomances;
+  statementDate.perfomances = invoice.perfomances.map(enrichPerfomance);
+
   return renderPlainText(statementDate, plays);
+
+  // 演劇のタイトル
+  function enrichPerfomance (aPerfomance) {
+    // シャローコピー
+    const result = Object.assign({}, aPerfomance);
+    return result;
+  }
 }
 
 // 請求書を出力する
