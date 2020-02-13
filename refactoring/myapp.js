@@ -13,9 +13,13 @@ function statement (invoice, plays) {
 
   // 演劇のタイトル
   function enrichPerfomance (aPerfomance) {
-    // シャローコピー
     const result = Object.assign({}, aPerfomance);
+    result.play = playFor(result);
     return result;
+  }
+
+  function playFor (aPerfomance) {
+    return plays[aPerfomance.playID];
   }
 }
 
