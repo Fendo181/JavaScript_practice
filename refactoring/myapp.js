@@ -11,12 +11,12 @@ function statement (invoice, plays) {
     // ボリューム特典のポイント計算
     volumeCredits += volumeCreditsFor(perf);
     // 注文の内訳を出力
-    result += `${palyFor(perf).name}: ${usd(amountFor(perf) / 100)} (${perf.audience}) seats \n`;
+    result += `${palyFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
     // 請求金額の計算
     totalAmount += amountFor(perf);
   }
 
-  result += `Amount owed is ${usd(totalAmount / 100)}\n`;
+  result += `Amount owed is ${usd(totalAmount)}\n`;
   result += `Your earned  ${volumeCredits} credits \n`;
   return result;
 }
@@ -66,7 +66,7 @@ function usd (aNumber) {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 2
-    }).format(aNumber);
+    }).format(aNumber / 100);
 }
 
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
