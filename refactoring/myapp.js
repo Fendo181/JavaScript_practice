@@ -72,12 +72,12 @@ function usd (aNumber) {
 
 // 請求金額の計算
 function totalAmount (invoice) {
-  let totalAmount = 0;
+  let result = 0;
   for (let perf of invoice.perfomances) {
     // 請求金額の計算
-    totalAmount += amountFor(perf);
+    result += amountFor(perf);
   }
-  return totalAmount;
+  return result;
 }
 
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
