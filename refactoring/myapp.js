@@ -4,16 +4,19 @@ const fs = require('fs');
 
 function statement (invoice, plays) {
   let totalAmount = 0;
-  let volumeCredits = 0;
   let result = `Statement for ${invoice.customer}\n`;
 
   for (let perf of invoice.perfomances) {
-    // ボリューム特典のポイント計算
-    volumeCredits += volumeCreditsFor(perf);
     // 注文の内訳を出力
     result += `${palyFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
     // 請求金額の計算
     totalAmount += amountFor(perf);
+  }
+
+  let volumeCredits = 0;
+  for (let perf of invoice.perfomances) {
+    // ボリューム特典のポイント計算
+    volumeCredits += volumeCreditsFor(perf);
   }
 
   result += `Amount owed is ${usd(totalAmount)}\n`;
