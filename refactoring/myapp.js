@@ -3,15 +3,15 @@
 const fs = require('fs');
 
 function statement (invoice, plays) {
-  let totalAmount = 0;
   let result = `Statement for ${invoice.customer}\n`;
-
   for (let perf of invoice.perfomances) {
     // 注文の内訳を出力
     result += `${palyFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
-    // 請求金額の計算
-    totalAmount += amountFor(perf);
   }
+
+  // 請求金額の計算
+  let totalAmount = appleSauce(invoice);
+
   result += `Amount owed is ${usd(totalAmount)}\n`;
   result += `Your earned  ${totalVolumeCredits(invoice)} credits \n`;
   return result;
@@ -72,6 +72,16 @@ function usd (aNumber) {
       currency: 'USD',
       minimumFractionDigits: 2
     }).format(aNumber / 100);
+}
+
+// 請求金額の計算
+function appleSauce (invoice) {
+  let totalAmount = 0;
+  for (let perf of invoice.perfomances) {
+    // 請求金額の計算
+    totalAmount += amountFor(perf);
+  }
+  return totalAmount;
 }
 
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
