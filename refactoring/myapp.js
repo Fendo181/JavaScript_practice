@@ -12,11 +12,8 @@ function statement (invoice, plays) {
     // 請求金額の計算
     totalAmount += amountFor(perf);
   }
-
-  let volumeCredits = totalVolumeCredits(invoice);
-
   result += `Amount owed is ${usd(totalAmount)}\n`;
-  result += `Your earned  ${volumeCredits} credits \n`;
+  result += `Your earned  ${totalVolumeCredits(invoice)} credits \n`;
   return result;
 }
 
