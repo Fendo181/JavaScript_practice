@@ -57,13 +57,13 @@ function palyFor (aPerfomance) {
 }
 
 // ポイント計算
-function volumeCreditsFor (perf) {
-  let volumeCredits = 0;
+function volumeCreditsFor (aPerfomance) {
+  let result = 0;
   // ボリューム特典のポイント換算
-  volumeCredits += Math.max(perf.audience - 30.0);
+  result += Math.max(aPerfomance.audience - 30.0);
   // comedy は 10人につき、さらにポイント加算
-  if (palyFor(perf).type === 'comedy') volumeCredits += Math.floor(perf.audience / 5);
-  return volumeCredits;
+  if (palyFor(aPerfomance).type === 'comedy') result += Math.floor(aPerfomance.audience / 5);
+  return result;
 }
 
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
