@@ -8,10 +8,9 @@ function statement (invoice, plays) {
   statementDate.customer = invoice.customer;
   // 公演情報
   statementDate.perfomances = invoice.perfomances.map(enrichPerfomance);
-
   return renderPlainText(statementDate, plays);
 
-  // 演劇のタイトル
+  // シャローコピーを使って中間オブジェクトからデータを取得できるようにする
   function enrichPerfomance (aPerfomance) {
     const result = Object.assign({}, aPerfomance);
     result.play = playFor(result);
@@ -28,7 +27,7 @@ function renderPlainText (data, plays) {
   let result = `Statement for ${data.customer}\n`;
   for (let perf of data.perfomances) {
     // 注文の内訳を出力
-    result += `${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
+    result += `${perf.play.name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
   }
   result += `Amount owed is ${usd(totalAmount(data))}\n`;
   result += `Your earned  ${totalVolumeCredits(data)} credits \n`;
@@ -37,7 +36,7 @@ function renderPlainText (data, plays) {
   // 演劇のタイプによって請求金額を分けている
   function amountFor (aPerfomance) {
     let result = 0;
-    switch (playFor(aPerfomance).type) {
+    switch (aPerfomance.play.type) {
       case 'tragedy' :
         result = 40000;
         if (aPerfomance.audience > 30) {
@@ -52,13 +51,9 @@ function renderPlainText (data, plays) {
         result += 300 * aPerfomance.audience;
         break;
       default:
-        throw new Error(`unknown type: ${playFor(aPerfomance).type}`);
+        throw new Error(`unknown type: ${aPerfomance.play.type}`);
     }
     return result;
-  }
-
-  function playFor (aPerfomance) {
-    return plays[aPerfomance.playID];
   }
 
   // ポイント計算
@@ -67,7 +62,7 @@ function renderPlainText (data, plays) {
     // ボリューム特典のポイント換算
     result += Math.max(aPerfomance.audience - 30.0);
     // comedy は 10人につき、さらにポイント加算
-    if (playFor(aPerfomance).type === 'comedy') result += Math.floor(aPerfomance.audience / 5);
+    if (aPerfomance.play.type === 'comedy') result += Math.floor(aPerfomance.audience / 5);
     return result;
   }
 
