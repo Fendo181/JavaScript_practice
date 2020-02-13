@@ -15,11 +15,9 @@ function statement (invoice, plays) {
     }).format;
 
   for (let perf of invoice.perfomances) {
-    // ボリューム特典のポイント換算
-    volumeCredits += Math.max(perf.audience - 30.0);
-    // comedy は 10人につき、さらにポイント加算
-    if (palyFor(perf).type === 'comedy') volumeCredits += Math.floor(perf.audience / 5);
-    result += `${palyFor(perf).name}: ${format(amountFor(perf) / 100)} (${perf.audience}) seats \n`;
+    // ボリューム特典のポイント計算
+    volumeCredits += volumeCreditsFor(perf);
+    // 請求金額の計算
     totalAmount += amountFor(perf);
   }
 
@@ -28,10 +26,10 @@ function statement (invoice, plays) {
   return result;
 }
 
+// 演劇のタイプによって請求金額を分けている
 function amountFor (aPerfomance) {
   let result = 0;
 
-  // 演劇のタイプによって請求金額を分けている
   switch (palyFor(aPerfomance).type) {
     case 'tragedy' :
       result = 40000;
@@ -54,6 +52,16 @@ function amountFor (aPerfomance) {
 
 function palyFor (aPerfomance) {
   return plays[aPerfomance.playID];
+}
+
+// ポイント計算
+function volumeCreditsFor (perf) {
+  let volumeCredits = 0;
+  // ボリューム特典のポイント換算
+  volumeCredits += Math.max(perf.audience - 30.0);
+  // comedy は 10人につき、さらにポイント加算
+  if (palyFor(perf).type === 'comedy') volumeCredits += Math.floor(perf.audience / 5);
+  return volumeCredits;
 }
 
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
