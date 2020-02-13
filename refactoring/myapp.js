@@ -6,7 +6,7 @@ function statement (invoice, plays) {
   const statementDate = {};
   // 顧客情報
   statementDate.customer = invoice.customer;
-  // 公園情報
+  // 公演情報
   statementDate.perfomances = invoice.perfomances.map(enrichPerfomance);
 
   return renderPlainText(statementDate, plays);
