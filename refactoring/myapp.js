@@ -17,6 +17,8 @@ function statement (invoice, plays) {
   for (let perf of invoice.perfomances) {
     // ボリューム特典のポイント計算
     volumeCredits += volumeCreditsFor(perf);
+    // 注文の内訳を出力
+    result += `${palyFor(perf).name}: ${format(amountFor(perf) / 100)} (${perf.audience}) seats \n`;
     // 請求金額の計算
     totalAmount += amountFor(perf);
   }
