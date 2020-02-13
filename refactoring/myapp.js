@@ -8,7 +8,7 @@ function statement (invoice, plays) {
     // 注文の内訳を出力
     result += `${palyFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
   }
-  result += `Amount owed is ${usd(appleSauce(invoice))}\n`;
+  result += `Amount owed is ${usd(totalAmount(invoice))}\n`;
   result += `Your earned  ${totalVolumeCredits(invoice)} credits \n`;
   return result;
 }
@@ -71,7 +71,7 @@ function usd (aNumber) {
 }
 
 // 請求金額の計算
-function appleSauce (invoice) {
+function totalAmount (invoice) {
   let totalAmount = 0;
   for (let perf of invoice.perfomances) {
     // 請求金額の計算
