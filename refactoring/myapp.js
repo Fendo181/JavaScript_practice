@@ -7,13 +7,6 @@ function statement (invoice, plays) {
   let volumeCredits = 0;
   let result = `Statement for ${invoice.customer}\n`;
 
-  const format = new Intl.NumberFormat('en-US',
-    {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2
-    }).format;
-
   for (let perf of invoice.perfomances) {
     // ボリューム特典のポイント計算
     volumeCredits += volumeCreditsFor(perf);
@@ -64,6 +57,16 @@ function volumeCreditsFor (aPerfomance) {
   // comedy は 10人につき、さらにポイント加算
   if (palyFor(aPerfomance).type === 'comedy') result += Math.floor(aPerfomance.audience / 5);
   return result;
+}
+
+// formatをUSDにする
+function format (aNumber) {
+  return new Intl.NumberFormat('en-US',
+    {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2
+    }).format(aNumber);
 }
 
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
