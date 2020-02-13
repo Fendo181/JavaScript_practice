@@ -3,18 +3,23 @@
 const fs = require('fs');
 
 function statement (invoice, plays) {
-  return renderPlainText(invoice, plays);
+  const statementDate = {};
+  // 顧客情報
+  statementDate.customer = invoice.customer;
+  // 公園情報
+  statementDate.perfomances = invoice.perfomances;
+  return renderPlainText(statementDate, plays);
 }
 
 // 請求書を出力する
-function renderPlainText (invoice, plays) {
-  let result = `Statement for ${invoice.customer}\n`;
-  for (let perf of invoice.perfomances) {
+function renderPlainText (data, plays) {
+  let result = `Statement for ${data.customer}\n`;
+  for (let perf of data.perfomances) {
     // 注文の内訳を出力
     result += `${palyFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
   }
-  result += `Amount owed is ${usd(totalAmount(invoice))}\n`;
-  result += `Your earned  ${totalVolumeCredits(invoice)} credits \n`;
+  result += `Amount owed is ${usd(totalAmount(data))}\n`;
+  result += `Your earned  ${totalVolumeCredits(data)} credits \n`;
   return result;
 
   // 演劇のタイプによって請求金額を分けている
@@ -54,9 +59,9 @@ function renderPlainText (invoice, plays) {
     return result;
   }
 
-  function totalVolumeCredits (invoice) {
+  function totalVolumeCredits (data) {
     let volumeCredits = 0;
-    for (let perf of invoice.perfomances) {
+    for (let perf of data.perfomances) {
     // ボリューム特典のポイント計算
       volumeCredits += volumeCreditsFor(perf);
     }
@@ -74,9 +79,9 @@ function renderPlainText (invoice, plays) {
   }
 
   // 請求金額の計算
-  function totalAmount (invoice) {
+  function totalAmount (data) {
     let result = 0;
-    for (let perf of invoice.perfomances) {
+    for (let perf of data.perfomances) {
     // 請求金額の計算
       result += amountFor(perf);
     }
