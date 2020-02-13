@@ -28,7 +28,7 @@ function renderPlainText (data, plays) {
   let result = `Statement for ${data.customer}\n`;
   for (let perf of data.perfomances) {
     // 注文の内訳を出力
-    result += `${palyFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
+    result += `${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
   }
   result += `Amount owed is ${usd(totalAmount(data))}\n`;
   result += `Your earned  ${totalVolumeCredits(data)} credits \n`;
@@ -37,7 +37,7 @@ function renderPlainText (data, plays) {
   // 演劇のタイプによって請求金額を分けている
   function amountFor (aPerfomance) {
     let result = 0;
-    switch (palyFor(aPerfomance).type) {
+    switch (playFor(aPerfomance).type) {
       case 'tragedy' :
         result = 40000;
         if (aPerfomance.audience > 30) {
@@ -52,12 +52,12 @@ function renderPlainText (data, plays) {
         result += 300 * aPerfomance.audience;
         break;
       default:
-        throw new Error(`unknown type: ${palyFor(aPerfomance).type}`);
+        throw new Error(`unknown type: ${playFor(aPerfomance).type}`);
     }
     return result;
   }
 
-  function palyFor (aPerfomance) {
+  function playFor (aPerfomance) {
     return plays[aPerfomance.playID];
   }
 
@@ -67,7 +67,7 @@ function renderPlainText (data, plays) {
     // ボリューム特典のポイント換算
     result += Math.max(aPerfomance.audience - 30.0);
     // comedy は 10人につき、さらにポイント加算
-    if (palyFor(aPerfomance).type === 'comedy') result += Math.floor(aPerfomance.audience / 5);
+    if (playFor(aPerfomance).type === 'comedy') result += Math.floor(aPerfomance.audience / 5);
     return result;
   }
 
