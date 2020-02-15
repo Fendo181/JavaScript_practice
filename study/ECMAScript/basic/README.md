@@ -121,8 +121,14 @@ price--;
 `typeof`メソッドを使うと、どのオブジェクトか判定できる。
 
 ```js
-typeof  'hi' #String
+console.log(typeof 'Hi!'); // string
+console.log(typeof 5); // boolean
+console.log(typeof true); // boolean
+console.log(typeof undefined); // underfined
+console.log(typeof null); // object
 ```
+
+>ull だけ object となっていますが、これは有名は JavaScript のバグなので、そういうものだと思っておけば OK
 
 ### 数字から文字列を扱うに注意
 
