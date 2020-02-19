@@ -10,6 +10,8 @@ function statement (invoice, plays) {
   statementDate.perfomances = invoice.perfomances.map(enrichPerfomance);
   // 合計した請求金額
   statementDate.totalAmount = totalAmount(statementDate);
+  // 合計したボリューム特典のポイント額
+  statementDate.totalVolumeCredits = totalVolumeCredits(statementDate);
   return renderPlainText(statementDate, plays);
 
   // シャローコピーを使って中間オブジェクトからデータを取得できるようにする
@@ -59,7 +61,7 @@ function statement (invoice, plays) {
     return result;
   }
 
-  // 請求金額の計算
+  // 請求金額の合計計算
   function totalAmount (data) {
     let result = 0;
     for (let perf of data.perfomances) {
@@ -67,6 +69,16 @@ function statement (invoice, plays) {
       result += perf.amount;
     }
     return result;
+  }
+
+  // ポイントの合計計算
+  function totalVolumeCredits (data) {
+    let volumeCredits = 0;
+    for (let perf of data.perfomances) {
+    // ボリューム特典のポイント計算
+      volumeCredits += perf.volumeCredits;
+    }
+    return volumeCredits;
   }
 }
 
@@ -78,17 +90,8 @@ function renderPlainText (data, plays) {
     result += `${perf.play.name}: ${usd(perf.amount)} (${perf.audience}) seats \n`;
   }
   result += `Amount owed is ${usd(data.totalAmount)}\n`;
-  result += `Your earned  ${totalVolumeCredits(data)} credits \n`;
+  result += `Your earned  ${data.totalVolumeCredits} credits \n`;
   return result;
-
-  function totalVolumeCredits (data) {
-    let volumeCredits = 0;
-    for (let perf of data.perfomances) {
-    // ボリューム特典のポイント計算
-      volumeCredits += perf.volumeCredits;
-    }
-    return volumeCredits;
-  }
 
   // formatをUSDにする
   function usd (aNumber) {
