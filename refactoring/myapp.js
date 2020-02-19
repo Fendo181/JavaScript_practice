@@ -102,6 +102,13 @@ function renderPlainText (data, plays) {
         minimumFractionDigits: 2
       }).format(aNumber / 100);
   }
+
+  function totalAmount (data) {
+    return data.perfomances.reduce((total, p) => total + p.amount, 0);
+  }
+  function totalVolumeCredits (data) {
+    return data.perfomances.reduce((total, p) => total + p.volumeCredits, 0);
+  }
 }
 
 let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
