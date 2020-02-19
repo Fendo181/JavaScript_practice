@@ -8,6 +8,8 @@ function statement (invoice, plays) {
   statementDate.customer = invoice.customer;
   // 公演情報
   statementDate.perfomances = invoice.perfomances.map(enrichPerfomance);
+  // 合計した請求金額
+  statementDate.totalAmount = totalAmount(statementDate);
   return renderPlainText(statementDate, plays);
 
   // シャローコピーを使って中間オブジェクトからデータを取得できるようにする
@@ -56,6 +58,16 @@ function statement (invoice, plays) {
     if (aPerfomance.play.type === 'comedy') result += Math.floor(aPerfomance.audience / 5);
     return result;
   }
+
+  // 請求金額の計算
+  function totalAmount (data) {
+    let result = 0;
+    for (let perf of data.perfomances) {
+      // 請求金額の計算
+      result += perf.amount;
+    }
+    return result;
+  }
 }
 
 // 請求書を出力する
@@ -65,7 +77,7 @@ function renderPlainText (data, plays) {
     // 注文の内訳を出力
     result += `${perf.play.name}: ${usd(perf.amount)} (${perf.audience}) seats \n`;
   }
-  result += `Amount owed is ${usd(totalAmount(data))}\n`;
+  result += `Amount owed is ${usd(data.totalAmount)}\n`;
   result += `Your earned  ${totalVolumeCredits(data)} credits \n`;
   return result;
 
@@ -86,16 +98,6 @@ function renderPlainText (data, plays) {
         currency: 'USD',
         minimumFractionDigits: 2
       }).format(aNumber / 100);
-  }
-
-  // 請求金額の計算
-  function totalAmount (data) {
-    let result = 0;
-    for (let perf of data.perfomances) {
-    // 請求金額の計算
-      result += perf.amount;
-    }
-    return result;
   }
 }
 
