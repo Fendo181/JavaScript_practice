@@ -1,8 +1,4 @@
-'use strict';
-// jsonファイルを読み込む為の標準ライブラリ
-const fs = require('fs');
-
-function createStatementData (invoice, plays) {
+export default function createStatementData (invoice, plays) {
   const statementDate = {};
   // 顧客情報
   statementDate.customer = invoice.customer;
@@ -12,7 +8,7 @@ function createStatementData (invoice, plays) {
   statementDate.totalAmount = totalAmount(statementDate);
   // 合計したボリューム特典のポイント額
   statementDate.totalVolumeCredits = totalVolumeCredits(statementDate);
-  return renderPlainText(statementDate, plays);
+  return statementDate;
 
   // シャローコピーを使って中間オブジェクトからデータを取得できるようにする
   // オブジェクトからプロパティ指定で取得できるようにする
@@ -75,44 +71,9 @@ function createStatementData (invoice, plays) {
   function totalVolumeCredits (data) {
     let volumeCredits = 0;
     for (let perf of data.perfomances) {
-    // ボリューム特典のポイント計算
+      // ボリューム特典のポイント計算
       volumeCredits += perf.volumeCredits;
     }
     return volumeCredits;
   }
 }
-
-// 請求書を出力する
-function renderPlainText (data, plays) {
-  let result = `Statement for ${data.customer}\n`;
-  for (let perf of data.perfomances) {
-    // 注文の内訳を出力
-    result += `${perf.play.name}: ${usd(perf.amount)} (${perf.audience}) seats \n`;
-  }
-  result += `Amount owed is ${usd(data.totalAmount)}\n`;
-  result += `Your earned  ${data.totalVolumeCredits} credits \n`;
-  return result;
-
-  // formatをUSDにする
-  function usd (aNumber) {
-    return new Intl.NumberFormat('en-US',
-      {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2
-      }).format(aNumber / 100);
-  }
-
-  function totalAmount (data) {
-    return data.perfomances.reduce((total, p) => total + p.amount, 0);
-  }
-  function totalVolumeCredits (data) {
-    return data.perfomances.reduce((total, p) => total + p.volumeCredits, 0);
-  }
-}
-
-let invoices = JSON.parse(fs.readFileSync('data/invoices.json'));
-let plays = JSON.parse(fs.readFileSync('data/plays.json'));
-
-let result = createStatementData(invoices['0'], plays);
-console.log(result);
