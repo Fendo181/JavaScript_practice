@@ -11,27 +11,17 @@ function statement (invoice, plays) {
   return renderPlainText(statementDate, plays);
 
   // シャローコピーを使って中間オブジェクトからデータを取得できるようにする
+  // オブジェクトからプロパティ指定で取得できるようにする
   function enrichPerfomance (aPerfomance) {
     const result = Object.assign({}, aPerfomance);
     result.play = playFor(result);
+    result.amount = amountFor(result);
     return result;
   }
 
   function playFor (aPerfomance) {
     return plays[aPerfomance.playID];
   }
-}
-
-// 請求書を出力する
-function renderPlainText (data, plays) {
-  let result = `Statement for ${data.customer}\n`;
-  for (let perf of data.perfomances) {
-    // 注文の内訳を出力
-    result += `${perf.play.name}: ${usd(amountFor(perf))} (${perf.audience}) seats \n`;
-  }
-  result += `Amount owed is ${usd(totalAmount(data))}\n`;
-  result += `Your earned  ${totalVolumeCredits(data)} credits \n`;
-  return result;
 
   // 演劇のタイプによって請求金額を分けている
   function amountFor (aPerfomance) {
@@ -55,6 +45,18 @@ function renderPlainText (data, plays) {
     }
     return result;
   }
+}
+
+// 請求書を出力する
+function renderPlainText (data, plays) {
+  let result = `Statement for ${data.customer}\n`;
+  for (let perf of data.perfomances) {
+    // 注文の内訳を出力
+    result += `${perf.play.name}: ${usd(perf.amount)} (${perf.audience}) seats \n`;
+  }
+  result += `Amount owed is ${usd(totalAmount(data))}\n`;
+  result += `Your earned  ${totalVolumeCredits(data)} credits \n`;
+  return result;
 
   // ポイント計算
   function volumeCreditsFor (aPerfomance) {
@@ -90,7 +92,7 @@ function renderPlainText (data, plays) {
     let result = 0;
     for (let perf of data.perfomances) {
     // 請求金額の計算
-      result += amountFor(perf);
+      result += perf.amount;
     }
     return result;
   }
