@@ -42,6 +42,11 @@ class PerformanceCalculator {
   }
 }
 
+// ファクトリ関数によるコンストラクタの置き換え
+function createPerformanceCalculator (aPerfomance, aPlay) {
+  return new PerformanceCalculator(aPerfomance, aPlay);
+}
+
 function createStatementData (invoice, plays) {
   const statementDate = {};
   // 顧客情報
@@ -57,7 +62,7 @@ function createStatementData (invoice, plays) {
   // シャローコピーを使って中間オブジェクトからデータを取得できるようにする
   // オブジェクトからプロパティ指定で取得できるようにする
   function enrichPerfomance (aPerfomance) {
-    const calculator = new PerformanceCalculator(aPerfomance, playFor(aPerfomance));
+    const calculator = createPerformanceCalculator(aPerfomance, playFor(aPerfomance));
     const result = Object.assign({}, aPerfomance);
     result.play = calculator.play;
     result.amount = calculator.amount;
