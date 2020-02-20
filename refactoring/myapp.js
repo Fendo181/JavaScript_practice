@@ -8,20 +8,9 @@ class PerformanceCalculator {
     this.play = aPlay;
   }
 
-  // 演劇の種類による請求金額の計算
+  // 演劇の種類による請求金額の計算(呼ばれないが残しておく)
   get amount () {
-    switch (this.play.type) {
-      case 'comedy':
-        result = 30000;
-        if (this.perfomance.audience > 20) {
-          result += 10000 + 500 * (this.perfomance.audience - 20);
-        }
-        result += 300 * this.perfomance.audience;
-        break;
-      default:
-        throw new Error(`unknown type: ${this.play.type}`);
-    }
-    return result;
+    throw new Error('サブクラスの責務');
   }
 
   // ボリューム特典のポイント計算
@@ -57,12 +46,15 @@ class TragedyCalculator extends PerformanceCalculator {
   }
 }
 
+// 喜劇の場合の計算
 class ComedyCalculator extends PerformanceCalculator {
+  // 親クラスのamoutメソッドをオーバーライドする
   get amount () {
-    let result = 40000;
-    if (this.perfomance.audience > 30) {
-      result += 1000 * (this.perfomance.audience - 30);
+    let result = 30000;
+    if (this.perfomance.audience > 20) {
+      result += 10000 + 500 * (this.perfomance.audience - 20);
     }
+    result += 300 * this.perfomance.audience;
     return result;
   }
 }
