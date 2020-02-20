@@ -7,6 +7,28 @@ class PerformanceCalculator {
     this.perfomance = aPerfomance;
     this.play = aPlay;
   }
+
+  get amount () {
+    let result = 0;
+    switch (this.play.type) {
+      case 'tragedy' :
+        result = 40000;
+        if (this.perfomance.audience > 30) {
+          result += 1000 * (this.perfomance.audience - 30);
+        }
+        break;
+      case 'comedy':
+        result = 30000;
+        if (this.perfomance.audience > 20) {
+          result += 10000 + 500 * (this.perfomance.audience - 20);
+        }
+        result += 300 * this.perfomance.audience;
+        break;
+      default:
+        throw new Error(`unknown type: ${this.play.type}`);
+    }
+    return result;
+  }
 }
 
 function createStatementData (invoice, plays) {
@@ -38,25 +60,7 @@ function createStatementData (invoice, plays) {
 
   // 演劇のタイプによって請求金額を分けている
   function amountFor (aPerfomance) {
-    let result = 0;
-    switch (aPerfomance.play.type) {
-      case 'tragedy' :
-        result = 40000;
-        if (aPerfomance.audience > 30) {
-          result += 1000 * (aPerfomance.audience - 30);
-        }
-        break;
-      case 'comedy':
-        result = 30000;
-        if (aPerfomance.audience > 20) {
-          result += 10000 + 500 * (aPerfomance.audience - 20);
-        }
-        result += 300 * aPerfomance.audience;
-        break;
-      default:
-        throw new Error(`unknown type: ${aPerfomance.play.type}`);
-    }
-    return result;
+    return new PerformanceCalculator(aPerfomance, playFor(aPerfomance)).amount;
   }
 
   // ポイント計算
