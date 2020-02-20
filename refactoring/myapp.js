@@ -8,6 +8,7 @@ class PerformanceCalculator {
     this.play = aPlay;
   }
 
+  // 演劇の種類による請求金額の計算
   get amount () {
     let result = 0;
     switch (this.play.type) {
@@ -27,6 +28,16 @@ class PerformanceCalculator {
       default:
         throw new Error(`unknown type: ${this.play.type}`);
     }
+    return result;
+  }
+
+  // ボリューム特典のポイント計算
+  get volumeCreditsFor () {
+    let result = 0;
+    // ボリューム特典のポイント換算
+    result += Math.max(this.perfomance.audience - 30.0);
+    // comedy は 10人につき、さらにポイント加算
+    if (this.play.type === 'comedy') result += Math.floor(this.perfomance.audience / 5);
     return result;
   }
 }
@@ -50,22 +61,12 @@ function createStatementData (invoice, plays) {
     const result = Object.assign({}, aPerfomance);
     result.play = calculator.play;
     result.amount = calculator.amount;
-    result.volumeCredits = volumeCreditsFor(result);
+    result.volumeCredits = calculator.volumeCreditsFor;
     return result;
   }
 
   function playFor (aPerfomance) {
     return plays[aPerfomance.playID];
-  }
-
-  // ポイント計算
-  function volumeCreditsFor (aPerfomance) {
-    let result = 0;
-    // ボリューム特典のポイント換算
-    result += Math.max(aPerfomance.audience - 30.0);
-    // comedy は 10人につき、さらにポイント加算
-    if (aPerfomance.play.type === 'comedy') result += Math.floor(aPerfomance.audience / 5);
-    return result;
   }
 
   // 請求金額の合計計算
