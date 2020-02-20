@@ -49,7 +49,7 @@ function createStatementData (invoice, plays) {
     const calculator = new PerformanceCalculator(aPerfomance, playFor(aPerfomance));
     const result = Object.assign({}, aPerfomance);
     result.play = calculator.play;
-    result.amount = amountFor(result);
+    result.amount = calculator.amount;
     result.volumeCredits = volumeCreditsFor(result);
     return result;
   }
