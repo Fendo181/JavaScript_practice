@@ -58,11 +58,6 @@ function createStatementData (invoice, plays) {
     return plays[aPerfomance.playID];
   }
 
-  // 演劇のタイプによって請求金額を分けている
-  function amountFor (aPerfomance) {
-    return new PerformanceCalculator(aPerfomance, playFor(aPerfomance)).amount;
-  }
-
   // ポイント計算
   function volumeCreditsFor (aPerfomance) {
     let result = 0;
