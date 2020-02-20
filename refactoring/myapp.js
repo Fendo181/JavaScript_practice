@@ -14,7 +14,7 @@ class PerformanceCalculator {
   }
 
   // ボリューム特典のポイント計算
-  get volumeCreditsFor () {
+  get volumeCredits () {
     let result = 0;
     // ボリューム特典のポイント換算
     result += Math.max(this.perfomance.audience - 30.0);
@@ -78,7 +78,7 @@ function createStatementData (invoice, plays) {
     const result = Object.assign({}, aPerfomance);
     result.play = calculator.play;
     result.amount = calculator.amount;
-    result.volumeCredits = calculator.volumeCreditsFor;
+    result.volumeCredits = calculator.volumeCredits;
     return result;
   }
 
