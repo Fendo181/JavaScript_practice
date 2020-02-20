@@ -2,6 +2,13 @@
 // jsonファイルを読み込む為の標準ライブラリ
 const fs = require('fs');
 
+class PerformanceCalculator {
+  constructor (aPerfomance, aPlay) {
+    this.perfomance = aPerfomance;
+    this.play = aPlay;
+  }
+}
+
 function createStatementData (invoice, plays) {
   const statementDate = {};
   // 顧客情報
@@ -17,8 +24,9 @@ function createStatementData (invoice, plays) {
   // シャローコピーを使って中間オブジェクトからデータを取得できるようにする
   // オブジェクトからプロパティ指定で取得できるようにする
   function enrichPerfomance (aPerfomance) {
+    const calculator = new PerformanceCalculator(aPerfomance, playFor(aPerfomance));
     const result = Object.assign({}, aPerfomance);
-    result.play = playFor(result);
+    result.play = calculator.play;
     result.amount = amountFor(result);
     result.volumeCredits = volumeCreditsFor(result);
     return result;
