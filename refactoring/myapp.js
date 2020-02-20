@@ -10,14 +10,7 @@ class PerformanceCalculator {
 
   // 演劇の種類による請求金額の計算
   get amount () {
-    let result = 0;
     switch (this.play.type) {
-      case 'tragedy' :
-        result = 40000;
-        if (this.perfomance.audience > 30) {
-          result += 1000 * (this.perfomance.audience - 30);
-        }
-        break;
       case 'comedy':
         result = 30000;
         if (this.perfomance.audience > 20) {
@@ -44,7 +37,34 @@ class PerformanceCalculator {
 
 // ファクトリ関数によるコンストラクタの置き換え
 function createPerformanceCalculator (aPerfomance, aPlay) {
-  return new PerformanceCalculator(aPerfomance, aPlay);
+  switch (aPlay.type) {
+    case 'tragedy': return new TragedyCalculator(aPerfomance, aPlay);
+    case 'comedy' : return new ComedyCalculator(aPerfomance, aPlay);
+    default:
+      throw new Error(`未知の演劇の種類: $(aplay.type)`);
+  }
+}
+
+// 悲劇の場合の計算
+class TragedyCalculator extends PerformanceCalculator {
+  // 親クラスのamoutメソッドをオーバーライドする
+  get amount () {
+    let result = 40000;
+    if (this.perfomance.audience > 30) {
+      result += 1000 * (this.perfomance.audience - 30);
+    }
+    return result;
+  }
+}
+
+class ComedyCalculator extends PerformanceCalculator {
+  get amount () {
+    let result = 40000;
+    if (this.perfomance.audience > 30) {
+      result += 1000 * (this.perfomance.audience - 30);
+    }
+    return result;
+  }
 }
 
 function createStatementData (invoice, plays) {
