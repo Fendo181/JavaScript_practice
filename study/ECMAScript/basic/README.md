@@ -301,11 +301,53 @@ function showAd () {
 }
 
 console.log('Tom is Great');
-console.log('Bob is GReat!');
 showAd(); //  関数呼び出し
 ```
 
-### 
+#### 引数を使う
+
+`function`内の値を、引数によって表示する文字列を変えてみます。
+
+>この関数に渡す値を引数と呼ぶのですが、関数を定義するときの`message`は、値を仮置しているので仮引数、実際に関数を呼び出すときに渡される`Header AD`は実引数と呼ぶ
+
+
+```js
+function showAd (message) { // 仮引数
+  console.log('-------');
+  // テンプレートリテラルを追加
+  console.log(`---${message}--`);
+  console.log('-------');
+}
+
+console.log('Tom is Great');
+showAd('Header AD'); // 実引数
+console.log('Takahasi is Great');
+showAd('Footer AD');
+```
+
+実行結果
+
+```
+Tom is Great
+-------
+---Header AD--
+-------
+Takahasi is Great
+-------
+---Footer AD--
+-------
+```
+
+また関数を呼び出す時に仮引数に値を入れておく事で、デフォルト値を設定する事ができる
+
+```js
+function showAd (message = 'AD') {
+  console.log('-------');
+  console.log(`---${message}--`);
+  console.log('-------');
+}
+
+```
 
 ### 参考資料
 

@@ -1,12 +1,14 @@
 'use strict';
 
-function showAd () {
+function showAd (message = 'AD') {
   console.log('-------');
-  console.log('---AD--');
+  // テンプレートリテラルを追加
+  console.log(`---${message}--`);
   console.log('-------');
 }
 
 console.log('Tom is Great');
-console.log('Bob is GReat!');
-showAd(); //  関数呼び出し
+showAd('Header AD');
 console.log('Takahasi is Great');
+showAd('Footer AD');
+showAd();
