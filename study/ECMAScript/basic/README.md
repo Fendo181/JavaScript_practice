@@ -285,6 +285,28 @@ for (let i = 1; i <= 10; i++) {
 }
 ```
 
+### 関数
+
+`function`を使って関数を定義する。
+ここでは処理の中で広告を挟む処理を`showAd()`で関数化して、`showAd`を呼び出せば、どこからでも広告の処理を実行する事が出来る
+
+
+```js
+'use strict';
+
+function showAd () {
+  console.log('-------');
+  console.log('---AD--');
+  console.log('-------');
+}
+
+console.log('Tom is Great');
+console.log('Bob is GReat!');
+showAd(); //  関数呼び出し
+```
+
+### 
+
 ### 参考資料
 
 - [詳解JavaScript 基礎文法編 (全26回) - プログラミングならドットインストール](https://dotinstall.com/lessons/basic_javascript_grammer_v2)
