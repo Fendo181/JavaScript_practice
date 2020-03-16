@@ -256,12 +256,34 @@ do {
 } while (hp2 > 0);
 ```
 
-#### continue,break文
+#### continue,break
 
-`for`や`while`で特定の場合の時にスキップさせる
+`for`や`while`で特定の場合の時にスキップさせたり、処理を抜けたい時に使う構文があります。
+
+- `continute`: ループ処理の中で特定の条件の時だけ、処理をスキップさせる
 
 
+```js
+for (let i = 1; i <= 10; i++) {
+  // 3の倍数の時だけスキップさせる
+  if (i % 3 === 0) {
+    continue;
+  }
+  console.log(i);
+}
+```
 
+- `break`: ループ処理の中で特定の条件の時になった際に、ループ処理を抜ける
+
+```js
+for (let i = 1; i <= 10; i++) {
+  // iが4になったらbreakして処理が終了する
+  if (i === 4) {
+    break;
+  }
+  console.log(i);
+}
+```
 
 ### 参考資料
 
