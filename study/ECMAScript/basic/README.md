@@ -256,7 +256,7 @@ do {
 } while (hp2 > 0);
 ```
 
-#### continue,break
+### continue,break
 
 `for`や`while`で特定の場合の時にスキップさせたり、処理を抜けたい時に使う構文があります。
 
@@ -365,7 +365,7 @@ const total = sum(1, 2, 3) + sum(3, 4, 5);
 console.log(total);
 ```
 
-#### 関数式
+### 関数式
 
 いままでは`function`で関数名を定義して呼び出す、一般的な関数宣言でしたが、関数を定数や変数の値として代入する`関数式`という構文があります。
 
@@ -377,7 +377,54 @@ const sum = function (a, b, c) { //無名関数
 };
 
 console.log(`${sum(1, 2, 3)}`);
+```
 
+### アロー関数
+
+前回の関数式よりももっと簡略化できる構文があります。
+それがアロー関数です。
+
+
+step1 `function`をなくして、`=>`に置き換える
+
+```js
+const sum = (a, b, c) => {
+  return a + b + c;
+};
+```
+step2 `return`しかしない場合は、`return`での処理を`=>`後に移動させる
+
+```js
+const sum = (a, b, c) => a + b + c;
+```
+
+最終的にはこのように2行でまとまる事が出来る。
+
+```js
+const sum = (a, b, c) => a + b + c;
+console.log(`${sum(1, 2, 3)}`);
+```
+
+更にアロー関数は引数が1つの時は`()`を省略する事が出来る。
+
+(関数式の例)
+
+```js
+const double = function (a) {
+  return a * 2;
+};
+```
+
+上記の関数にstep1,step2を反映させると、以下の例になる
+
+```js
+const double = (a) => a * 2;
+```
+
+step3 引数が1つの時は`()`が省略できる為、以下のように置き換えが出来ます。
+
+```js
+const double = a => a * 2;
 ```
 
 
