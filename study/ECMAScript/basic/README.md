@@ -256,6 +256,12 @@ do {
 } while (hp2 > 0);
 ```
 
+#### continue,break文
+
+`for`や`while`で特定の場合の時にスキップさせる
+
+
+
 
 ### 参考資料
 
