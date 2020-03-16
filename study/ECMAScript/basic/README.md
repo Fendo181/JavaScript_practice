@@ -460,6 +460,38 @@ f();
 console.log(x); //2
 ```
 
+### コードをブロックで囲っておこう
+
+idnex.htmlでJavaScriptのコードを呼びだす場合は、script タグを分けて書いてもスコープが分かれるわけではなく注意が必要です。
+
+main.js
+```js
+const x = 100;
+console.log(x);
+```
+
+```js
+<script src="js/main.js"></script>
+<script>
+'use strict';
+
+const x = 300;
+console.log(x);
+
+</script>
+```
+
+この場合は`x`が既に宣言されているとエラーで怒られる。
+従ってブロック(`{}`)で囲ってあげる必要がある。
+
+```js
+{
+  const x = 100;
+  console.log(x);
+}
+```
+
+従って、`html`でJavaScriptを使う場合は、ブロックで囲んであげる事を注意しておく。
 
 
 ### 参考資料
