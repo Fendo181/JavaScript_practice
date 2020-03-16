@@ -365,6 +365,23 @@ const total = sum(1, 2, 3) + sum(3, 4, 5);
 console.log(total);
 ```
 
+#### 関数式
+
+いままでは`function`で関数名を定義して呼び出す、一般的な関数宣言でしたが、関数を定数や変数の値として代入する`関数式`という構文があります。
+
+変数に代入するような式のときは文末に `;` （セミコロン）が必要です。
+
+```js
+const sum = function (a, b, c) { //無名関数
+  return a + b + c;
+};
+
+console.log(`${sum(1, 2, 3)}`);
+
+```
+
+
+
 ### 参考資料
 
 - [詳解JavaScript 基礎文法編 (全26回) - プログラミングならドットインストール](https://dotinstall.com/lessons/basic_javascript_grammer_v2)
