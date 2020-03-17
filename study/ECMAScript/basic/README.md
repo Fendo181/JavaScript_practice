@@ -262,6 +262,243 @@ do {
 } while (hp2 > 0);
 ```
 
+### continue,break
+
+`for`や`while`で特定の場合の時にスキップさせたり、処理を抜けたい時に使う構文があります。
+
+- `continute`: ループ処理の中で特定の条件の時だけ、処理をスキップさせる
+
+
+```js
+for (let i = 1; i <= 10; i++) {
+  // 3の倍数の時だけスキップさせる
+  if (i % 3 === 0) {
+    continue;
+  }
+  console.log(i);
+}
+```
+
+- `break`: ループ処理の中で特定の条件の時になった際に、ループ処理を抜ける
+
+```js
+for (let i = 1; i <= 10; i++) {
+  // iが4になったらbreakして処理が終了する
+  if (i === 4) {
+    break;
+  }
+  console.log(i);
+}
+```
+
+### 関数
+
+`function`を使って関数を定義する。
+ここでは処理の中で広告を挟む処理を`showAd()`で関数化して、`showAd`を呼び出せば、どこからでも広告の処理を実行する事が出来る
+
+
+```js
+'use strict';
+
+function showAd () {
+  console.log('-------');
+  console.log('---AD--');
+  console.log('-------');
+}
+
+console.log('Tom is Great');
+showAd(); //  関数呼び出し
+```
+
+#### 引数を使う
+
+`function`内の値を、引数によって表示する文字列を変えてみます。
+
+>この関数に渡す値を引数と呼ぶのですが、関数を定義するときの`message`は、値を仮置しているので仮引数、実際に関数を呼び出すときに渡される`Header AD`は実引数と呼ぶ
+
+
+```js
+function showAd (message) { // 仮引数
+  console.log('-------');
+  // テンプレートリテラルを追加
+  console.log(`---${message}--`);
+  console.log('-------');
+}
+
+console.log('Tom is Great');
+showAd('Header AD'); // 実引数
+console.log('Takahasi is Great');
+showAd('Footer AD');
+```
+
+実行結果
+
+```
+Tom is Great
+-------
+---Header AD--
+-------
+Takahasi is Great
+-------
+---Footer AD--
+-------
+```
+
+#### 関数のデフォルト値を設定する
+
+また関数を呼び出す時に仮引数に値を入れておく事で、デフォルト値を設定する事ができる
+
+```js
+function showAd (message = 'AD') {
+  console.log('-------');
+  console.log(`---${message}--`);
+  console.log('-------');
+}
+
+```
+
+#### return で値を返してみる
+
+`return`を実行するとそれ以降の処理は実行されない事に注意する
+
+```js
+// 合計値を返す関数を作成する
+function sum (a, b, c) {
+  // この時点で値が戻されてそれ以降の処理は実行されない
+  return a + b + c;
+}
+const total = sum(1, 2, 3) + sum(3, 4, 5);
+console.log(total);
+```
+
+### 関数式
+
+いままでは`function`で関数名を定義して呼び出す、一般的な関数宣言でしたが、関数を定数や変数の値として代入する`関数式`という構文があります。
+
+変数に代入するような式のときは文末に `;` （セミコロン）が必要です。
+
+```js
+const sum = function (a, b, c) { //無名関数
+  return a + b + c;
+};
+
+console.log(`${sum(1, 2, 3)}`);
+```
+
+### アロー関数
+
+前回の関数式よりももっと簡略化できる構文があります。
+それがアロー関数です。
+
+
+step1 `function`をなくして、`=>`に置き換える
+
+```js
+const sum = (a, b, c) => {
+  return a + b + c;
+};
+```
+step2 `return`しかしない場合は、`return`での処理を`=>`後に移動させる
+
+```js
+const sum = (a, b, c) => a + b + c;
+```
+
+最終的にはこのように2行でまとまる事が出来る。
+
+```js
+const sum = (a, b, c) => a + b + c;
+console.log(`${sum(1, 2, 3)}`);
+```
+
+更にアロー関数は引数が1つの時は`()`を省略する事が出来る。
+
+(関数式の例)
+
+```js
+const double = function (a) {
+  return a * 2;
+};
+```
+
+上記の関数にstep1,step2を反映させると、以下の例になる
+
+```js
+const double = (a) => a * 2;
+```
+
+step3 引数が1つの時は`()`が省略できる為、以下のように置き換えが出来ます。
+
+```js
+const double = a => a * 2;
+```
+
+### スコープ(有効範囲について)
+
+ブロック内で定数や変数が宣言されて場合は基本的にはそのブロック内だけで有効となる。
+例として関数やif でも while でもブロックのあるところでは定数や変数のスコープが分かれる。
+
+従って、ブロック外で呼び出そうとすると未定義となり、有効にならないルールがある。
+
+```js
+function f () {
+  // 定数や変数がブロック内で宣言された場合
+  // その定数や変数はこのブロックの中でだけ有効というルールがある
+  const x = 1;
+  console.log(x);
+}
+
+f();
+console.log(x); // x is not defined
+```
+
+ブロック外で宣言された定数や変数については、`グローバルスコープ`と呼ばれ、ブロック内でも呼ぶことが可能となる。ブロック内で同名の変数がある場合はそちらが優先されるが、無ければグローバル変数が優先される。
+
+```js
+const x = 2; // グローバルスコープ
+
+function f () {
+//   const x = 1; // ローカルスコープ
+  console.log(x); //2
+}
+
+f();
+console.log(x); //2
+```
+
+### コードをブロックで囲っておこう
+
+idnex.htmlでJavaScriptのコードを呼びだす場合は、script タグを分けて書いてもスコープが分かれるわけではなく注意が必要です。
+
+main.js
+```js
+const x = 100;
+console.log(x);
+```
+
+```js
+<script src="js/main.js"></script>
+<script>
+'use strict';
+
+const x = 300;
+console.log(x);
+
+</script>
+```
+
+この場合は`x`が既に宣言されているとエラーで怒られる。
+従ってブロック(`{}`)で囲ってあげる必要がある。
+
+```js
+{
+  const x = 100;
+  console.log(x);
+}
+```
+
+従って、`html`でJavaScriptを使う場合は、ブロックで囲んであげる事を注意しておく。
+
 
 ### 参考資料
 
