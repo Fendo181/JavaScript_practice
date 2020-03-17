@@ -1,4 +1,4 @@
-## 詳解JavaScript 基礎文法編
+## 詳解JavaScript基礎文法編
 
 JavaScriptの最新の文法について勉強をします。
 
