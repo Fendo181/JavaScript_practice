@@ -74,3 +74,7 @@
   - JavaScriptの中級者レベルの文法を学びはじめた
   - [改訂新版JavaScript本格入門 ~モダンスタイルによる基礎から現場での応用まで](https://gihyo.jp/book/2016/978-4-7741-8411-1)
 
+- 2023/08/11
+  - Reactを学ぶためにJavaScriptの基礎を学び直す
+  - ドットインストールでReactの講義が出てきた事がキッカケ
+    - https://note.com/dotinstall/n/nae4add169183
