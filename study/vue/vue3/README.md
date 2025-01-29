@@ -54,6 +54,27 @@ Vue3の学習を行う為のリポジトリです。
 </template>
 ```
 
+- v-if ディレクティブを使用すると、条件に基づいて要素を描画するかどうかを制御できます。
+  - v-else-if と v-else ディレクティブを使って、より複雑な条件を表現することもできます。
+
+```vue
+<script setup>
+import { ref } from 'vue'
+
+const awesome = ref(true)
+
+function toggle() {
+  awesome.value = !awesome.value
+}
+</script>
+
+<template>
+  <button @click="toggle">Toggle</button>
+  <h1 v-if="awesome">Vue is awesome!</h1>
+  <h1 v-else>Oh no 😢</h1>
+</template>
+```
+
 ### 参考ドキュメント
 
 - https://ja.vuejs.org/tutoria
