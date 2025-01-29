@@ -105,6 +105,26 @@ const todos = ref([
   - これにより、テンプレート内で算出プロパティを呼び出すたびに、関連する依存関係を再計算する必要がなくなります。
 
 
+- `onMounted` は、コンポーネントがマウントされた後に実行される関数を定義します。
+  - これは、コンポーネントの初期化処理を行うのに便利です。
+  - これはVueJSのライフサイクルフックの一つです。
+  - 他にも`onUpdated` や `onUnmounted` があります。
+
+```vue
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const pElementRef = ref(null)
+onMounted(()=>{
+  pElementRef.value.textContent = 'どうも!!'
+})
+</script>
+
+<template>
+  <p ref="pElementRef">Hello!!</p>
+</template>
+```
+
 
 ### 参考ドキュメント
 
