@@ -127,6 +127,38 @@ onMounted(()=>{
 
 - `watch` 関数を使用すると、リアクティブなデータの変更を監視し、その変更に応じて副作用を実行できます。
   - これは、データの変更に応じて非同期処理を実行する場合などに便利です。
+- `props` は、コンポーネントに渡されたプロパティを受け取るための特別な関数です。
+  - これは、親コンポーネントから子コンポーネントにデータを渡すために使用されます。
+
+渡し方
+
+子どものコンポーネント
+```vue
+<script setup>
+const props = defineProps({
+  msg: String
+})
+</script>
+
+<template>
+  <h2>{{ msg || 'No props passed yet' }}</h2>
+</template>
+```
+
+親のコンポーネント
+
+```
+<script setup>
+import { ref } from 'vue'
+import ChildComp from './ChildComp.vue'
+
+const greeting = ref('ここだよ~!!')
+</script>
+
+<template>
+  <ChildComp :msg="greeting" />
+</template>
+```
 
 ### 参考ドキュメント
 
