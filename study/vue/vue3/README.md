@@ -75,6 +75,34 @@ function toggle() {
 </template>
 ```
 
+- v-forディレクティブを使用すると、配列の各要素に対して繰り返し描画することができます。
+  - また、オブジェクトのプロパティに対しても繰り返し描画することができます。
+
+```vue
+<script setup>
+import { ref } from 'vue'
+
+// give each todo a unique id
+let id = 0
+const todos = ref([
+  { id: id++, text: 'Learn HTML' },
+  { id: id++, text: 'Learn JavaScript' },
+  { id: id++, text: 'Learn Vue' }
+])
+</script>
+
+<template>
+  <ul>
+    <li v-for="todo in todos" :key="todo.id">
+      {{ todo.text }}
+    </li>
+  </ul>
+</template>
+
+```
+
+
+
 ### 参考ドキュメント
 
 - https://ja.vuejs.org/tutoria
