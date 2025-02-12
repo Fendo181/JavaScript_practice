@@ -166,8 +166,9 @@ function UserList() {
 }
 ```
 
-注意点として、リストの項目には `key` という属性でユニークな値を付けておく必要があります。key が必要かは React の内部的な都合による。
-これはReactの仮想DOM（Virtual DOM）における差分検出と再レンダリングの最適化が主な理由です
+注意点として、リストの項目には `key` という属性でユニークな値を付けておく必要があります。key が必要かは React の内部的な都合による。これはReactの仮想DOM（Virtual DOM）における差分検出と再レンダリングの最適化が主な理由です。
+
+また、`key` は特殊な属性で props ではアクセスできないので、別途作る必要があります。
 
 ### UseStateについて
 
@@ -240,11 +241,8 @@ function Counter() {
 }
 ```
 
-### データの管理について
-
-
 
 ### 参考
 
 - https://dotinstall.com/lessons/basic_reactjs_v2
-- 
+- https://speakerdeck.com/recruitengineers/react-yan-xiu-2024
