@@ -19,20 +19,25 @@
     
     // Reactコンポーネントを定義
     {
-      const container = document.querySelector('#container');
-      const root = ReactDOM.createRoot(container);
-      root.render(
+      const App  = ()=> {
+        return  (
         // フラグメントを使って複数の要素を返す
         <>
-        <h1>Hello, React!</h1>
-        <ul className="menus">
-          <li>牛丼1</li>
-          <li>牛丼2</li>
-          <li>牛丼3</li>
-        </ul>
-        <p>合計は: </p>
+          <h1>Hello, React!</h1>
+          <ul className="menus">
+            <li>牛丼1</li>
+            <li>牛丼2</li>
+            <li>牛丼3</li>
+          </ul>
+          <p>合計は: </p>
         </>
-      );
+        )
+      }
+      
+      const container = document.querySelector('#container');
+      const root = ReactDOM.createRoot(container);
+      // JSX ではすべてのタグに閉じタグが必要になります。
+      root.render(<App />);
     }
   </script>
 </body>
