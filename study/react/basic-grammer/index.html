@@ -39,12 +39,20 @@
         );
       }
       const App  = ()=> {
-        const [counts, setCounts] = React.useState([0, 0, 0]);  
+        const [counts, setCounts] = React.useState([1, 1, 1]);  
+        // useState で管理するデータは複雑になってくると、
+        // そのデータを更新するための処理が複雑になったり、
+        // 設計によってはパフォーマンスが落ちてしまうこともある
         const menus = [
           {id:0, name: '牛丼', price: 400},
           {id:1, name: 'カレー', price: 300},
           {id:2, name: 'うどん', price: 1000},
         ];
+        
+        // 計算した合計を
+        const total = (menus[0].price * counts[0]) + 
+                      (menus[1].price * counts[1]) + 
+                      (menus[2].price * counts[2]);
         
         const menuItems = menus.map((menu)=> {
           return (
@@ -66,7 +74,7 @@
           <ul className="menus">
             {menuItems}
           </ul>
-          <p>合計は: </p>
+          <p>合計は: {total}円</p>
         </>
         )
       }
