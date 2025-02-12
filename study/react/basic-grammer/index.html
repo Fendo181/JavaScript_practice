@@ -27,7 +27,7 @@
           props.onDecrement();
         }
         const increment = () => {
-    
+          props.onIncrement();
         }
         return (
           <li>
@@ -56,8 +56,14 @@
                       
         // decrementMenu
         const decrementMenu = () => {
-          console.log('decrementMenu');
+          console.log('minus decrementMenu');
         }
+        
+        // Appコンポーネントの中でincrementMenuを定義
+        const incrementMenu = () => {
+          console.log('plus incrementMenu');
+        }
+        
         // Menuコンポーネントを展開する
         const menuItems = menus.map((menu)=> {
           return (
@@ -68,6 +74,7 @@
             name={menu.name} 
             price={menu.price}
             onDecrement={decrementMenu}
+            onIncrement={incrementMenu}
             />
           );
         });
