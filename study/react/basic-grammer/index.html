@@ -24,32 +24,22 @@
         
         // useState にはこの count の初期値を入れることになっている
         const [count, setCount] = React.useState(1);
-        const name = props.name;
-        const price = props.price;
         const decrement = () => {
-          // count は const で宣言しているため、再代入はできない為count-- は使えない
-          if(count > 0) {
-            setCount(count - 1);
-          }
+ 
         }
         const increment = () => {
-          // count は const で宣言しているため、再代入はできない為count-- は使えない
-          setCount(count + 1);
-          // prevCountを使う事で、前回の値を取得することができる
-          setCount((prevCount) => {return prevCount + 1; });
-          setCount((prevCount) => {return prevCount + 1; });
+    
         }
         return (
           <li>
             <button onClick={decrement}>-</button>
             <button onClick={increment}>+</button>
-            {name} ({price} × {count}個)
+            {props.price} ({props.name} × {props.count}個)
           </li>
         );
       }
-    
-      
       const App  = ()=> {
+        const [counts, setCounts] = React.useState([0, 0, 0]);  
         const menus = [
           {id:0, name: '牛丼', price: 400},
           {id:1, name: 'カレー', price: 300},
@@ -61,6 +51,7 @@
             <Menu 
             // {} を使う場合、"" が不要で、= の直後に書かなくてはいけないというルールがある
             key={menu.id}
+            count={counts[menu.id]}
             name={menu.name} 
             price={menu.price}
             />
