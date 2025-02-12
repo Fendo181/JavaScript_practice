@@ -9,9 +9,21 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-  <h1>My React App</h1>
-  
+  <div id="container">
+    
+  </div>
+  <!--  JavaScriptコードをBabelでトランスパイルする必要があることを示すタグです。 -->
   <script type="text/babel">
+    'use strict';
+    
+    // Reactコンポーネントを定義
+    {
+      const container = document.querySelector('#container');
+      const root = ReactDOM.createRoot(container);
+      root.render(
+        React.createElement('h1', null, 'Hello! React!')
+      );
+    }
   </script>
 </body>
 </html>
