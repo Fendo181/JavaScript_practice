@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+}
+
+#container {
+  width: 400px;
+  margin: 0 auto;
+  background: orange;
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+  text-align: right;
+}
