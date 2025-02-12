@@ -7,22 +7,27 @@ body {
 #container {
   width: 400px;
   margin: 0 auto;
-  background: orange;
 }
 
 h1 {
-  margin: 0;
+  margin: 16px 0 0 0;
   font-size: 20px;
   text-align: center;
 }
 
-ul {
+.menus {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+.menus>li {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
 p {
-  margin: 0;
+  margin: 16 0 0 0;
   text-align: right;
 }
