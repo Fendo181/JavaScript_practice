@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My React App</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    
+  </div>
+  <!--  JavaScriptコードをBabelでトランスパイルする必要があることを示すタグです。 -->
+  <script type="text/babel">
+    'use strict';
+  
+    // Reactコンポーネントを定義
+    {
+      // Menuコンポーネントを定義
+      const Menu = (props)=> {      
+        // useState にはこの count の初期値を入れることになっている
+        const [count, setCount] = React.useState(1);
+        const decrement = () => {
+          props.onDecrement(props.menuId);
+        }
+        const increment = () => {
+          props.onIncrement(props.menuId);
+        }
+        return (
+          <li>
+            <button onClick={decrement}>-</button>
+            <button onClick={increment}>+</button>
+            {props.price} ({props.name} × {props.count}個)
+          </li>
+        );
+      }
+      // Appコンポーネントを定義
+      const App  = ()=> {
+        const [counts, setCounts] = React.useState([0, 0, 0]);  
+        // useState で管理するデータは複雑になってくると、
+        // そのデータを更新するための処理が複雑になったり、
+        // 設計によってはパフォーマンスが落ちてしまうこともある
+        const menus = [
+          {id:0, name: '牛丼', price: 400},
+          {id:1, name: 'カレー', price: 300},
+          {id:2, name: 'うどん', price: 1000},
+        ];
+        
+        // 計算した合計を
+        const total = (menus[0].price * counts[0]) + 
+                      (menus[1].price * counts[1]) + 
+                      (menus[2].price * counts[2]);
+                      
+        // decrementMenu
+        const decrementMenu = (menuId) => {
+          // スプレッド構文で値のコピーを作る
+          if(counts[menuId] > 0) {
+            const newCounts = [...counts];
+            // [0,0,0] → [-1,0,0] 
+            newCounts[menuId]--;
+            setCounts(newCounts);
+          }
+        }
+        
+        // Appコンポーネントの中でincrementMenuを定義
+        const incrementMenu = (menuId) => {
+          const newCounts = [...counts];
+            // [0,0,0] → [-1,0,0] 
+            newCounts[menuId]++;
+            setCounts(newCounts);
+        }
+        
+        // Menuコンポーネントを展開する
+        const menuItems = menus.map((menu)=> {
+          return (
+            <Menu 
+            // {} を使う場合、"" が不要で、= の直後に書かなくてはいけないというルールがある
+            key={menu.id}
+            menuId={menu.id}
+            count={counts[menu.id]}
+            name={menu.name} 
+            price={menu.price}
+            onDecrement={decrementMenu}
+            onIncrement={incrementMenu}
+            />
+          );
+        });
+        
+        return  (
+        // フラグメントを使って複数の要素を返す
+        //  Menuコンポーネントを展開する
+        <>
+          <h1>Hello, React!</h1>
+          <ul className="menus">
+            {menuItems}
+          </ul>
+          <p>合計は: {total}円</p>
+        </>
+        )
+      }
+      
+      // Appコンテナをレンダリング
+      const container = document.querySelector('#container');
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+    }
+  </script>
+</body>
+</html>
