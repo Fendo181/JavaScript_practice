@@ -169,6 +169,31 @@ function UserList() {
 注意点として、リストの項目には `key` という属性でユニークな値を付けておく必要があります。key が必要かは React の内部的な都合による。
 これはReactの仮想DOM（Virtual DOM）における差分検出と再レンダリングの最適化が主な理由です
 
+### UseStateについて
+
+`useState`は、Reactのフックで、状態を管理するためのものです。
+
+```jsx
+function Counter() {
+  // countの値を変更するための関数
+  const [count, setCount] = React.useState(0);
+  
+  return (
+    <div>
+      <p>カウント: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        増やす
+      </button>
+    </div>
+  );
+}
+```
+
+ユーザーの操作によって変化させたい値があったら、`useState()` を使います
+定数とそれを操作する命令を分割代入を使ってこのように宣言しておくという流れに慣れておくといいです。
+
+`count`はconstで宣言されていますが、setCountを実行すると古い値破棄されて、新しい `count` の値で、またこのコンポーネントが作り直されるという仕組みです。
+
 ### 参考
 
 - https://dotinstall.com/lessons/basic_reactjs_v2

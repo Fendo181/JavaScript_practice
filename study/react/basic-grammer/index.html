@@ -21,13 +21,16 @@
     {
       // propsで受け取った値を表示する
       const Menu = (props)=> {
+        
+        // useState にはこの count の初期値を入れることになっている
+        const [count, setCount] = React.useState(0);
         const name = props.name;
         const price = props.price;
         return (
           <li>
             <button>-</button>
             <button>+</button>
-            {name} ({price} × 0)
+            {name} ({price}円 × {count}個)
           </li>
         );
       }
