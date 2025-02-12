@@ -194,6 +194,47 @@ function Counter() {
 
 `count`はconstで宣言されていますが、setCountを実行すると古い値破棄されて、新しい `count` の値で、またこのコンポーネントが作り直されるという仕組みです。
 
+### 値の更新のタイミングについて
+
+Reactのコンポーネントは、状態が変更されると再レンダリングされます。
+たとえば、とあるボタンをクリックした際に3回カウントアップする処理を実装する場合、以下のように書くとうまくいかないです。
+
+```jsx
+function Counter() {
+  const [count, setCount] = React.useState(0);
+  
+  const handleClick = () => {
+    setCount(count + 1);
+    setCount(count + 1);
+    setCount(count + 1);
+  };
+  
+  return (
+    <div>
+      <p>カウント: {count}</p>
+      <button onClick={handleClick}>
+        増やす
+      </button>
+    </div>
+  );
+}
+```
+
+これは、`setCount` はあくまでも動作を予約するだけで即座に `count` の値を変更するわけではないためです。仕組みとしては、`setCount` は React に対して `count` の値を変更するように指示するだけで、React はその指示を受け取り、次のレンダリング時に `count` の値を変更します。
+これは以下のようにすれば、正しく動作します。
+
+```jsx
+function Counter() {
+  const [count, setCount] = React.useState(0);
+  
+  const handleClick = () => {
+    setCount(count + 1);
+    setCount((prevCount) => {return prevCount + 1; });
+    setCount((prevCount) => {return prevCount + 1; });
+  };
+}
+```
+
 ### 参考
 
 - https://dotinstall.com/lessons/basic_reactjs_v2

@@ -35,6 +35,9 @@
         const increment = () => {
           // count は const で宣言しているため、再代入はできない為count-- は使えない
           setCount(count + 1);
+          // prevCountを使う事で、前回の値を取得することができる
+          setCount((prevCount) => {return prevCount + 1; });
+          setCount((prevCount) => {return prevCount + 1; });
         }
         return (
           <li>
