@@ -24,7 +24,7 @@
         // useState にはこの count の初期値を入れることになっている
         const [count, setCount] = React.useState(1);
         const decrement = () => {
-          props.onDecrement();
+          props.onDecrement(props.menuId);
         }
         const increment = () => {
           props.onIncrement();
@@ -55,8 +55,12 @@
                       (menus[2].price * counts[2]);
                       
         // decrementMenu
-        const decrementMenu = () => {
-          console.log('minus decrementMenu');
+        const decrementMenu = (menuId) => {
+          // スプレッド構文で値のコピーを作る
+          const newCounts = [...counts];
+          //  // [0,0,0] → [-1,0,0] 
+          newCounts[menuId]--;
+          setCounts(newCounts);
         }
         
         // Appコンポーネントの中でincrementMenuを定義
@@ -70,6 +74,7 @@
             <Menu 
             // {} を使う場合、"" が不要で、= の直後に書かなくてはいけないというルールがある
             key={menu.id}
+            menuId={menu.id}
             count={counts[menu.id]}
             name={menu.name} 
             price={menu.price}
