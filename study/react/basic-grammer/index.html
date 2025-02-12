@@ -23,14 +23,24 @@
       const Menu = (props)=> {
         
         // useState にはこの count の初期値を入れることになっている
-        const [count, setCount] = React.useState(0);
+        const [count, setCount] = React.useState(1);
         const name = props.name;
         const price = props.price;
+        const decrement = () => {
+          // count は const で宣言しているため、再代入はできない為count-- は使えない
+          if(count > 0) {
+            setCount(count - 1);
+          }
+        }
+        const increment = () => {
+          // count は const で宣言しているため、再代入はできない為count-- は使えない
+          setCount(count + 1);
+        }
         return (
           <li>
-            <button>-</button>
-            <button>+</button>
-            {name} ({price}円 × {count}個)
+            <button onClick={decrement}>-</button>
+            <button onClick={increment}>+</button>
+            {name} ({price} × {count}個)
           </li>
         );
       }
