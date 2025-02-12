@@ -21,10 +21,14 @@
     {
       // propsで受け取った値を表示する
       const Menu = (props)=> {
-        console.log(props);
         const name = props.name;
+        const price = props.price;
         return (
-          <li>牛丼1</li>
+          <li>
+            <button>-</button>
+            <button>+</button>
+            {name} ({price} × 0)
+          </li>
         );
       }
       
@@ -34,9 +38,9 @@
         <>
           <h1>Hello, React!</h1>
           <ul className="menus">
-            <Menu name="牛丼"/>
-            <Menu name="カレー"/>
-            <Menu name="うどん"/>
+            <Menu name="牛丼" price="400"/>
+            <Menu name="カレー" price="300"/>
+            <Menu name="うどん" price="1000"/>
           </ul>
           <p>合計は: </p>
         </>
