@@ -16,16 +16,15 @@
   <!--  JavaScriptコードをBabelでトランスパイルする必要があることを示すタグです。 -->
   <script type="text/babel">
     'use strict';
-    
+  
     // Reactコンポーネントを定義
     {
-      // propsで受け取った値を表示する
-      const Menu = (props)=> {
-        
+      // Menuコンポーネントを定義
+      const Menu = (props)=> {      
         // useState にはこの count の初期値を入れることになっている
         const [count, setCount] = React.useState(1);
         const decrement = () => {
- 
+          props.onDecrement();
         }
         const increment = () => {
     
@@ -38,8 +37,9 @@
           </li>
         );
       }
+      // Appコンポーネントを定義
       const App  = ()=> {
-        const [counts, setCounts] = React.useState([1, 1, 1]);  
+        const [counts, setCounts] = React.useState([0, 0, 0]);  
         // useState で管理するデータは複雑になってくると、
         // そのデータを更新するための処理が複雑になったり、
         // 設計によってはパフォーマンスが落ちてしまうこともある
@@ -53,7 +53,12 @@
         const total = (menus[0].price * counts[0]) + 
                       (menus[1].price * counts[1]) + 
                       (menus[2].price * counts[2]);
-        
+                      
+        // decrementMenu
+        const decrementMenu = () => {
+          console.log('decrementMenu');
+        }
+        // Menuコンポーネントを展開する
         const menuItems = menus.map((menu)=> {
           return (
             <Menu 
@@ -62,6 +67,7 @@
             count={counts[menu.id]}
             name={menu.name} 
             price={menu.price}
+            onDecrement={decrementMenu}
             />
           );
         });
@@ -79,9 +85,9 @@
         )
       }
       
+      // Appコンテナをレンダリング
       const container = document.querySelector('#container');
       const root = ReactDOM.createRoot(container);
-      // JSX ではすべてのタグに閉じタグが必要になります。
       root.render(<App />);
     }
   </script>
