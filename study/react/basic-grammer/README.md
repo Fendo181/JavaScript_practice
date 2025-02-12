@@ -2,7 +2,7 @@
 
 今後、業務でもReactを本格的に使うにあたって、今の内からReactの基礎文法を学んでおきたいと思います。
 
-### そもそもReactとはなにか? 
+### そもそもReactとはなにか?
 
 Reactは、Facebookが開発したユーザーインターフェース（UI）を構築するためのJavaScriptライブラリです。
 
@@ -144,6 +144,30 @@ function App() {
 
 JSXで受け取った値を表示する場合は、`{}`で囲むことで表示することができます。
 
+### リスト項目について
+
+Reactでは、リスト項目を表示する際には、`map`メソッドを使って表示することができます。
+
+```jsx
+function UserList() {
+  const users = [
+    { id:1, name: 'Alice' },
+    { id:2, name: 'Bob' },
+    { id:3, name: 'Charlie' },
+  ];
+
+  return (
+    <div>
+      {users.map(user => (
+        <div key={user.id}>{user.name}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+注意点として、リストの項目には `key` という属性でユニークな値を付けておく必要があります。key が必要かは React の内部的な都合による。
+これはReactの仮想DOM（Virtual DOM）における差分検出と再レンダリングの最適化が主な理由です
 
 ### 参考
 

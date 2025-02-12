@@ -35,15 +35,16 @@
       
       const App  = ()=> {
         const menus = [
-          {name: '牛丼', price: 400},
-          {name: 'カレー', price: 300},
-          {name: 'うどん', price: 1000},
+          {id:0, name: '牛丼', price: 400},
+          {id:1, name: 'カレー', price: 300},
+          {id:2, name: 'うどん', price: 1000},
         ];
         
         const menuItems = menus.map((menu)=> {
           return (
             <Menu 
             // {} を使う場合、"" が不要で、= の直後に書かなくてはいけないというルールがある
+            key={menu.id}
             name={menu.name} 
             price={menu.price}
             />
