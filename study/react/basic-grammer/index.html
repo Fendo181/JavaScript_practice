@@ -31,16 +31,32 @@
           </li>
         );
       }
+    
       
       const App  = ()=> {
+        const menus = [
+          {name: '牛丼', price: 400},
+          {name: 'カレー', price: 300},
+          {name: 'うどん', price: 1000},
+        ];
+        
+        const menuItems = menus.map((menu)=> {
+          return (
+            <Menu 
+            // {} を使う場合、"" が不要で、= の直後に書かなくてはいけないというルールがある
+            name={menu.name} 
+            price={menu.price}
+            />
+          );
+        });
+        
         return  (
         // フラグメントを使って複数の要素を返す
+        //  Menuコンポーネントを展開する
         <>
           <h1>Hello, React!</h1>
           <ul className="menus">
-            <Menu name="牛丼" price="400"/>
-            <Menu name="カレー" price="300"/>
-            <Menu name="うどん" price="1000"/>
+            {menuItems}
           </ul>
           <p>合計は: </p>
         </>
