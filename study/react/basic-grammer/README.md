@@ -2,7 +2,7 @@
 
 今後、業務でもReactを本格的に使うにあたって、今の内からReactの基礎文法を学んでおきたいと思います。
 
-### そもそもReactとはなにか?
+## そもそもReactとはなにか?
 
 Reactは、Facebookが開発したユーザーインターフェース（UI）を構築するためのJavaScriptライブラリです。
 
@@ -23,22 +23,17 @@ function Sidebar() {
 }
 ```
 
-- (2) 仮想DOM（Virtual DOM）による高速な画面更新
+- (2) 仮想DOM（`Virtual DOM`）による高速な画面更新
   - 画面の変更箇所を最小限に抑え、効率的に更新します
   - ユーザー体験が向上し、スムーズな操作感を実現できます
-- (3) データの一方向の流れ（単一方向データフロー
+- (3) データの一方向の流れ（単一方向データフロー)
   - データの流れが予測しやすく、バグを見つけやすい
 - (4)jsxで書ける。
-  - JavaScriptの拡張構文で、HTMLのように見えるが、JavaScriptの構文で書かれている
-  - コンパイル時にJavaScriptに変換される
-  - 例えば、以下のように書くことができる
+  - JavaScriptの拡張構文で、HTMLのように見えるが、JavaScriptの構文で書かれています。
   
 ```jsx
 function Counter() {
-    // countの値を変更するための関数
-    // useStateはReactのフックで、状態を管理するためのもの
   const [count, setCount] = React.useState(0);
-  
   return (
     <div>
       <p>カウント: {count}</p>
@@ -50,11 +45,13 @@ function Counter() {
 }
 ```
 
-### Hooksについて
+## Hooksについて
 
-Hooksは、React 16.8で導入された機能で、関数コンポーネントで状態（state）やライフサイクルなどの機能を使えるようにする仕組みです。
+`Hooks`は、React 16.8で導入された機能で、関数コンポーネントで状態（state）やライフサイクルなどの機能を使えるようにする仕組みです。
 
-- (1)useState - 最も基本的なHookで、状態を管理するためのもの
+[組み込みの React フック – React](https://ja.react.dev/reference/react/hooks)
+
+### `useState`: 最も基本的なHookで、状態を管理するためのもの
 
 ```jsx
 function Counter() {
@@ -69,24 +66,14 @@ function Counter() {
 }
 ```
 
-- (2)`useEffect`: コンポーネントがマウントされた後やアップデートされた後に何か処理を実行したい場合に使う
- - 副作用（データフェッチ、DOM操作など）を扱うためのHook
- - 注意として使う場面を間違ってしまうと、無限ループに陥る可能性があるので、注意が必要です
+### `useEffect`: コンポーネントがマウントされた後やアップデートされた後に何か処理を実行したい場合に使う
+ - 副作用（データフェッチ、DOM操作など）を扱うためのHookです。
+ - ※注意として使う場面を間違ってしまうと、無限ループに陥る可能性があるので、注意が必要です。
 
-```jsx
-function UserProfile({ userId }) {
-  const [user, setUser] = useState(null);
+[そのエフェクトは不要かも – React](https://ja.react.dev/learn/you-might-not-need-an-effect)
 
-  useEffect(() => {
-    // コンポーネントがマウントされた時やuserIdが変更された時に実行
-    fetchUser(userId).then(data => setUser(data));
-  }, [userId]);  // 依存配列
 
-  return <div>{user ? user.name : 'Loading...'}</div>;
-}
-```
-
-- (3)`useContext`: Reactのコンテキストを簡単に利用するためのHookです。
+### `useContext`: Reactのコンテキストを簡単に利用するためのHookです。
   - コンテキストは、Reactのコンポーネントツリー全体でデータを共有するための仕組みです
   - 例えば、テーマや言語などの情報を共有する場合に使います
 
@@ -100,7 +87,7 @@ function ThemedButton() {
 }
 ```
 
-Hooksを使う場合のルールとしては以下があります。
+### Hooksを使う場合のルール
 
 - (1)トップレベルで呼び出す
 - (2)ループ、条件分岐、ネストされた関数内で呼び出さない
@@ -109,12 +96,12 @@ Hooksを使う場合のルールとしては以下があります。
 
 これらを守る事でコンポーネント事にパーツが再利用ができて、コードが簡潔になります
 
-### JSXのルールについて
+## JSXのルールについて
 
 - `JSX` では class 属性については、`className`を指定する
-  - Nは必ず大文字で始まる。
+  - `className`のNameは必ず大文字を指定する
 
-### Reactのコンポーネントのルールについて
+## Reactのコンポーネントのルールについて
 
 Reactにおけるコンポーネントとは、UIを構成する部品のことで関数で書くことが可能です。
 
@@ -125,9 +112,7 @@ function Header() {
 ```
 
 
-これが現在推奨される書き方です。シンプルで理解しやすく、Hooksと組み合わせることで強力な機能を実装できます。
-
-### Propsについて
+## Propsについて
 
 Propsは、コンポーネントに渡すデータのことで、親コンポーネントから子コンポーネントにデータを渡すために使います。
 
@@ -144,7 +129,7 @@ function App() {
 
 JSXで受け取った値を表示する場合は、`{}`で囲むことで表示することができます。
 
-### リスト項目について
+## リスト項目を扱う場合について
 
 Reactでは、リスト項目を表示する際には、`map`メソッドを使って表示することができます。
 
@@ -166,13 +151,24 @@ function UserList() {
 }
 ```
 
-注意点として、リストの項目には `key` という属性でユニークな値を付けておく必要があります。key が必要かは React の内部的な都合による。これはReactの仮想DOM（Virtual DOM）における差分検出と再レンダリングの最適化が主な理由です。
+注意点として、リストの項目には `key` という属性でユニークな値を付けておく必要があります。
+keこれはReactの仮想DOM（Virtual DOM）における差分検出と再レンダリングの最適化が主な理由です。
+また、`key` は特殊な属性で props ではアクセスできないので、keyに相当するIDにアクセスしたい場合は別途作る必要があります。
 
-また、`key` は特殊な属性で props ではアクセスできないので、別途作る必要があります。
+```jsx
+const menuItems = menus.map((menu)=> {
+  return (
+    <Menu 
+    key={menu.id} // propsに渡せない
+    menuId={menu.id} // propsに渡せる
+    />
+  );
+});
+```
 
-### UseStateについて
+## UseStateについて
 
-`useState`は、Reactのフックで、状態を管理するためのものです。
+`useState`は、ReactのHooksで、状態を管理できます。
 
 ```jsx
 function Counter() {
@@ -190,17 +186,13 @@ function Counter() {
 }
 ```
 
-ユーザーの操作によって変化させたい値があったら、`useState()` を使います
-定数とそれを操作する命令を分割代入を使ってこのように宣言しておくという流れに慣れておくといいです。
+上記サンプルコードで、`count`はconstで宣言されていますが、setCountを実行すると古い値破棄されて、新しい `count` の値で、またこのコンポーネントが作り直されるという仕組みです。
 
-`count`はconstで宣言されていますが、setCountを実行すると古い値破棄されて、新しい `count` の値で、またこのコンポーネントが作り直されるという仕組みです。
+### UseStateを使う場合の注意について
 
-#### UseStateを使う場合の注意について
+`useState` で管理するデータは複雑になってくるとそのデータを更新するための処理が複雑になったり、設計によってはパフォーマンスが落ちてしまうこともあります。なので、`useState` で管理するデータは、できるだけシンプルにすることが重要です。
 
-`useState` で管理するデータは複雑になってくると、そのデータを更新するための処理が複雑になったり、設計によってはパフォーマンスが落ちてしまうこともあります。
-従った、`useState` で管理するデータは、できるだけシンプルにすることが重要です。
-
-### 値の更新のタイミングについて
+## 値の更新のタイミングについて
 
 Reactのコンポーネントは、状態が変更されると再レンダリングされます。
 たとえば、とあるボタンをクリックした際に3回カウントアップする処理を実装する場合、以下のように書くとうまくいかないです。
@@ -246,3 +238,4 @@ function Counter() {
 
 - https://dotinstall.com/lessons/basic_reactjs_v2
 - https://speakerdeck.com/recruitengineers/react-yan-xiu-2024
+- https://qiita.com/rion0726ittoti/items/558592a8bb73163d9964
