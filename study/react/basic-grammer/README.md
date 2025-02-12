@@ -123,8 +123,24 @@ function Header() {
   return <header>ヘッダー部分</header>;
 }
 ```
-
 これが現在推奨される書き方です。シンプルで理解しやすく、Hooksと組み合わせることで強力な機能を実装できます。
+
+### Propsについて
+
+Propsは、コンポーネントに渡すデータのことで、親コンポーネントから子コンポーネントにデータを渡すために使います。
+
+```jsx
+function User(props) {
+  // nameにはAliceが入ってくる
+  return <div>{props.name}</div>;
+}
+
+function App() {
+  return <User name="Alice" />;
+}
+```
+
+
 
 
 

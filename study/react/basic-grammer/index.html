@@ -19,15 +19,24 @@
     
     // Reactコンポーネントを定義
     {
+      // propsで受け取った値を表示する
+      const Menu = (props)=> {
+        console.log(props);
+        const name = props.name;
+        return (
+          <li>牛丼1</li>
+        );
+      }
+      
       const App  = ()=> {
         return  (
         // フラグメントを使って複数の要素を返す
         <>
           <h1>Hello, React!</h1>
           <ul className="menus">
-            <li>牛丼1</li>
-            <li>牛丼2</li>
-            <li>牛丼3</li>
+            <Menu name="牛丼"/>
+            <Menu name="カレー"/>
+            <Menu name="うどん"/>
           </ul>
           <p>合計は: </p>
         </>
