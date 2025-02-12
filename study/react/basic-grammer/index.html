@@ -27,7 +27,7 @@
           props.onDecrement(props.menuId);
         }
         const increment = () => {
-          props.onIncrement();
+          props.onIncrement(props.menuId);
         }
         return (
           <li>
@@ -57,15 +57,20 @@
         // decrementMenu
         const decrementMenu = (menuId) => {
           // スプレッド構文で値のコピーを作る
-          const newCounts = [...counts];
-          //  // [0,0,0] → [-1,0,0] 
-          newCounts[menuId]--;
-          setCounts(newCounts);
+          if(counts[menuId] > 0) {
+            const newCounts = [...counts];
+            // [0,0,0] → [-1,0,0] 
+            newCounts[menuId]--;
+            setCounts(newCounts);
+          }
         }
         
         // Appコンポーネントの中でincrementMenuを定義
-        const incrementMenu = () => {
-          console.log('plus incrementMenu');
+        const incrementMenu = (menuId) => {
+          const newCounts = [...counts];
+            // [0,0,0] → [-1,0,0] 
+            newCounts[menuId]++;
+            setCounts(newCounts);
         }
         
         // Menuコンポーネントを展開する
